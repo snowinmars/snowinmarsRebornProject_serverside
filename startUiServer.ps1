@@ -1,0 +1,2 @@
+cd .\simrui
+npm start

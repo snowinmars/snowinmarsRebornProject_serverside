@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Title from './react/components/Title/Title';
+import './../src/css/flex.css'
+import './../src/css/grid.css'
+import Head from './react/components/Head/Head';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Title />, document.getElementById('root'));
+ReactDOM.render(<Head />, document.getElementById('root'));
 registerServiceWorker();

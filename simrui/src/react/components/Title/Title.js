@@ -4,9 +4,7 @@ import './Title.css';
 class Title extends Component {
   render() {
     return (
-        <header className="Title-header">
-          <h1 className="Title-title">simr</h1>
-        </header>
+        <div className="flex-item r-Title">simr</div>
     );
   }
 }
