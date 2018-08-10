@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Title from './../Title/Title'
 import Userinfo from './../Userinfo/Userinfo'
-import './Head.css';
+import './Head.scss';
 
 class Head extends Component {
   render() {

@@ -1,0 +1,14 @@
+.btn {
+    $col: #0f0;
+
+    background-color: $col;
+
+    padding: 0.7ex 1ex;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: lighten($col, 20%);
+    }
+}

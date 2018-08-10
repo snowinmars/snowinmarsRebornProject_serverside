@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import './Username.css';
+import './Username.scss';
 
 class Username extends Component {
     render() {
         return (
-            <div>
-                <div className="r-username">
+                <div className="r-Username">
                     <span>Snowinmars</span>
                 </div>
-            </div>
         );
     }
 }
