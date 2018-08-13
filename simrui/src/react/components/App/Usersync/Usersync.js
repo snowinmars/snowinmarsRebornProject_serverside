@@ -4,9 +4,7 @@ import './Usersync.scss';
 
 class Usersync extends Component {
     render() {
-        return (
-            <span className="r-Usersync btn">Sync</span>
-        );
+        return <span className="r-Usersync btn">Sync</span>;
     }
 }
 

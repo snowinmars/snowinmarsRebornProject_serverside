@@ -4,9 +4,7 @@ import './Userauth.scss';
 
 class Userauth extends Component {
     render() {
-        return (
-            <span className="r-Userauth btn">Logout</span>
-        );
+        return <span className="r-Userauth btn">Logout</span>;
     }
 }
 

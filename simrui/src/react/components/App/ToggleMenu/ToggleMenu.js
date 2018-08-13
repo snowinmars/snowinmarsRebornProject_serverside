@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Motion, StaggeredMotion, spring } from "react-motion";
+import {Link} from 'react-router-dom';
 import './ToggleMenu.scss'
+
+var Config = require('Config');
 
 var classNames = require('classnames');
 var _ = require('underscore');
@@ -28,6 +31,18 @@ class ToggleMenu extends Component {
   }
 
   render() {
+    const hrefArrayLeft = [
+         Config.url.book,
+         Config.url.photo,
+         Config.url.video,
+    ];
+
+    const hrefArrayRight = [
+         Config.url.pathofexile,
+         Config.url.chat,
+         Config.url.root,
+    ];
+
     const iconArrayLeft = [
         <span className="material-icons">book</span>
         , <span className="material-icons">camera_alt</span>
@@ -66,6 +81,7 @@ class ToggleMenu extends Component {
             {interpolatingStyles =>
               <ButtonGroup>
                 {interpolatingStyles.map((style, i) =>
+                    <Link to={hrefArrayLeft[i]} key={i}> 
                   <Button
                     key={i}
                     style={{
@@ -75,9 +91,11 @@ class ToggleMenu extends Component {
                       pointerEvents: this.state.active ? 'auto' : 'none',
                     }}
                   >
+                  
                     <Tooltip text={tooltipArrayLeft[i]} />
                     {iconArrayLeft[i]}
                  </Button>
+                 </Link>
                 )}
               </ButtonGroup>
             }
@@ -120,6 +138,7 @@ class ToggleMenu extends Component {
             {interpolatingStyles =>
               <ButtonGroup>
                 {interpolatingStyles.map((style, i) =>
+                    <Link to={hrefArrayRight[i]} key={i}> 
                   <Button
                     key={i}
                     style={{
@@ -132,6 +151,7 @@ class ToggleMenu extends Component {
                     <Tooltip text={tooltipArrayRight[i]} />
                     {iconArrayRight[i]}
                   </Button>
+                  </Link>
                 )}
               </ButtonGroup>
             }

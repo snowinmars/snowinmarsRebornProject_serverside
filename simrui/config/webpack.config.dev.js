@@ -22,10 +22,44 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
+const urlHost = 'http://localhost:3000/';
+const apiurlHost = 'http://localhost:43402/api/v1/';
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
 module.exports = {
+    externals: {
+        'Config': JSON.stringify(
+            {
+                url: {
+                    root: '/',
+                    book: '/book/',
+                    photo: '/photo/',
+                    video: '/video/',
+                    pathofexile: '/pathofexile/',
+                    chat: '/chat/',
+                },
+                apiurl: {
+                    book: {
+                        get: apiurlHost + 'book/get',
+                        filter: apiurlHost + 'book/filter',
+                    },
+                    author: {
+                        get: apiurlHost + 'author/get',
+                        filter: apiurlHost + 'author/filter',
+                    },
+                    user: {
+                        get: apiurlHost + 'user/get',
+                        filter: apiurlHost + 'user/filter',
+                    },
+                    system: {
+                        version: apiurlHost + 'system/version',
+                    }
+                },
+            }
+        )
+    },
     // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
     // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
     devtool: 'cheap-module-source-map',

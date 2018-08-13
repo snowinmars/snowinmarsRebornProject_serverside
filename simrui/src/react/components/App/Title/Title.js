@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 import './Title.scss';
-import Api from './../Api/Api';
+
+var Config = require('Config');
 
 class Title extends Component {
   render() {
     return (
-      <a href={Api.url.root}>
+      <Link to={Config.url.root}>
         <div className="flex-item r-Title">simr</div>
-        </a>
+        </Link>
     );
   }
 }
