@@ -18,7 +18,7 @@ class MainPage extends Component {
             <div className="simr-r-MainPage simr-grid-container">
                     <Head className="" />
 
-                    <section className="">
+                    <section className="simr-container">
                         <Switch>
                             <Route exact path={Config.url.root} component={WelcomePage} />
                             <Route path={Config.url.book} component={BookPage} />

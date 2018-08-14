@@ -57,6 +57,38 @@ module.exports = {
                         version: apiurlHost + 'system/version',
                     }
                 },
+                bootstrapTableOptions: {
+                    page: 1,  // which page you want to show as default
+                    sizePerPageList: [{
+                            text: '10', value: 10
+                        }, {
+                            text: '25', value: 25
+                        }, {
+                            text: '50', value: 50
+                        }, {
+                            text: '100', value: 100
+                        }, 
+                    ], // you can change the dropdown list for size per page
+                    sizePerPage: 10,  // which size per page you want to locate as default
+                    pageStartIndex: 1, // where to start counting the pages
+                    paginationSize: 7,  // the pagination bar size.
+                    prePage: 'Prev', // Previous page button text
+                    nextPage: 'Next', // Next page button text
+                    firstPage: 'First', // First page button text
+                    lastPage: 'Last', // Last page button text
+                    // paginationShowsTotal: this.renderShowsTotal,  // Accept bool or function
+                    paginationPosition: 'bottom'  // default is bottom, top and both is all available
+                    // hideSizePerPage: true > You can hide the dropdown for sizePerPage
+                    // alwaysShowAllBtns: true // Always show next and previous button
+                    // withFirstAndLast: false > Hide the going to First and Last page button
+                },
+                defaultHttpRequestHeaders: {
+                    'Content-Type': 'application/json',
+                    'Content-Encoding': 'utf-8',
+                    'User-Agent': '/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.189 Safari/537.36 Vivaldi/1.95.1077.60',
+                    'Accept': 'application/json',
+                    'Accept-Charset': 'utf-8',
+                },
             }
         )
     },

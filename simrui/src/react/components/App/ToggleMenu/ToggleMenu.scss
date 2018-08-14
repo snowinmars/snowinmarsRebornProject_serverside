@@ -36,6 +36,11 @@ $accent: #6c2eb9;
             opacity: 1;
         }
     }
+
+    .material-icons {
+        position: relative;
+        bottom: -3px;
+    }
 }
 
 // Used by inside <Button />

@@ -1,0 +1,16 @@
+@import 'src/css/const';
+
+/* override the react-bootstrap-table 'options.sizePerPage' */
+/* due to I want the toltip to open up but now down */
+.dropdown-menu {
+    top: auto;
+    bottom: 100%;
+}
+
+.react-bootstrap-table-page-btns-ul.pagination {
+    margin-right: $containerMargin;
+}
+
+.dropdown.react-bs-table-sizePerPage-dropdown {
+    margin-left: $containerMargin;
+}

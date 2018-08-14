@@ -26,7 +26,7 @@ namespace Simr.Services
         {
             IList<Book> books = new List<Book>();
 
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 1024; i++)
             {
                 var book = new Book(textGenerator.GetNewWord(3, 12, true), Config.Random.Next(), BookStatus.Existing);
                 books.Add(book);

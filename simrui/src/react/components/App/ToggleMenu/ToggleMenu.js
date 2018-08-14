@@ -58,7 +58,7 @@ class ToggleMenu extends Component {
     const tooltipArrayLeft = ['Book', 'Photo', 'Video'];
     const tooltipArrayRight = ['Path of Exile', 'Chat', 'Three'];
     
-    return <div className="simr-container">
+    return <div className="">
             <ButtonGroup>
                 <StaggeredMotion defaultStyles={[{ x: -45, o: 0 }, { x: -45, o: 0 }, { x: -45, o: 0 }]} styles={prevInterpolatedStyles => prevInterpolatedStyles.map(
                             (_, i) => {
