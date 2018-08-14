@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using SandS.Algorithm.Library.GeneratorNamespace;
+
+using Sibr.Entities;
+
+using Simr.IServices;
+
+using Sirb.Common;
+using Sirb.Common.Enums;
 
 namespace Simr.Services
 {
-    using Sibr.Entities;
-
-    using Simr.IServices;
-
-    using Sirb.Common.Enums;
-
     public class BookService : IBookService
     {
+        private static TextGenerator textGenerator = new TextGenerator();
+
         public Book Get(Guid id)
         {
             return new Book("Bible", 1025, BookStatus.Existing);
@@ -21,17 +24,15 @@ namespace Simr.Services
 
         public Book[] Filter()
         {
-            return new[]
-                       {
-                           new Book("Bible", 1025, BookStatus.Existing), new Book("Bible", 1025, BookStatus.Existing),
-                           new Book("Bible", 1025, BookStatus.Existing), new Book("Bible", 1025, BookStatus.Existing),
-                           new Book("Bible", 1025, BookStatus.Existing), new Book("Bible", 1025, BookStatus.Existing),
-                           new Book("Bible", 1025, BookStatus.Existing), new Book("Bible", 1025, BookStatus.Existing),
-                           new Book("Bible", 1025, BookStatus.Existing), new Book("Bible", 1025, BookStatus.Existing),
-                           new Book("Bible", 1025, BookStatus.Existing), new Book("Bible", 1025, BookStatus.Existing),
-                           new Book("Bible", 1025, BookStatus.Existing), new Book("Bible", 1025, BookStatus.Existing),
-                           new Book("Bible", 1025, BookStatus.Existing), new Book("Bible", 1025, BookStatus.Existing),
-                       };
+            IList<Book> books = new List<Book>();
+
+            for (int i = 0; i < 32; i++)
+            {
+                var book = new Book(textGenerator.GetNewWord(3, 12, true), Config.Random.Next(), BookStatus.Existing);
+                books.Add(book);
+            }
+
+            return books.ToArray();
         }
     }
 }

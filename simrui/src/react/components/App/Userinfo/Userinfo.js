@@ -6,15 +6,13 @@ import Usersync from './../Usersync/Usersync';
 
 class Userinfo extends Component {
     render() {
-        return (
-            <div className="r-Userinfo flex-item">
+        return <div className="simr-r-Userinfo">
                 <Username />
-                <div className="r-Userinfo-buttons">
+                <div className="simr-r-Userinfo-buttons">
                     <Userauth />
                     <Usersync />
                 </div>
-            </div>
-        );
+            </div>;
     }
 }
 

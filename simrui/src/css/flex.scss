@@ -1,101 +1,120 @@
-.flex {
+.simr-flex {
     display: flex;
 }
 
 /* justify */
 
-.flex-justify-start {
+.simr-flex-justify-start {
     justify-content: flex-start;
 }
 
-.flex-justify-end {
+.simr-flex-justify-end {
     justify-content: flex-end;
 }
 
-.flex-justify-center {
+.simr-flex-justify-center {
     justify-content: center;
 }
 
-.flex-justify-space-between {
+.simr-flex-justify-space-between {
     justify-content: space-between;
 }
 
-.flex-justify-space-evenly {
+.simr-flex-justify-space-evenly {
     justify-content: space-evenly;
 }
 
-.flex-justify-space-around {
+.simr-flex-justify-space-around {
     justify-content: space-around;
 }
 
-.flex-direction-column {
+.simr-flex-direction-column {
     flex-direction: column;
 }
 
-.flex-direction-column-reverse {
+.simr-flex-direction-column-reverse {
     flex-direction: column-reverse;
 }
 
 /* wrap */
 
-.flex-nowrap {
+.simr-flex-nowrap {
     flex-wrap: nowrap;
 }
 
-.flex-wrap {
+.simr-flex-wrap {
     flex-wrap: wrap;
 }
 
-.flex-wrap-reverse {
+.simr-flex-wrap-reverse {
     flex-wrap: wrap-reverse;
 }
 
 /* align */
 
-.flex-align-start {
+
+.simr-flex-align-self-start {
+    align-self: flex-start;
+}
+
+.simr-flex-align-self-end {
+    align-self: flex-end;
+}
+
+.simr-flex-align-start {
     align-items: flex-start;
 }
 
-.flex-align-end {
+.simr-flex-align-end {
     align-items: flex-end;
 }
 
-.flex-align-center {
+.simr-flex-align-center {
     align-items: center;
 }
 
-.flex-align-baseline {
+.simr-flex-align-baseline {
     align-items: baseline;
 }
 
-.flex-align-stretch {
+.simr-flex-align-stretch {
     align-items: stretch;
 }
 
-.flex-align-start {
+.simr-flex-align-start {
     align-content: flex-start;
 }
 
-.flex-align-end {
+.simr-flex-align-end {
     align-content: flex-end;
 }
 
-.flex-align-center {
+.simr-flex-align-center {
     align-content: center;
 }
 
-.flex-align-space-between {
+.simr-flex-align-space-between {
     align-content: space-between;
 }
 
-.flex-align-space-evenly {
+.simr-flex-align-space-evenly {
     align-content: space-evenly;
 }
 
-.flex-align-space-around {
+.simr-flex-align-space-around {
     align-content: space-around;
 }
 
-.flex-align-stretch {
+.simr-flex-align-stretch {
     align-content: stretch;
+}
+
+/* grow */
+
+.simr-flex-grow-1 {
+    flex-grow: 1;
+}
+
+.simr-flex-grow-2 {
+    flex-grow: 2;
 }
