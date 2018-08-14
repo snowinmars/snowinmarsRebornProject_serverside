@@ -30,67 +30,75 @@ const apiurlHost = 'http://localhost:43402/api/v1/';
 // The production configuration is different and lives in a separate file.
 module.exports = {
     externals: {
-        'Config': JSON.stringify(
-            {
-                url: {
-                    root: '/',
-                    book: '/book/',
-                    photo: '/photo/',
-                    video: '/video/',
-                    pathofexile: '/pathofexile/',
-                    chat: '/chat/',
+        Config: JSON.stringify({
+            url: {
+                root: '/',
+                book: '/book/',
+                photo: '/photo/',
+                video: '/video/',
+                pathofexile: '/pathofexile/',
+                chat: '/chat/'
+            },
+            apiurl: {
+                book: {
+                    get: apiurlHost + 'book/get',
+                    filter: apiurlHost + 'book/filter'
                 },
-                apiurl: {
-                    book: {
-                        get: apiurlHost + 'book/get',
-                        filter: apiurlHost + 'book/filter',
+                author: {
+                    get: apiurlHost + 'author/get',
+                    filter: apiurlHost + 'author/filter'
+                },
+                user: {
+                    get: apiurlHost + 'user/get',
+                    filter: apiurlHost + 'user/filter'
+                },
+                system: {
+                    version: apiurlHost + 'system/version'
+                }
+            },
+            bootstrapTableOptions: {
+                page: 1, // which page you want to show as default
+                sizePerPageList: [
+                    {
+                        text: '10',
+                        value: 10
                     },
-                    author: {
-                        get: apiurlHost + 'author/get',
-                        filter: apiurlHost + 'author/filter',
+                    {
+                        text: '25',
+                        value: 25
                     },
-                    user: {
-                        get: apiurlHost + 'user/get',
-                        filter: apiurlHost + 'user/filter',
+                    {
+                        text: '50',
+                        value: 50
                     },
-                    system: {
-                        version: apiurlHost + 'system/version',
+                    {
+                        text: '100',
+                        value: 100
                     }
-                },
-                bootstrapTableOptions: {
-                    page: 1,  // which page you want to show as default
-                    sizePerPageList: [{
-                            text: '10', value: 10
-                        }, {
-                            text: '25', value: 25
-                        }, {
-                            text: '50', value: 50
-                        }, {
-                            text: '100', value: 100
-                        }, 
-                    ], // you can change the dropdown list for size per page
-                    sizePerPage: 10,  // which size per page you want to locate as default
-                    pageStartIndex: 1, // where to start counting the pages
-                    paginationSize: 7,  // the pagination bar size.
-                    prePage: 'Prev', // Previous page button text
-                    nextPage: 'Next', // Next page button text
-                    firstPage: 'First', // First page button text
-                    lastPage: 'Last', // Last page button text
-                    // paginationShowsTotal: this.renderShowsTotal,  // Accept bool or function
-                    paginationPosition: 'bottom'  // default is bottom, top and both is all available
-                    // hideSizePerPage: true > You can hide the dropdown for sizePerPage
-                    // alwaysShowAllBtns: true // Always show next and previous button
-                    // withFirstAndLast: false > Hide the going to First and Last page button
-                },
-                defaultHttpRequestHeaders: {
-                    'Content-Type': 'application/json',
-                    'Content-Encoding': 'utf-8',
-                    'User-Agent': '/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.189 Safari/537.36 Vivaldi/1.95.1077.60',
-                    'Accept': 'application/json',
-                    'Accept-Charset': 'utf-8',
-                },
+                ], // you can change the dropdown list for size per page
+                sizePerPage: 10, // which size per page you want to locate as default
+                pageStartIndex: 1, // where to start counting the pages
+                paginationSize: 7, // the pagination bar size.
+                prePage: 'Prev', // Previous page button text
+                nextPage: 'Next', // Next page button text
+                firstPage: 'First', // First page button text
+                lastPage: 'Last', // Last page button text
+                // paginationShowsTotal: this.renderShowsTotal,  // Accept bool or function
+                paginationPosition: 'bottom', // default is bottom, top and both is all available
+                expandRowBgColor: 'rgb(0,255,0)'
+                // hideSizePerPage: true, // You can hide the dropdown for sizePerPage
+                // alwaysShowAllBtns: true, // Always show next and previous button
+                // withFirstAndLast: false, // Hide the going to First and Last page button
+            },
+            defaultHttpRequestHeaders: {
+                'Content-Type': 'application/json',
+                'Content-Encoding': 'utf-8',
+                'User-Agent':
+                    '/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.189 Safari/537.36 Vivaldi/1.95.1077.60',
+                Accept: 'application/json',
+                'Accept-Charset': 'utf-8'
             }
-        )
+        })
     },
     // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
     // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
@@ -152,7 +160,7 @@ module.exports = {
         alias: {
             // Support React Native Web
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-            'react-native': 'react-native-web',
+            'react-native': 'react-native-web'
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -217,11 +225,7 @@ module.exports = {
                     {
                         test: /\.scss$/,
                         include: paths.appSrc,
-                        loaders: [
-                            'style-loader',
-                            'css-loader',
-                            'sass-loader'
-                        ]
+                        loaders: ['style-loader', 'css-loader', 'sass-loader']
                     },
                     // "postcss" loader applies autoprefixer to our CSS.
                     // "css" loader resolves paths in CSS and adds assets as dependencies.

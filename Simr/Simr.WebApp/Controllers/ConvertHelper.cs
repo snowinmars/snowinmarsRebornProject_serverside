@@ -85,33 +85,47 @@ namespace Simr.WebApp.Controllers
 
         public static Book ToBook(this BookBase_ReadModel model)
         {
-            return new Book(model.Title, model.PageCount, model.Status)
-                       {
-                           AdditionalInfo = model.AdditionalInfo,
-                           Bookshelf = model.Bookshelf,
-                           FlibustaUrl = model.FlibustaUrl,
-                           LibRusEcUrl = model.LibRusEcUrl,
-                           LiveLibUrl = model.LiveLibUrl,
-                           Owner = model.Owner,
-                           Year = model.Year,
-                       };
+            var book = new Book(model.Title, model.PageCount, model.Status)
+                           {
+                               AdditionalInfo = model.AdditionalInfo,
+                               Bookshelf = model.Bookshelf,
+                               FlibustaUrl = model.FlibustaUrl,
+                               LibRusEcUrl = model.LibRusEcUrl,
+                               LiveLibUrl = model.LiveLibUrl,
+                               Owner = model.Owner,
+                               Year = model.Year,
+                           };
+
+            foreach (var author in model.Authors)
+            {
+                book.Authors.Add(author.ToAuthor());
+            }
+
+            return book;
         }
 
         public static BookBase_ReadModel ToBookBase_ReadModel(this Book entity)
         {
-            return new BookBase_ReadModel()
-                       {
-                           AdditionalInfo = entity.AdditionalInfo,
-                           Bookshelf = entity.Bookshelf,
-                           FlibustaUrl = entity.FlibustaUrl,
-                           LibRusEcUrl = entity.LibRusEcUrl,
-                           LiveLibUrl = entity.LiveLibUrl,
-                           Owner = entity.Owner,
-                           Year = entity.Year,
-                           PageCount = entity.PageCount,
-                           Title = entity.Title,
-                           Status = entity.Status,
-                       };
+            var model = new BookBase_ReadModel()
+                                        {
+                                            AdditionalInfo = entity.AdditionalInfo,
+                                            Bookshelf = entity.Bookshelf,
+                                            FlibustaUrl = entity.FlibustaUrl,
+                                            LibRusEcUrl = entity.LibRusEcUrl,
+                                            LiveLibUrl = entity.LiveLibUrl,
+                                            Owner = entity.Owner,
+                                            Year = entity.Year,
+                                            PageCount = entity.PageCount,
+                                            Title = entity.Title,
+                                            Status = entity.Status,
+                                        };
+
+            foreach (var author in entity.Authors)
+            {
+                model.Authors.Add(author.ToAuthorBase_ReadModel());
+            }
+
+            return model;
         }
     }
 }

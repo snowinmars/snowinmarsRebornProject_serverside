@@ -13,6 +13,11 @@ namespace Simr.WebApp.Models.Book
 
     public class BookBase_ReadModel
     {
+        public BookBase_ReadModel()
+        {
+            Authors = new List<AuthorBase_ReadModel>();
+        }
+
         [JsonProperty("status")]
         public BookStatus Status { get; set; }
 
@@ -20,7 +25,7 @@ namespace Simr.WebApp.Models.Book
         public string AdditionalInfo { get; set; }
 
         [JsonProperty("authors")]
-        public AuthorBase_ReadModel[] Authors { get; }
+        public List<AuthorBase_ReadModel> Authors { get; }
 
         [JsonProperty("bookshelf")]
         public string Bookshelf { get; set; }

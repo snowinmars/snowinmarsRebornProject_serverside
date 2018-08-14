@@ -16,12 +16,12 @@ namespace Sibr.Entities
             this.PageCount = pageCount;
             this.Status = bookStatus;
 
-            this.Authors = new Author[0];
+            this.Authors = new List<Author>();
         }
 
         public BookStatus Status { get; set; }
         public string AdditionalInfo { get; set; }
-        public Author[] Authors { get; }
+        public List<Author> Authors { get; }
         public string Bookshelf { get; set; }
         public string FlibustaUrl { get; set; }
         public string LibRusEcUrl { get; set; }
