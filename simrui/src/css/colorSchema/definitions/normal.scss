@@ -1,14 +1,14 @@
-@import 'colors';
+@import 'src/css/colorSchema/definitions/colors';
 
 $normalBgColor: $colorWhite;
 $normalBgHoverColor: $colorWhite;
 $normalBgFocusColor: $colorWhite;
-$normalBgDisabledColor: $colorWhite;
+$normalBgDisabledColor: mix($colorWhite, $colorGray, 50%);
 
 $normalBorderColor: $colorGray;
 $normalBorderHoverColor: $colorGray;
 $normalBorderFocusColor: $colorGray;
-$normalBorderDisabledColor: $colorGray;
+$normalBorderDisabledColor: mix($colorGray, $colorGray, 50%);
 
 $normalTextColor: $colorBlack;
 $normalTextHoverColor: $colorBlack;

@@ -1,16 +1,16 @@
 @import 'colors';
 
-$warningBgColor: '';
-$warningBgHoverColor: '';
-$warningBgFocusColor: '';
-$warningBgDisabledColor: '';
+$warningBgColor: $colorFuchsia;
+$warningBgHoverColor: lighten($colorFuchsia, 25%);
+$warningBgFocusColor: lighten($colorFuchsia, 25%);
+$warningBgDisabledColor: mix($colorFuchsia, $colorGray, 50%);
 
-$warningBorderColor: '';
-$warningBorderHoverColor: '';
-$warningBorderFocusColor: '';
-$warningBorderDisabledColor: '';
+$warningBorderColor: $colorYellow;
+$warningBorderHoverColor: lighten($colorYellow, 25%);
+$warningBorderFocusColor: lighten($colorYellow, 25%);
+$warningBorderDisabledColor: mix($colorYellow, $colorGray, 50%);
 
-$warningTextColor: '';
-$warningTextHoverColor: '';
-$warningTextFocusColor: '';
-$warningTextDisabledColor: '';
+$warningTextColor: $colorLime;
+$warningTextHoverColor: lighten($colorLime, 25%);
+$warningTextFocusColor: lighten($colorLime, 25%);
+$warningTextDisabledColor: mix($colorLime, $colorGray, 50%);

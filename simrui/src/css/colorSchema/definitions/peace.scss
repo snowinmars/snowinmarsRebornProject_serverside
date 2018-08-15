@@ -1,16 +1,16 @@
 @import 'colors';
 
-$peaceBgColor: '';
-$peaceBgHoverColor: '';
-$peaceBgFocusColor: '';
-$peaceBgDisabledColor: '';
+$peaceBgColor: $colorGreen;
+$peaceBgHoverColor: lighten($colorGreen, 25%);
+$peaceBgFocusColor: lighten($colorGreen, 25%);
+$peaceBgDisabledColor: mix($colorGreen, $colorGray, 50%);
 
-$peaceBorderColor: '';
-$peaceBorderHoverColor: '';
-$peaceBorderFocusColor: '';
-$peaceBorderDisabledColor: '';
+$peaceBorderColor: $colorGreen;
+$peaceBorderHoverColor: lighten($colorGreen, 25%);
+$peaceBorderFocusColor: lighten($colorGreen, 25%);
+$peaceBorderDisabledColor: mix($colorGreen, $colorGray, 50%);
 
-$peaceTextColor: '';
-$peaceTextHoverColor: '';
-$peaceTextFocusColor: '';
-$peaceTextDisabledColor: '';
+$peaceTextColor: $colorNavy;
+$peaceTextHoverColor: $colorNavy;
+$peaceTextFocusColor: $colorNavy;
+$peaceTextDisabledColor: $colorNavy;

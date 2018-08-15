@@ -1,16 +1,16 @@
 @import 'colors';
 
-$infoBgColor: '';
-$infoBgHoverColor: '';
-$infoBgFocusColor: '';
-$infoBgDisabledColor: '';
+$infoBgColor: $colorBlue;
+$infoBgHoverColor: lighten($colorBlue, 25%);
+$infoBgFocusColor: lighten($colorBlue, 25%);
+$infoBgDisabledColor: mix($colorBlue, $colorGray, 50%);
 
-$infoBorderColor: '';
-$infoBorderHoverColor: '';
-$infoBorderFocusColor: '';
-$infoBorderDisabledColor: '';
+$infoBorderColor: $colorBlue;
+$infoBorderHoverColor: lighten($colorBlue, 25%);
+$infoBorderFocusColor: lighten($colorBlue, 25%);
+$infoBorderDisabledColor: mix($colorBlue, $colorGray, 50%);
 
-$infoTextColor: '';
-$infoTextHoverColor: '';
-$infoTextFocusColor: '';
-$infoTextDisabledColor: '';
+$infoTextColor: $colorAqua;
+$infoTextHoverColor: lighten($colorAqua, 25%);
+$infoTextFocusColor: lighten($colorAqua, 25%);
+$infoTextDisabledColor: mix($colorAqua, $colorGray, 50%);

@@ -1,16 +1,16 @@
 @import 'colors';
 
-$dangerBgColor: '';
-$dangerBgHoverColor: '';
-$dangerBgFocusColor: '';
-$dangerBgDisabledColor: '';
+$dangerBgColor: $colorMaroon;
+$dangerBgHoverColor: lighten($colorMaroon, 25%);
+$dangerBgFocusColor: lighten($colorMaroon, 25%);
+$dangerBgDisabledColor: mix($colorMaroon, $colorGray, 50%);
 
-$dangerBorderColor: '';
-$dangerBorderHoverColor: '';
-$dangerBorderFocusColor: '';
-$dangerBorderDisabledColor: '';
+$dangerBorderColor: $colorRed;
+$dangerBorderHoverColor: lighten($colorRed, 25%);
+$dangerBorderFocusColor: lighten($colorRed, 25%);
+$dangerBorderDisabledColor: mix($colorRed, $colorGray, 50%);
 
-$dangerTextColor: '';
-$dangerTextHoverColor: '';
-$dangerTextFocusColor: '';
-$dangerTextDisabledColor: '';
+$dangerTextColor: $colorBlack;
+$dangerTextHoverColor: $colorBlack;
+$dangerTextFocusColor: $colorBlack;
+$dangerTextDisabledColor: $colorBlack;
