@@ -14,3 +14,65 @@
 .dropdown.react-bs-table-sizePerPage-dropdown {
     margin-left: $containerMargin;
 }
+
+.simr-expanded-book {
+    padding: 1em;
+
+    .book-description {
+        .image {
+            img {
+                width: 440px;
+                height: auto;
+            }
+        }
+
+        .additional-info {
+            word-wrap: break-word;
+            white-space: normal;
+
+            margin-left: 2em;
+        }
+    }
+
+    .main-book-info {
+        width: 100%;
+
+        .title {
+            font-size: 150%;
+            margin-top: 1em;
+        }
+        $authors-margin: 2em;
+
+        .authors {
+            margin-left: $authors-margin;
+
+            &:before {
+                content: '—';
+                position: relative;
+                left: -($authors-margin / 2);
+            }
+        }
+
+        .author {
+            margin-left: 0.5em;
+
+            &:after {
+                content: ',';
+            }
+
+            &:last-child:after {
+                content: '';
+            }
+        }
+    }
+
+    .secondary-book-info {
+        width: 100%;
+
+        max-height: 3em;
+
+        .bookshelf {
+
+        }
+    }
+}

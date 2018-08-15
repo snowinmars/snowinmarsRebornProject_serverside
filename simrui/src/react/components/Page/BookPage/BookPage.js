@@ -3,7 +3,7 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import './../../../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import './BookPage.scss';
 import AuthorList from './AuthorList';
-import AuthorExpand from './AuthorExpand';
+import BookExpand from './BookExpand';
 
 var Config = require('Config');
 
@@ -40,7 +40,7 @@ class BookPage extends Component {
     }
 
     expandComponent(row) {
-        return <AuthorExpand data={row} />;
+        return <BookExpand row={row} />;
     }
 
     authorsFormatter(cell) {

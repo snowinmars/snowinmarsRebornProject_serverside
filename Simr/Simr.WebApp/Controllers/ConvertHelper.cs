@@ -124,7 +124,9 @@ namespace Simr.WebApp.Controllers
                                LiveLibUrl = model.LiveLibUrl,
                                Owner = model.Owner,
                                Year = model.Year,
-                           };
+                               ImageUrl = model.ImageUrl,
+                               Id = model.Id,
+            };
 
             foreach (var author in model.Authors)
             {
@@ -153,7 +155,9 @@ namespace Simr.WebApp.Controllers
                                             PageCount = entity.PageCount,
                                             Title = entity.Title,
                                             Status = entity.Status,
-                                        };
+                                            Id = entity.Id,
+                                            ImageUrl = entity.ImageUrl,
+            };
 
             foreach (var author in entity.Authors)
             {

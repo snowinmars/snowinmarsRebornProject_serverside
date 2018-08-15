@@ -18,6 +18,9 @@ namespace Simr.WebApp.Models.Book
             Authors = new List<AuthorBase_ReadModel>();
         }
 
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         [JsonProperty("status")]
         public BookStatus Status { get; set; }
 
@@ -50,5 +53,8 @@ namespace Simr.WebApp.Models.Book
 
         [JsonProperty("year")]
         public int Year { get; set; }
+
+        [JsonProperty("imageUrl")]
+        public string ImageUrl { get; set; }
     }
 }
