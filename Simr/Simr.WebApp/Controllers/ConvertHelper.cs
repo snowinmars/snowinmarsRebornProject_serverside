@@ -31,6 +31,11 @@ namespace Simr.WebApp.Controllers
         }
         public static UserBase_ReadModel ToUserBase_ReadModel(this User entity)
         {
+            if (entity == null)
+            {
+                return null;
+            }
+
             return new UserBase_ReadModel()
                        {
                            Email = entity.Email,
@@ -42,6 +47,11 @@ namespace Simr.WebApp.Controllers
 
         public static Author ToAuthor(this AuthorBase_ReadModel model)
         {
+            if (model == null)
+            {
+                return null;
+            }
+
             return new Author(model.Aka)
                        {
                            GivenName = model.GivenName,
@@ -53,11 +63,16 @@ namespace Simr.WebApp.Controllers
 
         public static AuthorBase_ReadModel ToAuthorBase_ReadModel(this Author entity)
         {
+             if (entity == null)
+            {
+                return null;
+            }
+
             return new AuthorBase_ReadModel()
                        {
                            Aka = entity.Aka,
-                           GivenName = entity.GivenName,
-                           FullMiddleName = entity.FullMiddleName,
+                           GivenName = $"{entity.GivenName[0]}.",
+                           FullMiddleName = $"{entity.FullMiddleName[0]}.",
                            FamilyName = entity.FamilyName,
                            Pseudonym = ToPseudonymBase_ReadModel(entity.Pseudonym),
                        };
@@ -65,6 +80,11 @@ namespace Simr.WebApp.Controllers
 
         public static Pseudonym ToPseudonym(this PseudonymBase_ReadModel model)
         {
+             if (model == null)
+            {
+                return null;
+            }
+
             return new Pseudonym
                        {
                            GivenName = model.GivenName,
@@ -75,16 +95,26 @@ namespace Simr.WebApp.Controllers
 
         public static PseudonymBase_ReadModel ToPseudonymBase_ReadModel(this Pseudonym entity)
         {
+            if (entity == null)
+            {
+                return null;
+            }
+
             return new PseudonymBase_ReadModel
             {
-                           GivenName = entity.GivenName,
-                           FullMiddleName = entity.FullMiddleName,
-                           FamilyName = entity.FamilyName,
-                       };
+                GivenName = $"{(string.IsNullOrWhiteSpace(entity.GivenName) ? string.Empty : entity.GivenName[0].ToString())}.",
+                FullMiddleName = $"{(string.IsNullOrWhiteSpace(entity.FullMiddleName) ? string.Empty : entity.FullMiddleName[0].ToString())}.",
+                FamilyName = entity.FamilyName,
+            };
         }
 
         public static Book ToBook(this BookBase_ReadModel model)
         {
+            if (model == null)
+            {
+                return null;
+            }
+
             var book = new Book(model.Title, model.PageCount, model.Status)
                            {
                                AdditionalInfo = model.AdditionalInfo,
@@ -106,6 +136,11 @@ namespace Simr.WebApp.Controllers
 
         public static BookBase_ReadModel ToBookBase_ReadModel(this Book entity)
         {
+            if (entity == null)
+            {
+                return null;
+            }
+
             var model = new BookBase_ReadModel()
                                         {
                                             AdditionalInfo = entity.AdditionalInfo,

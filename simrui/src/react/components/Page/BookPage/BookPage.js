@@ -2,40 +2,10 @@ import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import './../../../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import './BookPage.scss';
+import AuthorList from './AuthorList';
+import AuthorExpand from './AuthorExpand';
 
 var Config = require('Config');
-
-class BSTable extends Component {
-    render() {
-        return (
-            <div>
-                <div>{this.props.data.title}</div>
-                <div>{this.props.data.pageCount}</div>
-            </div>
-        );
-    }
-}
-
-class AuthorList extends Component {
-    render() {
-        if (this.props.authors) {
-            return (
-                <div className="simr-author-list">
-                    {this.props.authors.map(function(author) {
-                        return (
-                            <span class="simr-author-item">
-                                <span>
-                                    {author.givenName} {author.fullMiddleName}{' '}
-                                    {author.familyName}
-                                </span>
-                            </span>
-                        );
-                    })}
-                </div>
-            );
-        }
-    }
-}
 
 class BookPage extends Component {
     constructor(props) {
@@ -57,11 +27,7 @@ class BookPage extends Component {
                 'User-Agent': 'Fiddler'
             }
         })
-            .then(res => {
-                var j = res.json();
-                console.log(j);
-                return j;
-            })
+            .then(res => res.json())
             .then(json => this.setState({ response: JSON.parse(json) }));
     }
 
@@ -69,15 +35,15 @@ class BookPage extends Component {
         return this.state.response.data[i.index];
     }
 
-    isExpandableRow(row) {
+    isExpandableRow() {
         return true;
     }
 
     expandComponent(row) {
-        return <BSTable data={row} />;
+        return <AuthorExpand data={row} />;
     }
 
-    authorsFormatter(cell, row, formatExtraData, rowIdx) {
+    authorsFormatter(cell) {
         return <AuthorList authors={cell} />;
     }
 

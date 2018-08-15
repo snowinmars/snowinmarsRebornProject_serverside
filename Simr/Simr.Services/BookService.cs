@@ -30,7 +30,7 @@
                                                        Year = Config.Random.Next(1860, 2018) 
                                                     };
 
-                for (var j = 0; j < Config.Random.Next(1, 4); j++)
+                for (var j = 0; j < Config.Random.Next(1, 12); j++)
                 {
                     var author =
                         new Author(BookService.textGenerator.GetNewWord(4, 8, true))
