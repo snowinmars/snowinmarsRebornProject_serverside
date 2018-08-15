@@ -1,4 +1,7 @@
+@import 'src/css/colorSchema/default';
+
 body {
+    background-color: $primaryBgColor;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
