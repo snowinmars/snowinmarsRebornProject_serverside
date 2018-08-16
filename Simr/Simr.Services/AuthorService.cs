@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Sibr.Entities;
-
-using Simr.IServices;
-
-namespace Simr.Services
+﻿namespace Simr.Services
 {
+    using System;
+
+    using Sibr.Entities;
+
+    using Simr.IServices;
+
     public class AuthorService : IAuthorService
     {
         public Author Get(Guid id)
@@ -20,11 +16,11 @@ namespace Simr.Services
         public Author[] Filter()
         {
             return new[]
-            {
-                new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-                new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-                new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-            };
+                       {
+                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
+                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
+                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
+                       };
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using Sibr.Entities;
-
-namespace Simr.IServices
+﻿namespace Simr.IServices
 {
+    using Sibr.Entities;
+
     public interface IUserService : IService<User>
     {
     }

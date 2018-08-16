@@ -1,45 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using Sibr.Entities;
-
-using Simr.WebApp.Models.Author.Read;
-
-namespace Simr.WebApp.Helpers
+﻿namespace Simr.WebApp.Helpers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Sibr.Entities;
+
+    using Simr.WebApp.Models.Author.Read;
+
     internal static class AuthorMapper
     {
         public static IEnumerable<AuthorGridModel> ToAuthorGridModels(this Author[] authors)
         {
-            return authors.Select(ToAuthorGridModel);
+            return authors.Select(AuthorMapper.ToAuthorGridModel);
         }
 
         public static IEnumerable<Author> ToAuthors(this AuthorGridModel[] authorGridModels)
         {
-            return authorGridModels.Select(ToAuthor);
+            return authorGridModels.Select(AuthorMapper.ToAuthor);
         }
 
         public static AuthorGridModel ToAuthorGridModel(this Author author)
         {
             return new AuthorGridModel
-            {
-                Name = author.Name.ToPersonNameModel(),
-                Pseudonym = author.Pseudonym.ToPersonNameModel(),
-                Id = author.Id,
-                Aka = author.Aka,
-            };
+                       {
+                           Name = author.Name.ToPersonNameModel(),
+                           Pseudonym = author.Pseudonym.ToPersonNameModel(),
+                           Id = author.Id,
+                           Aka = author.Aka,
+                       };
         }
 
         public static Author ToAuthor(this AuthorGridModel authorGridModel)
         {
             return new Author(authorGridModel.Aka)
-            {
-                Name = authorGridModel.Name.ToPersonName(),
-                Pseudonym = authorGridModel.Pseudonym.ToPersonName(),
-                Id = authorGridModel.Id,
-            };
+                       {
+                           Name = authorGridModel.Name.ToPersonName(),
+                           Pseudonym = authorGridModel.Pseudonym.ToPersonName(),
+                           Id = authorGridModel.Id,
+                       };
         }
     }
 }

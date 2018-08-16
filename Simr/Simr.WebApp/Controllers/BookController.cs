@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-
-using Simr.IServices;
-using Simr.Services;
-using Simr.WebApp.Models;
-using Simr.WebApp.Helpers;
-using Simr.WebApp.Models.Book.Read;
-
-namespace Simr.WebApp.Controllers
+﻿namespace Simr.WebApp.Controllers
 {
+    using System;
+    using System.Web.Http;
+
+    using Simr.IServices;
+    using Simr.Services;
+    using Simr.WebApp.Helpers;
+    using Simr.WebApp.Models;
+    using Simr.WebApp.Models.Book.Read;
+
     public class BookController : ApiController
     {
         public BookController()
@@ -25,7 +21,7 @@ namespace Simr.WebApp.Controllers
         [HttpGet]
         public string Get(Guid id)
         {
-            var book = BookService.Get(id);
+            var book = this.BookService.Get(id);
 
             var model = book.ToBookGridModel();
 
@@ -35,7 +31,7 @@ namespace Simr.WebApp.Controllers
         [HttpPost, HttpOptions]
         public string Filter()
         {
-            var books = BookService.Filter();
+            var books = this.BookService.Filter();
 
             var models = books.ToBookGridModels();
 

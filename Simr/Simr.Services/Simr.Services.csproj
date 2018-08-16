@@ -55,9 +55,6 @@
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Sibr.Entities\Sibr.Entities.csproj">
       <Project>{AA85FA19-8EDB-4209-A53F-84E812A79E19}</Project>
       <Name>Sibr.Entities</Name>
@@ -70,6 +67,9 @@
       <Project>{64705162-621B-415A-AF21-31A7EA3A3655}</Project>
       <Name>Sirb.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

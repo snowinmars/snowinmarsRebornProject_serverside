@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using Newtonsoft.Json;
-
-namespace Simr.WebApp.Models
+﻿namespace Simr.WebApp.Models
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Newtonsoft.Json;
+
     public class EnumerableResponse<T> : IResponse<T[]>
     {
         public EnumerableResponse(IEnumerable<T> data)
@@ -18,7 +16,7 @@ namespace Simr.WebApp.Models
         public int Code { get; set; }
 
         [JsonProperty("isSuccess ")]
-        public bool IsSuccess => Code == 0;
+        public bool IsSuccess => this.Code == 0;
 
         [JsonProperty("data")]
         public T[] Data { get; set; }

@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-
-using Simr.IServices;
-using Simr.Services;
-using Simr.WebApp.Helpers;
-using Simr.WebApp.Models;
-using Simr.WebApp.Models.User.Read;
-
-namespace Simr.WebApp.Controllers
+﻿namespace Simr.WebApp.Controllers
 {
+    using System;
+    using System.Web.Http;
+
+    using Simr.IServices;
+    using Simr.Services;
+    using Simr.WebApp.Helpers;
+    using Simr.WebApp.Models;
+    using Simr.WebApp.Models.User.Read;
+
     public class UserController : ApiController
     {
         public UserController()
@@ -25,7 +21,7 @@ namespace Simr.WebApp.Controllers
         [HttpGet]
         public string Get(Guid id)
         {
-            var user = UserService.Get(id);
+            var user = this.UserService.Get(id);
 
             var model = user.ToUserGridModel();
 
@@ -35,7 +31,7 @@ namespace Simr.WebApp.Controllers
         [HttpGet]
         public string Filter()
         {
-            var users = UserService.Filter();
+            var users = this.UserService.Filter();
 
             var models = users.ToUserGridModels();
 

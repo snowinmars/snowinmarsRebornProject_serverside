@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Sibr.Entities
+﻿namespace Sibr.Entities
 {
+    using System;
+
     public class Author : Entity
     {
         public Author(string aka)
@@ -18,7 +18,9 @@ namespace Sibr.Entities
         }
 
         public PersonName Name { get; set; }
+
         public PersonName Pseudonym { get; set; }
+
         public string Aka { get; }
     }
 }
