@@ -7,11 +7,11 @@ using Newtonsoft.Json;
 
 namespace Simr.WebApp.Models
 {
-    public class Response<T> : IResponse<T>
+    public class EnumerableResponse<T> : IResponse<T[]>
     {
-        public Response(T data)
+        public EnumerableResponse(IEnumerable<T> data)
         {
-            this.Data = data;
+            this.Data = data.ToArray();
         }
 
         [JsonProperty("code")]
@@ -21,7 +21,7 @@ namespace Simr.WebApp.Models
         public bool IsSuccess => Code == 0;
 
         [JsonProperty("data")]
-        public T Data { get; set; }
+        public T[] Data { get; set; }
 
         public string ToJson()
         {

@@ -1,18 +1,18 @@
-﻿namespace Simr.Services
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using SandS.Algorithm.Library.GeneratorNamespace;
+
+using Sibr.Entities;
+
+using Simr.IServices;
+
+using Sirb.Common;
+using Sirb.Common.Enums;
+
+namespace Simr.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using SandS.Algorithm.Library.GeneratorNamespace;
-
-    using Sibr.Entities;
-
-    using Simr.IServices;
-
-    using Sirb.Common;
-    using Sirb.Common.Enums;
-
     public class BookService : IBookService
     {
         private static readonly TextGenerator textGenerator = new TextGenerator();
@@ -54,21 +54,24 @@
                 var author =
                     new Author(BookService.textGenerator.GetNewWord(4, 8, true))
                     {
-                        GivenName =
+                        Name = new PersonName
+                        {
+                            GivenName =
                                 BookService.textGenerator
                                     .GetNewWord(
                                         4,
                                         8,
                                         true),
-                        FullMiddleName =
+                            FullMiddleName =
                                 BookService.textGenerator
                                     .GetNewWord(
                                         4,
                                         8,
                                         true),
-                        FamilyName =
+                            FamilyName =
                                 BookService.textGenerator
-                                    .GetNewWord(4, 8, true)
+                                    .GetNewWord(4, 8, true),
+                        }
                     };
 
                 book.Authors.Add(author);
@@ -83,7 +86,7 @@
                 Bookshelf = "Grey bookshelf #2",
                 FlibustaUrl = "http://ya.ru",
                 LibRusEcUrl = "http://ya.ru",
-                LiveLibUrl  = "http://ya.ru",
+                LiveLibUrl = "http://ya.ru",
                 IsSynchronized = true,
                 Owner = "snowinmars",
                 Year = 1894,

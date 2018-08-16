@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Sirb.Common.Enums;
+
 namespace Sibr.Entities
 {
-    using Sirb.Common.Enums;
-
     public class Book : Entity
     {
         public Book(string title, int pageCount, BookStatus bookStatus)
@@ -19,7 +19,7 @@ namespace Sibr.Entities
             this.Authors = new List<Author>();
         }
 
-        public BookStatus Status { get; set; }
+        public BookStatus Status { get; }
         public string AdditionalInfo { get; set; }
         public List<Author> Authors { get; }
         public string Bookshelf { get; set; }
@@ -27,8 +27,8 @@ namespace Sibr.Entities
         public string LibRusEcUrl { get; set; }
         public string LiveLibUrl { get; set; }
         public string Owner { get; set; }
-        public int PageCount { get; set; }
-        public string Title { get; set; }
+        public int PageCount { get; }
+        public string Title { get; }
         public int Year { get; set; }
         public string ImageUrl { get; set; }
     }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Sibr.Entities;
+
 namespace Simr.IServices
 {
-    using Sibr.Entities;
     public interface IBookService : IService<Book>
     {
     }

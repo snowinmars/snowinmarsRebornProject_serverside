@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Sibr.Entities;
+
+using Simr.IServices;
+
 namespace Simr.Services
 {
-    using Sibr.Entities;
-
-    using Simr.IServices;
-
     public class UserService : IUserService
     {
         public User Get(Guid id)
@@ -20,11 +20,11 @@ namespace Simr.Services
         public User[] Filter()
         {
             return new[]
-                       {
-                           new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"),
-                           new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"),
-                           new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"),
-                       };
+            {
+                new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"),
+                new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"),
+                new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"), new User("Alex"),
+            };
         }
     }
 }

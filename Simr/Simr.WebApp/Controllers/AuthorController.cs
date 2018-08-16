@@ -5,13 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using Simr.IServices;
+using Simr.Services;
+using Simr.WebApp.Models;
+using Simr.WebApp.Helpers;
+using Simr.WebApp.Models.Author.Read;
+
 namespace Simr.WebApp.Controllers
 {
-    using Simr.IServices;
-    using Simr.Services;
-    using Simr.WebApp.Models;
-    using Simr.WebApp.Models.Author;
-
     public class AuthorController : ApiController
     {
         public AuthorController()
@@ -26,9 +27,9 @@ namespace Simr.WebApp.Controllers
         {
             var author = AuthorService.Get(id);
 
-            var model = author.ToAuthorBase_ReadModel();
+            var model = author.ToAuthorGridModel();
 
-            return new Response<AuthorBase_ReadModel>(model).ToJson();
+            return new Response<AuthorGridModel>(model).ToJson();
         }
 
         [HttpGet]
@@ -36,9 +37,9 @@ namespace Simr.WebApp.Controllers
         {
             var authors = AuthorService.Filter();
 
-            var model = authors.ConvertArray(ConvertHelper.ToAuthorBase_ReadModel);
+            var models = authors.ToAuthorGridModels();
 
-            return new Response<AuthorBase_ReadModel[]>(model).ToJson();
+            return new EnumerableResponse<AuthorGridModel>(models).ToJson();
         }
     }
 }

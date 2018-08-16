@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Simr.WebApp.Models.User
-{
-    using Sirb.Common.Enums;
+using Sirb.Common.Enums;
 
-    public class UserBase_ReadModel : Model
+namespace Simr.WebApp.Models.User.Read
+{
+    public class UserGridModel : Model
     {
         public string Email { get; set; }
         public Language Language { get; set; }

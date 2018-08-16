@@ -5,13 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using Simr.IServices;
+using Simr.Services;
+using Simr.WebApp.Models;
+using Simr.WebApp.Helpers;
+using Simr.WebApp.Models.Book.Read;
+
 namespace Simr.WebApp.Controllers
 {
-    using Simr.IServices;
-    using Simr.Services;
-    using Simr.WebApp.Models;
-    using Simr.WebApp.Models.Book;
-
     public class BookController : ApiController
     {
         public BookController()
@@ -26,27 +27,19 @@ namespace Simr.WebApp.Controllers
         {
             var book = BookService.Get(id);
 
-            var model = book.ToBookBase_ReadModel();
+            var model = book.ToBookGridModel();
 
-            return new Response<BookBase_ReadModel>(model).ToJson();
+            return new Response<BookGridModel>(model).ToJson();
         }
 
-        [HttpOptions]
-        [ActionName("Filter")]
-        public string FilterOptions()
-        {
-            return "ok";
-        }
-
-        [HttpPost]
-        [ActionName("Filter")]
-        public string FilterPost()
+        [HttpPost, HttpOptions]
+        public string Filter()
         {
             var books = BookService.Filter();
 
-            var model = books.ConvertArray(ConvertHelper.ToBookBase_ReadModel);
+            var models = books.ToBookGridModels();
 
-            return new Response<BookBase_ReadModel[]>(model).ToJson();
+            return new EnumerableResponse<BookGridModel>(models).ToJson();
         }
     }
 }

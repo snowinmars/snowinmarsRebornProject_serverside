@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Simr.WebApp.Models.Book
+using Newtonsoft.Json;
+
+using Simr.WebApp.Models.Author.Read;
+
+using Sirb.Common.Enums;
+
+namespace Simr.WebApp.Models.Book.Read
 {
-    using Newtonsoft.Json;
-
-    using Simr.WebApp.Models.Author;
-
-    using Sirb.Common.Enums;
-
-    public class BookBase_ReadModel : Model
+    public class BookGridModel : Model
     {
-        public BookBase_ReadModel()
+        public BookGridModel()
         {
-            Authors = new List<AuthorBase_ReadModel>();
+            Authors = new List<AuthorGridModel>();
         }
 
         [JsonProperty("status")]
@@ -25,7 +25,7 @@ namespace Simr.WebApp.Models.Book
         public string AdditionalInfo { get; set; }
 
         [JsonProperty("authors")]
-        public List<AuthorBase_ReadModel> Authors { get; }
+        public List<AuthorGridModel> Authors { get; }
 
         [JsonProperty("bookshelf")]
         public string Bookshelf { get; set; }

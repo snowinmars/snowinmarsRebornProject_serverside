@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sibr.Entities
 {
-    public class Pseudonym : Entity
+    public class PersonName : Entity
     {
-        public Pseudonym()
+        public PersonName()
         {
             GivenName = string.Empty;
             FullMiddleName = string.Empty;

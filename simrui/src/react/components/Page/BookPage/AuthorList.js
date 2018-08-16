@@ -14,12 +14,12 @@ class AuthorList extends Component {
     renderAuthor() {
         return function (author) {
             return <span className="simr-author-item">
-                {author.givenName +
-                    ' ' +
-                    author.fullMiddleName +
-                    ' ' +
-                    author.familyName}
-            </span>;
+                    {author.name.givenName[0] +
+                        '. ' +
+                        author.name.fullMiddleName[0] +
+                        '. ' +
+                    author.name.familyName}
+                </span>;
         };
     }
 }

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sibr.Entities
 {
-    using Sirb.Common;
-
     public class Author : Entity
     {
         public Author(string aka)
@@ -19,13 +13,12 @@ namespace Sibr.Entities
 
             this.Aka = aka;
 
-            this.Pseudonym = new Pseudonym();
+            this.Pseudonym = new PersonName();
+            this.Name = new PersonName();
         }
 
-        public string FamilyName { get; set; }
-        public string FullMiddleName { get; set; }
-        public string GivenName { get; set; }
-        public Pseudonym Pseudonym { get; set; }
-        public string Aka { get; set; }
+        public PersonName Name { get; set; }
+        public PersonName Pseudonym { get; set; }
+        public string Aka { get; }
     }
 }

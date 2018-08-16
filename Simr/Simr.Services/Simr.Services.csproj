@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BC4459E0-9E8A-4BD8-946B-D5D04DAA1636}</ProjectGuid>
+    <ProjectGuid>{4B2C0B5B-684B-4C38-B4BC-E2DB17ED1170}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simr.Services</RootNamespace>
     <AssemblyName>Simr.Services</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,25 +51,25 @@
   <ItemGroup>
     <Compile Include="AuthorService.cs" />
     <Compile Include="BookService.cs" />
-    <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Sibr.Entities\Sibr.Entities.csproj">
-      <Project>{2143BDE0-F24B-483C-BC0E-07368DF4A55F}</Project>
-      <Name>Sibr.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Simr.IServices\Simr.IServices.csproj">
-      <Project>{636A5D85-1A4F-42E5-A0B3-8D4400CAE4F8}</Project>
-      <Name>Simr.IServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sirb.Common\Sirb.Common.csproj">
-      <Project>{04339094-A457-4502-B68A-4AC624015ACE}</Project>
-      <Name>Sirb.Common</Name>
-    </ProjectReference>
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sibr.Entities\Sibr.Entities.csproj">
+      <Project>{AA85FA19-8EDB-4209-A53F-84E812A79E19}</Project>
+      <Name>Sibr.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Simr.IServices\Simr.IServices.csproj">
+      <Project>{CA9CB313-6749-4967-A6A0-BC7590D3FB9A}</Project>
+      <Name>Simr.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sirb.Common\Sirb.Common.csproj">
+      <Project>{64705162-621B-415A-AF21-31A7EA3A3655}</Project>
+      <Name>Sirb.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

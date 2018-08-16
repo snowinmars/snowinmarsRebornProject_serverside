@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using Newtonsoft.Json;
+
 namespace Simr.WebApp.Models
 {
-    using Newtonsoft.Json;
-
     public abstract class Model
     {
         [JsonProperty("id")]

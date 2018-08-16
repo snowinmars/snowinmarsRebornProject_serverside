@@ -5,28 +5,19 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using Newtonsoft.Json;
+
 namespace Simr.WebApp.Controllers
 {
-    using Newtonsoft.Json;
-
     public class SystemController : ApiController
     {
-        [HttpOptions]
-        [ActionName("Version")]
-        public string VersionOptions()
-        {
-            return "ok";
-        }
-
-        [HttpPost]
-        [ActionName("Version")]
-        public string VersionPost()
+        [HttpPost, HttpOptions]
+        public string Version()
         {
             return JsonConvert.SerializeObject(new
-                                                   {
-                                                       Backend = "0.0.1",
-                                                   });
-
+            {
+                Backend = "0.1.0",
+            });
         }
     }
 }

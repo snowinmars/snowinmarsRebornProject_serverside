@@ -5,15 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using Simr.IServices;
+using Simr.Services;
+using Simr.WebApp.Helpers;
+using Simr.WebApp.Models;
+using Simr.WebApp.Models.User.Read;
+
 namespace Simr.WebApp.Controllers
 {
-    using System.Web.Http.Results;
-
-    using Simr.IServices;
-    using Simr.Services;
-    using Simr.WebApp.Models;
-    using Simr.WebApp.Models.User;
-
     public class UserController : ApiController
     {
         public UserController()
@@ -28,9 +27,9 @@ namespace Simr.WebApp.Controllers
         {
             var user = UserService.Get(id);
 
-            var model = user.ToUserBase_ReadModel();
+            var model = user.ToUserGridModel();
 
-            return new Response<UserBase_ReadModel>(model).ToJson();
+            return new Response<UserGridModel>(model).ToJson();
         }
 
         [HttpGet]
@@ -38,9 +37,9 @@ namespace Simr.WebApp.Controllers
         {
             var users = UserService.Filter();
 
-            var model = users.ConvertArray(ConvertHelper.ToUserBase_ReadModel);
+            var models = users.ToUserGridModels();
 
-            return new Response<UserBase_ReadModel[]>(model).ToJson();
+            return new EnumerableResponse<UserGridModel>(models).ToJson();
         }
     }
 }

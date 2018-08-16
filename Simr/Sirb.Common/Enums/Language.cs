@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sirb.Common.Enums
+﻿namespace Sirb.Common.Enums
 {
     public enum Language
     {
-        En,
-        Ru,
+        Ru = 1,
+        En = 2,
     }
 }
