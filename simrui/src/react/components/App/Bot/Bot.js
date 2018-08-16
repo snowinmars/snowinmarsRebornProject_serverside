@@ -4,7 +4,7 @@ import './Bot.scss';
 class Bot extends Component {
     render() {
         return (
-            <footer className={this.props.className + " simr-r-Bot"}>
+            <footer className="simr-r-Bot">
                 <span>GNU GPL</span>
             </footer>
         );

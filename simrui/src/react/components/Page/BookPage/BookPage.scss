@@ -18,15 +18,15 @@
 .simr-expanded-book {
     padding: 1em;
 
-    .book-description {
-        .image {
+    .simr-book-description {
+        .simr-image {
             img {
                 width: 440px;
                 height: auto;
             }
         }
 
-        .additional-info {
+        .simr-additional-info {
             word-wrap: break-word;
             white-space: normal;
 
@@ -34,16 +34,16 @@
         }
     }
 
-    .main-book-info {
+    .simr-main-book-info {
         width: 100%;
 
-        .title {
+        .simr-title {
             font-size: 150%;
             margin-top: 1em;
         }
         $authors-margin: 2em;
 
-        .authors {
+        .simr-authors {
             margin-left: $authors-margin;
 
             &:before {
@@ -53,7 +53,7 @@
             }
         }
 
-        .author {
+        .simr-author {
             margin-left: 0.5em;
 
             &:after {
@@ -66,13 +66,26 @@
         }
     }
 
-    .secondary-book-info {
+    .simr-secondary-book-info {
         width: 100%;
+
+        margin-top: 1em;
 
         max-height: 3em;
 
-        .bookshelf {
+        .simr-bookshelf {
+        }
 
+        .simr-links {
+        }
+
+        .simr-owner {
+        }
+
+        .simr-page-count {
+        }
+
+        .simr-year {
         }
     }
 }

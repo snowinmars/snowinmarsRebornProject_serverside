@@ -14,24 +14,45 @@ var Config = require('Config');
 
 class MainPage extends Component {
     render() {
-        return <BrowserRouter>
-            <div className="simr-r-MainPage simr-grid-container">
-                    <Head className="" />
+        return (
+            <BrowserRouter>
+                <div className="simr-r-MainPage simr-grid-container">
+                    <Head />
 
                     <section className="simr-container">
                         <Switch>
-                            <Route exact path={Config.url.root} component={WelcomePage} />
-                            <Route path={Config.url.book} component={BookPage} />
-                            <Route path={Config.url.photo} component={PhotoPage} />
-                            <Route path={Config.url.video} component={VideoPage} />
-                            <Route path={Config.url.pathofexile} component={PathOfExilePage} />
-                            <Route path={Config.url.chat} component={ChatPage} />
+                            <Route
+                                exact
+                                path={Config.url.root}
+                                component={WelcomePage}
+                            />
+                            <Route
+                                path={Config.url.book}
+                                component={BookPage}
+                            />
+                            <Route
+                                path={Config.url.photo}
+                                component={PhotoPage}
+                            />
+                            <Route
+                                path={Config.url.video}
+                                component={VideoPage}
+                            />
+                            <Route
+                                path={Config.url.pathofexile}
+                                component={PathOfExilePage}
+                            />
+                            <Route
+                                path={Config.url.chat}
+                                component={ChatPage}
+                            />
                         </Switch>
                     </section>
 
-                    <Bot className="" />
+                    <Bot />
                 </div>
-            </BrowserRouter>;
+            </BrowserRouter>
+        );
     }
 }
 

@@ -2,61 +2,57 @@ import React, { Component } from 'react';
 
 class BookExpand extends Component {
     render() {
-        console.log(this.props.row);
-
-        return <div className="simr-flex simr-flex-wrap simr-expanded-book">
-                <div className="simr-flex simr-flex-align-start book-description">
-                    <span className="image">
-                        <img alt="book" src={this.props.row.imageUrl} />
+        return (
+            <div className="simr-flex simr-flex-wrap simr-expanded-book">
+                <div className="simr-flex simr-flex-align-start simr-book-description">
+                    <span className="simr-image">
+                        <img alt="simr-book" src={this.props.row.imageUrl} />
                     </span>
 
-                    <span className="additional-info">
+                    <span className="simr-additional-info">
                         {this.props.row.additionalInfo}
                     </span>
                 </div>
 
-                <div className="main-book-info">
-                    <span className="title">
-                        {this.props.row.title}
-                    </span>
+                <div className="simr-main-book-info">
+                    <span className="title">{this.props.row.title}</span>
 
-                    <span className="authors">
+                    <span className="simr-authors">
                         {this.props.row.authors.map(author => {
-                            return <span className="author">
+                            return (
+                                <span className="simr-author" key={author.key}>
                                     {author.givenName +
                                         ' ' +
                                         author.fullMiddleName +
                                         ' ' +
                                         author.familyName}
-                                </span>;
+                                </span>
+                            );
                         })}
                     </span>
                 </div>
 
-                <div className="secondary-book-info simr-flex simr-flex-direction-column simr-flex-wrap">
-                    <span className="bookshelf">
+                <div className="simr-secondary-book-info simr-flex simr-flex-direction-column simr-flex-wrap">
+                    <span className="simr-bookshelf">
                         Bookshelf: {this.props.row.bookshelf}
                     </span>
-                    <span className="links">
-                        <a href={this.props.row.flibustaUrl}>
-                            Flibusta
-                        </a>
-                        <a href={this.props.row.libRusEcUrl}>
-                            LibRusEc
-                        </a>
+                    <span className="simr-links">
+                        <a href={this.props.row.flibustaUrl}>Flibusta</a>
+                        <a href={this.props.row.libRusEcUrl}>LibRusEc</a>
                         <a href={this.props.row.liveLibUrl}>LiveLib</a>
                     </span>
-                    <span className="owner">
+                    <span className="simr-owner">
                         Owner: {this.props.row.owner}
                     </span>
-                    <span className="page-count">
+                    <span className="simr-page-count">
                         Page count: {this.props.row.pageCount}
                     </span>
-                    <span className="year">
+                    <span className="simr-year">
                         Year: {this.props.row.year}
                     </span>
                 </div>
-            </div>;
+            </div>
+        );
     }
 }
 

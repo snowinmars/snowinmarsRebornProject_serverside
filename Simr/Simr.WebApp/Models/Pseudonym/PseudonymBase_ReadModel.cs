@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Simr.WebApp.Models.Pseudonym
 {
-    public class PseudonymBase_ReadModel
+    public class PseudonymBase_ReadModel : Model
     {
         public string FamilyName { get; set; }
         public string FullMiddleName { get; set; }

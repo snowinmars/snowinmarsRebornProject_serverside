@@ -27,8 +27,10 @@ namespace Simr.WebApp.Controllers
                            Language = model.Language,
                            Roles = model.Roles,
                            Username = model.Username,
+                           Id = model.Id,
                        };
         }
+
         public static UserBase_ReadModel ToUserBase_ReadModel(this User entity)
         {
             if (entity == null)
@@ -42,6 +44,7 @@ namespace Simr.WebApp.Controllers
                            Language = entity.Language,
                            Roles = entity.Roles,
                            Username = entity.Username,
+                           Id = entity.Id,
                        };
         }
 
@@ -58,6 +61,7 @@ namespace Simr.WebApp.Controllers
                            FullMiddleName = model.FullMiddleName,
                            FamilyName = model.FamilyName,
                            Pseudonym = ToPseudonym(model.Pseudonym),
+                           Id = model.Id,
             };
         }
 
@@ -75,6 +79,7 @@ namespace Simr.WebApp.Controllers
                            FullMiddleName = $"{entity.FullMiddleName[0]}.",
                            FamilyName = entity.FamilyName,
                            Pseudonym = ToPseudonymBase_ReadModel(entity.Pseudonym),
+                           Id = entity.Id,
                        };
         }
 
@@ -90,7 +95,9 @@ namespace Simr.WebApp.Controllers
                            GivenName = model.GivenName,
                            FullMiddleName = model.FullMiddleName,
                            FamilyName = model.FamilyName,
-                       };
+                           Id = model.Id,
+
+            };
         }
 
         public static PseudonymBase_ReadModel ToPseudonymBase_ReadModel(this Pseudonym entity)
@@ -105,6 +112,7 @@ namespace Simr.WebApp.Controllers
                 GivenName = $"{(string.IsNullOrWhiteSpace(entity.GivenName) ? string.Empty : entity.GivenName[0].ToString())}.",
                 FullMiddleName = $"{(string.IsNullOrWhiteSpace(entity.FullMiddleName) ? string.Empty : entity.FullMiddleName[0].ToString())}.",
                 FamilyName = entity.FamilyName,
+                Id = entity.Id,
             };
         }
 
@@ -155,8 +163,8 @@ namespace Simr.WebApp.Controllers
                                             PageCount = entity.PageCount,
                                             Title = entity.Title,
                                             Status = entity.Status,
-                                            Id = entity.Id,
                                             ImageUrl = entity.ImageUrl,
+                                            Id = entity.Id,
             };
 
             foreach (var author in entity.Authors)

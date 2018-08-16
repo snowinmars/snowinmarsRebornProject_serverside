@@ -9,7 +9,7 @@ namespace Simr.WebApp.Models.Author
 
     using Simr.WebApp.Models.Pseudonym;
 
-    public class AuthorBase_ReadModel
+    public class AuthorBase_ReadModel : Model
     {
         [JsonProperty("familyName")]
         public string FamilyName { get; set; }

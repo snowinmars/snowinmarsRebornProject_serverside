@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sibr.Entities
 {
-    public class Pseudonym
+    public class Pseudonym : Entity
     {
         public Pseudonym()
         {

@@ -11,15 +11,12 @@ namespace Simr.WebApp.Models.Book
 
     using Sirb.Common.Enums;
 
-    public class BookBase_ReadModel
+    public class BookBase_ReadModel : Model
     {
         public BookBase_ReadModel()
         {
             Authors = new List<AuthorBase_ReadModel>();
         }
-
-        [JsonProperty("id")]
-        public Guid Id { get; set; }
 
         [JsonProperty("status")]
         public BookStatus Status { get; set; }

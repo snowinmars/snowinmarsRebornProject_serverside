@@ -3,13 +3,11 @@ import './List.scss';
 
 class ListItem extends Component {
     render() {
-        return <span
-                className={
-                    (this.props.className || '') + ' simr-list-item'
-                }
-            >
+        return (
+            <span className={(this.props.className || '') + ' simr-list-item'}>
                 {this.props.render(this.props.item)}
-            </span>;
+            </span>
+        );
     }
 }
 
@@ -26,13 +24,17 @@ class List extends Component {
         return (
             <div
                 ref={this.refCallback}
-                className={(this.props.className || '') + ' simr-list'}>
-                {
-                    this.props.items.map(item => {
+                className={(this.props.className || '') + ' simr-list'}
+            >
+                {this.props.items.map(item => {
                     return (
-                        <ListItem render={this.props.itemRender} item={item} />
-                    )})
-                }
+                        <ListItem
+                            key={item.key}
+                            render={this.props.itemRender}
+                            item={item}
+                        />
+                    );
+                })}
             </div>
         );
     }

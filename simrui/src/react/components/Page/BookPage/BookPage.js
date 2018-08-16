@@ -11,15 +11,19 @@ class BookPage extends Component {
     constructor(props) {
         super(props);
 
+        var data = [];
+
         this.state = {
             response: {
                 code: -1,
-                data: []
+                data: data
             }
         };
 
         this.getRow = this.getRow.bind(this);
+    }
 
+    componentDidMount() {
         fetch(Config.apiurl.book.filter, {
             method: 'POST',
             headers: {

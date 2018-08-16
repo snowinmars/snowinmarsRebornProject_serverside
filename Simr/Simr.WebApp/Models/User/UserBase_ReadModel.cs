@@ -7,7 +7,7 @@ namespace Simr.WebApp.Models.User
 {
     using Sirb.Common.Enums;
 
-    public class UserBase_ReadModel
+    public class UserBase_ReadModel : Model
     {
         public string Email { get; set; }
         public Language Language { get; set; }
