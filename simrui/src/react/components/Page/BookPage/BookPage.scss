@@ -1,4 +1,5 @@
 @import 'src/css/const';
+@import 'sk-folding-cube.scss';
 
 /* override the react-bootstrap-table 'options.sizePerPage' */
 /* due to I want the toltip to open up but now down */
@@ -15,9 +16,82 @@
     margin-left: $containerMargin;
 }
 
+.simr-loader {
+    top: -$containerMargin;
+    left: -$containerMargin;
+    bottom: -$containerMargin;
+    right: -$containerMargin;
+    position: absolute;
+
+    background-image: radial-gradient(
+        ellipse at center,
+        rgba($color: #000, $alpha: 0.5),
+        rgba($color: #000, $alpha: 1)
+    );
+
+    transition: opacity 2s;
+    opacity: 0.7;
+
+    z-index: 10;
+}
+
+@mixin animation($duration, $animation) {
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+    -o-animation-duration: $duration;
+    -o-animation-name: $animation;
+    -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+}
+
+@keyframes changecolour {
+    0% {
+        color: rgba($color: #fff, $alpha: 0);
+    }
+
+    100% {
+        color: rgba($color: #fff, $alpha: 1);
+    }
+}
+
+.simr-loader-api-error {
+    background-image: radial-gradient(
+        ellipse at center,
+        rgba($color: #000, $alpha: 0.7),
+        rgba($color: #200, $alpha: 0.8)
+    );
+
+    top: -$containerMargin;
+    left: -$containerMargin;
+    bottom: -$containerMargin;
+    right: -$containerMargin;
+
+    &:after {
+        content: 'Got API error, try again later';
+        color: white;
+        font-size: 150%;
+
+        @include animation(2s, changecolour);
+    }
+
+    transition: opacity 2s;
+    opacity: 1;
+
+    .sk-folding-cube {
+        display: none;
+    }
+}
 .simr-expanded-book {
     padding: 1em;
-
     .simr-book-description {
         .simr-image {
             img {
@@ -25,66 +99,49 @@
                 height: auto;
             }
         }
-
         .simr-additional-info {
             word-wrap: break-word;
             white-space: normal;
-
             margin-left: 2em;
         }
     }
-
     .simr-main-book-info {
         width: 100%;
-
         .simr-title {
             font-size: 150%;
             margin-top: 1em;
         }
         $authors-margin: 2em;
-
         .simr-authors {
             margin-left: $authors-margin;
-
             &:before {
                 content: '—';
                 position: relative;
                 left: -($authors-margin / 2);
             }
         }
-
         .simr-author {
             margin-left: 0.5em;
-
             &:after {
                 content: ',';
             }
-
             &:last-child:after {
                 content: '';
             }
         }
     }
-
     .simr-secondary-book-info {
         width: 100%;
-
         margin-top: 1em;
-
         max-height: 3em;
-
         .simr-bookshelf {
         }
-
         .simr-links {
         }
-
         .simr-owner {
         }
-
         .simr-page-count {
         }
-
         .simr-year {
         }
     }

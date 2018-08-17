@@ -16,6 +16,16 @@ body {
     line-height: 1;
 }
 
+.simr-api-error {
+    background-color: red;
+    color: black;
+}
+
+.simr-component-error {
+    background-color: red;
+    color: black;
+}
+
 /* I don't want paddings on bootstrap col-* classes */
 .col-lg-1,
 .col-lg-10,

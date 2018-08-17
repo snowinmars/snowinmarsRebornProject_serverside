@@ -6,6 +6,7 @@ import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
 
 var Config = require('Config');
+var Lib = require('./../../../Lib/componentUtils');
 
 class BookPage extends Component {
     constructor(props) {
@@ -46,22 +47,29 @@ class BookPage extends Component {
             response: {
                 code: -1,
                 data: data
-            }
+            },
+            gotApiError: false,
+            hasErrors: false
         };
 
         this.getRow = this.getRow.bind(this);
     }
 
     componentDidMount() {
-        fetch(Config.apiurl.book.filter, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'User-Agent': 'Fiddler'
-            }
-        })
-            .then(res => res.json())
-            .then(json => this.setState({ response: JSON.parse(json) }));
+        Lib.fetchAndHandle({
+            uri: Config.apiurl.book.filter,
+            onSuccess: json =>
+                this.setState({
+                    response: JSON.parse(json),
+                    isInit: true
+                }),
+            onError: err =>
+                this.setState({
+                    gotApiError: true,
+                    hasErrors: true,
+                    isInit: false
+                })
+        });
     }
 
     getRow(i) {
@@ -81,6 +89,27 @@ class BookPage extends Component {
     }
 
     render() {
+        var loaderErrorClass = "";
+        
+        if (this.state.gotApiError) {
+            loaderErrorClass += ' simr-loader-api-error ';
+        } 
+
+        if (this.state.isInit) {
+            loaderErrorClass += " hidden ";
+        } else {
+            loaderErrorClass += " simr-loader ";
+        }
+
+        const loader = <div className={loaderErrorClass + "simr-flex simr-flex-align-center simr-flex-justify-center"}>
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube" />
+                <div class="sk-cube2 sk-cube" />
+                <div class="sk-cube4 sk-cube" />
+                <div class="sk-cube3 sk-cube" />
+            </div>
+        </div>;
+
         const options = Config.bootstrapTableOptions;
 
         const table = <BootstrapTable
@@ -110,7 +139,7 @@ class BookPage extends Component {
                 </TableHeaderColumn>
         </BootstrapTable>
 
-        const loader = !this.state.inInit && <div className="simr-loader"></div>
+        
 
         return (
             <div>
