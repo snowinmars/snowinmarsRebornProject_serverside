@@ -1,7 +1,8 @@
-.simr-btn {
-    $col: #0f0;
+@import 'src/css/colorSchema/default/definition';
 
-    background-color: $col;
+.simr-btn {
+    background-color: $normalBtnColor;
+    color: $normalTextColor;
 
     padding: 0.7ex 1ex;
     border-radius: 5px;
@@ -11,6 +12,6 @@
     cursor: pointer;
 
     &:hover {
-        background-color: lighten($col, 20%);
+        background-color: $normalBtnHoverColor;
     }
 }

@@ -1,4 +1,6 @@
 @import 'src/css/const';
+@import 'src/css/colorSchema/default/definition';
+
 @import 'sk-folding-cube.scss';
 
 /* override the react-bootstrap-table 'options.sizePerPage' */
@@ -6,6 +8,10 @@
 .dropdown-menu {
     top: auto;
     bottom: 100%;
+}
+
+.table-hover>tbody>tr:hover {
+    background-color: $normalBgColor;
 }
 
 .react-bootstrap-table-page-btns-ul.pagination {
@@ -91,6 +97,10 @@
     }
 }
 .simr-expanded-book {
+    &:hover {
+        background-color: $normalBgHoverColor;
+    }
+
     padding: 1em;
     .simr-book-description {
         .simr-image {
@@ -111,13 +121,13 @@
             font-size: 150%;
             margin-top: 1em;
         }
-        $authors-margin: 2em;
+        
         .simr-authors {
-            margin-left: $authors-margin;
+            margin-left: $main-page-inner-content-margin;
             &:before {
                 content: '—';
                 position: relative;
-                left: -($authors-margin / 2);
+                left: -($main-page-inner-content-margin / 2);
             }
         }
         .simr-author {
@@ -134,15 +144,5 @@
         width: 100%;
         margin-top: 1em;
         max-height: 3em;
-        .simr-bookshelf {
-        }
-        .simr-links {
-        }
-        .simr-owner {
-        }
-        .simr-page-count {
-        }
-        .simr-year {
-        }
     }
 }

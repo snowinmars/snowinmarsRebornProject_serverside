@@ -4,7 +4,7 @@ import './Usersync.scss';
 
 class Usersync extends Component {
     render() {
-        return <span className="simr-r-Usersync simr-btn">Sync</span>;
+        return <span className="simr-btn">Sync</span>;
     }
 }
 

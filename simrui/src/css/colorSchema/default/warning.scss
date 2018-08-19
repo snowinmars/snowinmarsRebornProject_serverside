@@ -1,9 +1,14 @@
-@import 'colors';
+@import './../common/colors';
 
 $warningBgColor: $colorFuchsia;
 $warningBgHoverColor: lighten($colorFuchsia, 25%);
 $warningBgFocusColor: lighten($colorFuchsia, 25%);
 $warningBgDisabledColor: mix($colorFuchsia, $colorGray, 50%);
+
+$warningBtnColor: $colorWhite;
+$warningBtnHoverColor: $colorGray;
+$warningBtnFocusColor: $colorGray;
+$warningBtnDisabledColor: mix($colorWhite, $colorGray, 50%);
 
 $warningBorderColor: $colorYellow;
 $warningBorderHoverColor: lighten($colorYellow, 25%);

@@ -1,3 +1,5 @@
+@import 'src/css/colorSchema/default/definition';
+
 // $accent: #F1404B;
 $accent: #6c2eb9;
 
@@ -20,7 +22,8 @@ $accent: #6c2eb9;
     border-radius: 100px;
     box-shadow: inset 0 0 0 1px rgba(#000, 0.2), 0 2px 0 rgba($accent, 0.2);
     margin: 0 12px;
-    color: #fff;
+    background-color: $normalBtnColor;
+    color: $normalTextColor;
     cursor: pointer;
 
     &--large {
@@ -55,7 +58,7 @@ $accent: #6c2eb9;
     &:after {
         position: absolute;
         display: block;
-        background: #fff;
+        background: $normalTextColor;
         width: 6px;
         height: 6px;
         border-radius: 10px;
@@ -119,7 +122,7 @@ $accent: #6c2eb9;
     padding: 4px;
     box-sizing: border-box;
     transform: translate(-50%, 50%);
-    color: #fff;
+    color: $normalTextColor;
     font-size: 10px;
     opacity: 0;
     transition: 200ms ease;

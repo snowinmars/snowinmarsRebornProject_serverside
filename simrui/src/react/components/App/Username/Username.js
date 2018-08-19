@@ -3,7 +3,7 @@ import './Username.scss';
 
 class Username extends Component {
     render() {
-        return <div className={this.props.className + " simr-r-Username simr-btn"}>
+        return <div className="simr-btn">
             <span className="material-icons simr-r-Username-avatar">
                     how_to_reg
                 </span>

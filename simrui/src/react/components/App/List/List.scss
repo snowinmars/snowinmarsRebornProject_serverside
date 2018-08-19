@@ -1,3 +1,5 @@
+@import 'src/css/colorSchema/default/definition';
+
 .simr-list-overflowed {
     &>:nth-child(n+3) {
         display: none;
@@ -8,16 +10,17 @@
         margin-left: 0.5em;
         padding: 0.3em;
         border-radius: 5px;
-        background-color: #f7f;
+        background-color: $normalBtnColor;
     }
 }
 
 .simr-list-item {
-    background-color: #f7f;
+    background-color: $normalBtnColor;
     margin-left: 0.5em;
     padding: 0.3em;
     border-radius: 5px;
-}
 
-.simr-list {
+    &:hover {
+        background-color: $normalBtnHoverColor;
+    }
 }

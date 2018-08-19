@@ -85,7 +85,6 @@ module.exports = {
                 lastPage: 'Last', // Last page button text
                 // paginationShowsTotal: this.renderShowsTotal,  // Accept bool or function
                 paginationPosition: 'bottom', // default is bottom, top and both is all available
-                expandRowBgColor: 'rgb(0,255,0)'
                 // hideSizePerPage: true, // You can hide the dropdown for sizePerPage
                 // alwaysShowAllBtns: true, // Always show next and previous button
                 // withFirstAndLast: false, // Hide the going to First and Last page button

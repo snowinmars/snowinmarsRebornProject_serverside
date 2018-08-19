@@ -1,9 +1,14 @@
-@import 'colors';
+@import './../common/colors';
 
 $infoBgColor: $colorBlue;
 $infoBgHoverColor: lighten($colorBlue, 25%);
 $infoBgFocusColor: lighten($colorBlue, 25%);
 $infoBgDisabledColor: mix($colorBlue, $colorGray, 50%);
+
+$infoBtnColor: $colorWhite;
+$infoBtnHoverColor: $colorGray;
+$infoBtnFocusColor: $colorGray;
+$infoBtnDisabledColor: mix($colorWhite, $colorGray, 50%);
 
 $infoBorderColor: $colorBlue;
 $infoBorderHoverColor: lighten($colorBlue, 25%);

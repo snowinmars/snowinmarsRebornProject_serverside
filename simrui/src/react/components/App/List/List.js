@@ -4,7 +4,7 @@ import './List.scss';
 class ListItem extends Component {
     render() {
         return (
-            <span className={(this.props.className || '') + ' simr-list-item'}>
+            <span className='simr-list-item'>
                 {this.props.render(this.props.item)}
             </span>
         );
@@ -24,7 +24,7 @@ class List extends Component {
         return (
             <div
                 ref={this.refCallback}
-                className={(this.props.className || '') + ' simr-list'}
+                className='simr-list'
             >
                 {this.props.items.map(item => {
                     return (

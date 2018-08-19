@@ -1,9 +1,14 @@
-@import 'colors';
+@import './../common/colors';
 
 $peaceBgColor: $colorGreen;
 $peaceBgHoverColor: lighten($colorGreen, 25%);
 $peaceBgFocusColor: lighten($colorGreen, 25%);
 $peaceBgDisabledColor: mix($colorGreen, $colorGray, 50%);
+
+$peaceBtnColor: $colorWhite;
+$peaceBtnHoverColor: $colorGray;
+$peaceBtnFocusColor: $colorGray;
+$peaceBtnDisabledColor: mix($colorWhite, $colorGray, 50%);
 
 $peaceBorderColor: $colorGreen;
 $peaceBorderHoverColor: lighten($colorGreen, 25%);

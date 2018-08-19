@@ -1,0 +1,21 @@
+@import './../common/colors';
+
+$normalBgColor: $nightRider;
+$normalBgHoverColor: $nightRider;
+$normalBgFocusColor: $nightRider;
+$normalBgDisabledColor: mix($nightRider, $colorGray, 50%);
+
+$normalBtnColor: $colorGray;
+$normalBtnHoverColor: $nobel;
+$normalBtnFocusColor: $nobel;
+$normalBtnDisabledColor: mix($colorGray, $colorGray, 50%);
+
+$normalBorderColor: $colorGray;
+$normalBorderHoverColor: $colorGray;
+$normalBorderFocusColor: $colorGray;
+$normalBorderDisabledColor: mix($colorGray, $colorGray, 50%);
+
+$normalTextColor: $colorWhite;
+$normalTextHoverColor: $colorWhite;
+$normalTextFocusColor: $colorWhite;
+$normalTextDisabledColor: $colorWhite;

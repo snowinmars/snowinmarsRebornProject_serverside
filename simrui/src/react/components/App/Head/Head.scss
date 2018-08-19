@@ -1,7 +1,9 @@
+@import 'src/css/colorSchema/default/definition';
+
 .simr-r-header {
     padding: 2ex;
 
-    background-color: #333;
+    background-color: $normalBgColor;
 
     top: 0;
 }
