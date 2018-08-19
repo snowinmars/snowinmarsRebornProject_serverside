@@ -30,6 +30,7 @@ const apiurlHost = 'http://localhost:57890/api/v1/';
 // The production configuration is different and lives in a separate file.
 module.exports = {
     externals: {
+        // my custom config
         Config: JSON.stringify({
             url: {
                 root: '/',
