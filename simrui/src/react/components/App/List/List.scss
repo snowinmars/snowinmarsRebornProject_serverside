@@ -1,7 +1,7 @@
 @import 'src/css/colorSchema/default/definition';
 
 .simr-list-overflowed {
-    &>:nth-child(n+3) {
+    &>:nth-child(n+2) {
         display: none;
     }
 

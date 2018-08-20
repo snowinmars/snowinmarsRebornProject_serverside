@@ -23,9 +23,19 @@ body {
 }
 
 // TODO move out
+.simr-api {
+    padding: 0 0.5em;
+    border-radius: 5px;
+}
+
 .simr-api-error {
     background-color: $dangerBgColor;
     color: $dangerTextColor;
+}
+
+.simr-api-ok {
+    background-color: $peaceBgColor;
+    color: $peaceTextColor;
 }
 
 .simr-component-error {
