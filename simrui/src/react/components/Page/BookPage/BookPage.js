@@ -25,8 +25,6 @@ class BookPage extends Component {
         };
 
         this.options = Config.bootstrapTableOptions;
-        this.options.expandRowBgColor = '$normalBgColor';
-        this.options.expandRowBgColor = '$normalBgColor';
 
         this.getRow = this.getRow.bind(this);
     }
@@ -89,6 +87,8 @@ class BookPage extends Component {
         var data = [];
 
         for (var i = 0; i < 10; i++) {
+            defaultUser.key = Math.random();
+            defaultUser.authors[0].key = Math.random();
             data.push(defaultUser);
         }
 
@@ -151,11 +151,11 @@ class BookPage extends Component {
                     'simr-flex simr-flex-align-center simr-flex-justify-center'
                 }
             >
-                <div class="sk-folding-cube">
-                    <div class="sk-cube1 sk-cube" />
-                    <div class="sk-cube2 sk-cube" />
-                    <div class="sk-cube4 sk-cube" />
-                    <div class="sk-cube3 sk-cube" />
+                <div className="sk-folding-cube">
+                    <div className="sk-cube1 sk-cube" />
+                    <div className="sk-cube2 sk-cube" />
+                    <div className="sk-cube4 sk-cube" />
+                    <div className="sk-cube3 sk-cube" />
                 </div>
             </div>
         );

@@ -89,6 +89,7 @@ module.exports = {
                 // hideSizePerPage: true, // You can hide the dropdown for sizePerPage
                 // alwaysShowAllBtns: true, // Always show next and previous button
                 // withFirstAndLast: false, // Hide the going to First and Last page button
+                expandRowBgColor: '$normalBgColor',
             },
             defaultHttpRequestHeaders: {
                 'Content-Type': 'application/json',
