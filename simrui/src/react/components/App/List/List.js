@@ -15,54 +15,82 @@ class List extends Component {
     constructor(props) {
         super(props);
 
-        this.listRef = React.createRef();
+        this.state = { isOverflowed: false, firstHiddenChild: -1 };
 
-        this.refCallback = element => {
-            if (element) {
-                if (element.scrollWidth > element.clientWidth) {
-                    element.classList.add('simr-list-overflowed');
-                }
-                else {
-                    element.classList.remove('simr-list-overflowed');
-                }
-            }
-        };
+        this.me = React.createRef();
     }
 
-    /**
-   * Add event listener
-   */
     componentDidMount() {
-        this.updateDimensions();
-        window.addEventListener("resize", this.updateDimensions.bind(this));
+        window.addEventListener('resize', this.updateDimensions);
+        this.updateChildrenVisability();
     }
 
-    /**
-     * Remove event listener
-     */
     componentWillUnmount() {
-        window.removeEventListener("resize", this.updateDimensions.bind(this));
+        window.removeEventListener('resize', this.updateDimensions);
     }
 
-    updateDimensions() {
-        this.refCallback();
+    updateDimensions = () => {
+        if (!this.me || !this.me.current) {
+            return;
+        }
+
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+
+        this.timer = setTimeout(this.updateChildrenVisability, 300);
+    };
+
+    updateChildrenVisability = () => {
+        var children = Array.from(this.me.current.children);
+        var count = children.length;
+        var thisRight = this.me.current.getBoundingClientRect().right;
+
+        for (var i = 1; i < count; i++) {
+            var thisChildRight = children[i].getBoundingClientRect().right;
+
+            if (thisChildRight > thisRight) {
+                this.setState({ firstHiddenChild: i });
+                break;
+            }
+        }
+
+        if (i === count) {
+            this.setState({ firstHiddenChild: -1 });
+        }
+    };
+
+    mapItem = item => {
+        return (
+            <ListItem
+                key={item.key}
+                render={this.props.itemRender}
+                item={item}
+            />
+        );
+    };
+
+    isOverflowed() {
+        return this.me.current.scrollWidth > this.me.current.clientWidth;
     }
 
     render() {
-        return (
-            <div ref={this.refCallback} className="simr-list">
-                {this.props.items.map(item => {
-                    return (
-                        <ListItem
-                            ref = {this.listRef}
-                            key={item.key}
-                            render={this.props.itemRender}
-                            item={item}
-                        />
-                    );
-                })}
+        var items = this.props.items.map(item => this.mapItem(item));
+
+        var className = ' simr-list ';
+
+        if (this.state.firstHiddenChild !== -1) {
+            className +=
+                ' hide-last-' + this.state.firstHiddenChild + '-children ';
+        }
+
+        var list = (
+            <div ref={this.me} className={className}>
+                {items}
             </div>
         );
+
+        return list;
     }
 }
 

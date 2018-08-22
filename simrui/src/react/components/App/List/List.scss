@@ -1,18 +1,32 @@
 @import 'src/css/colorSchema/default/definition';
 
-.simr-list-overflowed {
-    &>:nth-child(n+2) {
-        display: none;
-    }
+@mixin nthchild {
+    @for $i from 2 through 12 {
+        .hide-last-#{$i}-children {
+            & > .simr-list-item:nth-child(n + #{$i }):after {
+                content: '...';
+                padding-left: 0.5em;
+            }
 
-    &:after {
-        content: 'and others';
-        margin-left: 0.5em;
-        padding: 0.3em;
-        border-radius: 5px;
-        background-color: $normalBtnColor;
+            > .simr-list-item:nth-child(n + #{$i + 1}) {
+                visibility: collapse;
+            }
+        }
     }
 }
+
+.hide-last-1-children {
+    & > .simr-list-item:nth-child(n + 1):after {
+        content: '...';
+        padding-left: 0.5em;
+    }
+
+    > .simr-list-item:nth-child(n + 2) {
+        visibility: collapse;
+    }
+}
+
+@include nthchild;
 
 .simr-list-item {
     background-color: $normalBtnColor;
