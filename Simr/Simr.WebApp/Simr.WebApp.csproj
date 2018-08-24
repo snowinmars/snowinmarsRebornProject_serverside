@@ -89,6 +89,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\TextBeautifierController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -100,6 +101,8 @@
     <Compile Include="Models\Author\Read\AuthorGridModel.cs" />
     <Compile Include="Models\Book\Read\BookGridModel.cs" />
     <Compile Include="Models\EnumerableResponse.cs" />
+    <Compile Include="Models\FilterModel.cs" />
+    <Compile Include="Models\FilterPageModel.cs" />
     <Compile Include="Models\IResponse.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\PersonName\PersonNameModel.cs" />

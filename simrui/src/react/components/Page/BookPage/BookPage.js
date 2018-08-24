@@ -15,7 +15,8 @@ class BookPage extends Component {
         var data = this.getDefaultData();
 
         this.state = {
-            isInit: false,
+            isInitByFirstPage: false,
+            isInitByAllData: false,
             gotApiError: false,
             hasErrors: false,
             response: {
@@ -32,16 +33,50 @@ class BookPage extends Component {
     componentDidMount() {
         Lib.fetchAndHandle({
             uri: Config.apiurl.book.filter,
-            onSuccess: json =>
+            body: {
+                page: {
+                    number: 0,
+                    size: 25
+                }
+            },
+            onSuccess: json => {
                 this.setState({
                     response: JSON.parse(json),
-                    isInit: true
-                }),
+                    isInitByFirstPage: true
+                });
+
+                console.log('isInitByFirstPage');
+
+                Lib.fetchAndHandle({
+                    uri: Config.apiurl.book.filter,
+                    body: {
+                        page: {
+                            number: 0,
+                            size: 1000
+                        }
+                    },
+                    onSuccess: json => {
+                        this.setState({
+                            response: JSON.parse(json),
+                            isInitByAllData: true
+                        });
+
+                        console.log('isInitByAllData');
+                    },
+                    onError: err =>
+                        this.setState({
+                            gotApiError: true,
+                            hasErrors: true,
+                            isInitByFirstPage: false,
+                            isInitByAllData: false
+                        })
+                });
+            },
             onError: err =>
                 this.setState({
                     gotApiError: true,
                     hasErrors: true,
-                    isInit: false
+                    isInitByFirstPage: false
                 })
         });
     }
@@ -83,7 +118,7 @@ class BookPage extends Component {
             pageCount: 'Loading...',
             key: 0
         };
-        
+
         var data = [];
 
         for (var i = 0; i < 10; i++) {
@@ -112,12 +147,26 @@ class BookPage extends Component {
     }
 
     getTable(options) {
-        return <BootstrapTable ref="table" data={this.state.response.data} striped hover pagination expandableRow={this.isExpandableRow} expandComponent={this.expandComponent} options={options}>
+        return (
+            <BootstrapTable
+                ref="table"
+                data={this.state.response.data}
+                striped
+                hover
+                pagination
+                expandableRow={this.isExpandableRow}
+                expandComponent={this.expandComponent}
+                options={options}
+            >
                 <TableHeaderColumn dataField="title" isKey dataSort>
                     Title
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="authors" dataSort dataFormat={this.authorsFormatter}>
+                <TableHeaderColumn
+                    dataField="authors"
+                    dataSort
+                    dataFormat={this.authorsFormatter}
+                >
                     Authors
                 </TableHeaderColumn>
 
@@ -128,29 +177,26 @@ class BookPage extends Component {
                 <TableHeaderColumn dataField="bookshelf" dataSort>
                     Bookshelf
                 </TableHeaderColumn>
-            </BootstrapTable>;
+            </BootstrapTable>
+        );
     }
 
     getLoader() {
-        var loaderClass = '';
+        var loaderClass =
+            'simr-flex simr-flex-align-center simr-flex-justify-center';
 
         if (this.state.gotApiError) {
             loaderClass += ' simr-loader-api-error ';
         }
 
-        if (this.state.isInit) {
+        if (this.state.isInitByFirstPage) {
             loaderClass += ' simr-loader hidden ';
         } else {
             loaderClass += ' simr-loader ';
         }
 
         const loader = (
-            <div
-                className={
-                    loaderClass +
-                    'simr-flex simr-flex-align-center simr-flex-justify-center'
-                }
-            >
+            <div className={loaderClass}>
                 <div className="sk-folding-cube">
                     <div className="sk-cube1 sk-cube" />
                     <div className="sk-cube2 sk-cube" />

@@ -1,5 +1,6 @@
-var fetchAndHandle = function({ uri, onSuccess, onError }) {
+var fetchAndHandle = function ({ uri, body, onSuccess, onError }) {
     fetch(uri, {
+        body: JSON.stringify(body),
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
