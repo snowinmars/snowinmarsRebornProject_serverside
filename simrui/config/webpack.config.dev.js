@@ -38,7 +38,8 @@ module.exports = {
                 photo: '/photo/',
                 video: '/video/',
                 pathofexile: '/pathofexile/',
-                chat: '/chat/'
+                chat: '/chat/',
+                author: '/author/',
             },
             apiurl: {
                 book: {
