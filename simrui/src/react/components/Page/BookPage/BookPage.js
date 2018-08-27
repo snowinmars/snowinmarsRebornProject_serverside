@@ -26,7 +26,6 @@ class BookPage extends Component {
         };
 
         this.options = Config.bootstrapTableOptions;
-
         this.getRow = this.getRow.bind(this);
     }
 
@@ -166,6 +165,7 @@ class BookPage extends Component {
                     dataField="authors"
                     dataSort
                     dataFormat={this.authorsFormatter}
+                    expandable={false}
                 >
                     Authors
                 </TableHeaderColumn>
