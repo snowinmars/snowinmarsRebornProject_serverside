@@ -26,7 +26,6 @@ class BookPage extends Component {
         };
 
         this.options = Config.bootstrapTableOptions;
-        this.getRow = this.getRow.bind(this);
     }
 
     componentDidMount() {
@@ -129,7 +128,7 @@ class BookPage extends Component {
         return data;
     }
 
-    getRow(i) {
+    getRow = (i) => {
         return this.state.response.data[i.index];
     }
 

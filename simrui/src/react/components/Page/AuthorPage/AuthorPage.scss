@@ -1,0 +1,25 @@
+.simr-author-name > * {
+    padding-right: 0.5em;
+    font-size: 150%;
+}
+
+.simr-author-pseudonym > * {
+    padding-right: 0.5em;
+}
+
+.simr-author-books {
+    margin-top: 2em;
+}
+
+.simr-author {
+    grid-template-columns: 50% 50%;
+
+    .simr-author-pseudonym {
+        text-align: right;
+    }
+
+    .simr-author-aka {
+        grid-column: 1/3;
+        text-align: right;
+    }
+}
