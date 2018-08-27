@@ -31,7 +31,7 @@ class BookPage extends Component {
     componentDidMount() {
         Lib.fetchAndHandle({
             uri: Config.apiurl.book.filter,
-            body: {
+            data: {
                 page: {
                     number: 0,
                     size: 25
@@ -43,11 +43,9 @@ class BookPage extends Component {
                     isInitByFirstPage: true
                 });
 
-                console.log('isInitByFirstPage');
-
                 Lib.fetchAndHandle({
                     uri: Config.apiurl.book.filter,
-                    body: {
+                    data: {
                         page: {
                             number: 0,
                             size: 1000
@@ -58,8 +56,6 @@ class BookPage extends Component {
                             response: JSON.parse(json),
                             isInitByAllData: true
                         });
-
-                        console.log('isInitByAllData');
                     },
                     onError: err =>
                         this.setState({
@@ -128,9 +124,9 @@ class BookPage extends Component {
         return data;
     }
 
-    getRow = (i) => {
+    getRow = i => {
         return this.state.response.data[i.index];
-    }
+    };
 
     isExpandableRow() {
         return true;

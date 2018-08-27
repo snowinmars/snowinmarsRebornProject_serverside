@@ -12,9 +12,9 @@ class AuthorPage extends Component {
         var data = this.getDefaultData();
 
         this.state = {
-            // isInitByFirstPage: false,
-            // isInitByAllData: false,
-            isInit: false,
+            isInitByFirstPage: false,
+            isInitByAllData: false,
+            isInitByAuthorData: false,
             gotApiError: false,
             hasErrors: false,
             response: {
@@ -25,23 +25,25 @@ class AuthorPage extends Component {
 
         Lib.fetchAndHandle({
             uri: Config.apiurl.author.get,
-            body: {
+            data: {
                 id: 'c5fbd054-c087-45c5-b1d2-f27da0f75353'
             },
             method: 'GET',
             onSuccess: json => {
                 this.setState({
                     response: JSON.parse(json),
-                    isInit: true
+                    isInitByAuthorData: true
                 });
 
-                console.log('isInit');
+                
             },
             onError: err =>
                 this.setState({
                     gotApiError: true,
                     hasErrors: true,
-                    isInitByFirstPage: false
+                    isInitByAuthorData: false,
+                    isInitByFirstPage: false,
+                    isInitByAllData: false
                 })
         });
     }
@@ -123,7 +125,7 @@ class AuthorPage extends Component {
             loaderClass += ' simr-loader-api-error ';
         }
 
-        if (this.state.isInit) {
+        if (this.state.isInitByAuthorData) {
             loaderClass += ' simr-loader hidden ';
         } else {
             loaderClass += ' simr-loader ';

@@ -1,18 +1,22 @@
-var fetchAndHandle = function({ uri, body, method, onSuccess, onError }) {
+var fetchAndHandle = function({ uri, data, method, onSuccess, onError }) {
+    var _method;
     if (!method) {
-        method = 'POST';
+        _method = 'POST';
+    } else {
+        _method = method;
     }
 
+    var _body;
     if (method === 'GET' || method === 'HEAD') {
-        uri = uri + '?' + objToQueryString(body);
-        body = undefined;
+        uri = uri + '?' + objectToHttpQueryString(data);
+        _body = undefined;
     } else {
-        body = JSON.stringify(body);
+        _body = JSON.stringify(data);
     }
 
     fetch(uri, {
-        body: JSON.stringify(body),
-        method: method,
+        body: _body,
+        method: _method,
         headers: {
             'Content-Type': 'application/json',
             'User-Agent': 'Fiddler'
@@ -38,7 +42,7 @@ var fetchAndHandle = function({ uri, body, method, onSuccess, onError }) {
             onError(err);
         });
 
-    function objToQueryString(obj) {
+    function objectToHttpQueryString(obj) {
         const keyValuePairs = [];
         for (const key in obj) {
             keyValuePairs.push(

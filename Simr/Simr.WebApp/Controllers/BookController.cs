@@ -40,7 +40,7 @@ namespace Simr.WebApp.Controllers
 
         [HttpPost]
         [ActionName("Filter")]
-        public string FilterPost(FilterModel filter)
+        public string FilterPost([FromBody]FilterModel filter)
         {
             var books = this.BookService.Filter();
 

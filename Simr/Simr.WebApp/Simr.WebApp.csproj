@@ -101,6 +101,7 @@
     <Compile Include="Models\Author\Read\AuthorGridModel.cs" />
     <Compile Include="Models\Book\Read\BookGridModel.cs" />
     <Compile Include="Models\EnumerableResponse.cs" />
+    <Compile Include="Models\FilterByModel.cs" />
     <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\FilterPageModel.cs" />
     <Compile Include="Models\IResponse.cs" />

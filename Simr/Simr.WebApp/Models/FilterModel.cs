@@ -16,5 +16,8 @@ namespace Simr.WebApp.Models
 
         [JsonProperty("page")]
         public FilterPageModel Page { get; set; }
+
+        [JsonProperty]
+        public FilterByModel[] FiltersBy { get; set; }
     }
 }
