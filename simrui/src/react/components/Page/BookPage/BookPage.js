@@ -57,23 +57,19 @@ class BookPage extends Component {
                             isInitByAllData: true
                         });
                     },
-                    onError: err =>
-                        this.setState({
-                            gotApiError: true,
-                            hasErrors: true,
-                            isInitByFirstPage: false,
-                            isInitByAllData: false
-                        })
+                    onError: this.onError
                 });
             },
-            onError: err =>
-                this.setState({
-                    gotApiError: true,
-                    hasErrors: true,
-                    isInitByFirstPage: false
-                })
+            onError: this.onError
         });
     }
+
+    onError = err => this.setState({
+        gotApiError: true,
+        hasErrors: true,
+        isInitByFirstPage: false,
+        isInitByAllData: false
+    });
 
     render() {
         const loader = this.getLoader();

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import List from './../../App/List/List';
+import List from '../../App/List/List';
 
 var Config = require('Config');
 

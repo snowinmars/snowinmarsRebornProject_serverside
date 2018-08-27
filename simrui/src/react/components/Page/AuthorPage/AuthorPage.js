@@ -12,8 +12,6 @@ class AuthorPage extends Component {
         var data = this.getDefaultData();
 
         this.state = {
-            isInitByFirstPage: false,
-            isInitByAllData: false,
             isInitByAuthorData: false,
             gotApiError: false,
             hasErrors: false,
@@ -22,7 +20,9 @@ class AuthorPage extends Component {
                 data: data
             }
         };
+    }
 
+    componentDidMount() {
         Lib.fetchAndHandle({
             uri: Config.apiurl.author.get,
             data: {
@@ -34,19 +34,17 @@ class AuthorPage extends Component {
                     response: JSON.parse(json),
                     isInitByAuthorData: true
                 });
-
-                
             },
-            onError: err =>
-                this.setState({
-                    gotApiError: true,
-                    hasErrors: true,
-                    isInitByAuthorData: false,
-                    isInitByFirstPage: false,
-                    isInitByAllData: false
-                })
+            onError: this.onError
         });
     }
+
+    onError = err =>
+        this.setState({
+            gotApiError: true,
+            hasErrors: true,
+            isInitByAuthorData: false
+        });
 
     getDefaultData() {
         return {
@@ -108,13 +106,15 @@ class AuthorPage extends Component {
             );
         }
 
-        return <span className="simr-author simr-grid-container">
+        return (
+            <span className="simr-author simr-grid-container">
                 {name}
                 {pseudonym}
                 <span className="simr-author-aka">
                     As known as: {this.state.response.data.aka}
                 </span>
-            </span>;
+            </span>
+        );
     }
 
     getLoader() {
