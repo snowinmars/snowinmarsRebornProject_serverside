@@ -3,7 +3,7 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import AuthorList from '../BookPage/AuthorList';
 import BookExpand from '../BookPage/BookExpand';
 var Config = require('Config');
-var Lib = require('./../../../Lib/componentUtils');
+var Lib = require('../../../Lib/componentUtils');
 
 class AuthorsBooksTable extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class AuthorsBooksTable extends Component {
 
     componentDidMount() {
         Lib.fetchAndHandle({
-            uri: Config.apiurl.book.filter,
+            uri: Config.apiurl.author.filter,
             data: {
                 page: {
                     number: 0,
@@ -91,51 +91,20 @@ class AuthorsBooksTable extends Component {
         return data;
     }
 
-    isExpandableRow() {
-        return true;
-    }
-
-    expandComponent(row) {
-        return <BookExpand row={row} />;
-    }
-
-    authorsFormatter(cell) {
-        return <AuthorList authors={cell} />;
-    }
     getTable(options) {
-        return (
-            <BootstrapTable
-                ref="table"
-                data={this.state.response.data}
-                striped
-                hover
-                pagination
-                expandableRow={this.isExpandableRow}
-                expandComponent={this.expandComponent}
-                options={options}
-            >
-                <TableHeaderColumn dataField="title" isKey dataSort>
-                    Title
+        return <BootstrapTable ref="table" data={this.state.response.data} striped hover pagination options={options}>
+                <TableHeaderColumn dataField="fullname" isKey dataSort>
+                    fullname
                 </TableHeaderColumn>
 
-                <TableHeaderColumn
-                    dataField="authors"
-                    dataSort
-                    dataFormat={this.authorsFormatter}
-                    expandable={false}
-                >
-                    Authors
+                <TableHeaderColumn dataField="birthDate" dataSort>
+                    birthDate
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="year" dataSort>
-                    Year
+                <TableHeaderColumn dataField="deathDate" dataSort>
+                    deathDate
                 </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="bookshelf" dataSort>
-                    Bookshelf
-                </TableHeaderColumn>
-            </BootstrapTable>
-        );
+            </BootstrapTable>;
     }
 
     getLoader() {

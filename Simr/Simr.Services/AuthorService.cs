@@ -13,6 +13,21 @@ namespace Simr.Services
         private static readonly TextGenerator textGenerator = new TextGenerator();
         public Author Get(Guid id)
         {
+            return GetNewAuthor();
+        }
+
+        public Author[] Filter()
+        {
+            return new[]
+                       {
+                           GetNewAuthor(),GetNewAuthor(),GetNewAuthor(),
+                           GetNewAuthor(),GetNewAuthor(),GetNewAuthor(),
+                           GetNewAuthor(),GetNewAuthor(),GetNewAuthor(),
+                       };
+        }
+
+        private static Author GetNewAuthor()
+        {
             return new Author("Gomer")
             {
                 Name = new PersonName
@@ -29,17 +44,9 @@ namespace Simr.Services
                 },
                 Info = string.Join(" ", textGenerator.GetWords(500)),
                 PhotoUrl = "http://i41-cdn.woman.ru/womanru/images/gallery/c/7/g_c7abcd1cb65d89122ff8dde384995885_8_800x600.jpg?02",
+                BirthDate = DateTime.Now.AddYears(-40),
+                DeathDate = DateTime.Now.AddYears(-10),
             };
-        }
-
-        public Author[] Filter()
-        {
-            return new[]
-                       {
-                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-                       };
         }
     }
 }

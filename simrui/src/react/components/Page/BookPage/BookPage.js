@@ -4,6 +4,7 @@ import './../../../../../node_modules/react-bootstrap-table/dist/react-bootstrap
 import './BookPage.scss';
 import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
+import { Link } from 'react-router-dom';
 
 var Config = require('Config');
 var Lib = require('./../../../Lib/componentUtils');
@@ -71,17 +72,28 @@ class BookPage extends Component {
         isInitByAllData: false
     });
 
+    getActions() {
+        return <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
+                <span className="simr-btn">Add new book</span>
+
+                <Link to={Config.url.author}>
+                    <span className="simr-btn">All authors</span>
+                </Link>
+            </div>;
+    }
+
     render() {
-        const loader = this.getLoader();
+        var loader = this.getLoader();
 
-        const table = this.getTable(this.options);
+        var actions = this.getActions();
 
-        return (
-            <div>
+        var  table = this.getTable(this.options);
+
+        return <div>
                 {loader}
+                {actions}
                 {table}
-            </div>
-        );
+            </div>;
     }
 
     getDefaultData() {

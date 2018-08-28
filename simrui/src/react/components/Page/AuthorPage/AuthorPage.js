@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import './AuthorPage.scss';
-import AuthorsBooksTable from './AuthorsBooksTable';
+import AuthorsBooksTable from './AuthorsTable';
+import { Link } from 'react-router-dom';
 
 var Lib = require('./../../../Lib/componentUtils');
 var Config = require('Config');
+
+var queryString = require('query-string');
 
 class AuthorPage extends Component {
     constructor(props) {
@@ -23,20 +26,25 @@ class AuthorPage extends Component {
     }
 
     componentDidMount() {
-        Lib.fetchAndHandle({
-            uri: Config.apiurl.author.get,
-            data: {
-                id: 'c5fbd054-c087-45c5-b1d2-f27da0f75353'
-            },
-            method: 'GET',
-            onSuccess: json => {
-                this.setState({
-                    response: JSON.parse(json),
-                    isInitByAuthorData: true
-                });
-            },
-            onError: this.onError
-        });
+        var queryParameters = queryString.parse(this.props.location.search);
+        this.id = queryParameters.id;
+        
+        if (this.id) {
+            Lib.fetchAndHandle({
+                uri: Config.apiurl.author.get,
+                data: {
+                    id: this.id
+                },
+                method: 'GET',
+                onSuccess: json => {
+                    this.setState({
+                        response: JSON.parse(json),
+                        isInitByAuthorData: true
+                    });
+                },
+                onError: this.onError
+            });
+        }
     }
 
     onError = err =>
@@ -66,22 +74,35 @@ class AuthorPage extends Component {
 
     render() {
         var loader = this.getLoader();
-
+        var actions = this.getActions();
         var author = this.getAuthor();
 
-        return (
-            <div>
+        return <div>
                 {loader}
+                {actions}
                 {author}
                 <div className="simr-author-books">
                     <AuthorsBooksTable />
                 </div>
-            </div>
-        );
+            </div>;
+    }
+
+    getActions() {
+        return <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
+            <span className="simr-btn">Add new author</span>
+
+            <Link to={Config.url.book}>
+                <span className="simr-btn">All books</span>
+            </Link>
+        </div>;
     }
 
     getAuthor() {
         var pseudonym;
+        if (!this.id) {
+            return;
+        }
+
         if (this.state.response.data.pseudonym) {
             pseudonym = (
                     <div className="simr-author-pseudonym">
@@ -130,7 +151,7 @@ class AuthorPage extends Component {
             loaderClass += ' simr-loader-api-error ';
         }
 
-        if (this.state.isInitByAuthorData) {
+        if (this.state.isInitByAuthorData || !this.id) {
             loaderClass += ' simr-loader hidden ';
         } else {
             loaderClass += ' simr-loader ';

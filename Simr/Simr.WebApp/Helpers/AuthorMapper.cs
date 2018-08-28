@@ -29,7 +29,9 @@
                            Aka = author.Aka,
                            Info = author.Info,
                            PhotoUrl = author.PhotoUrl,
-                       };
+                           BirthDate = author.BirthDate,
+                           DeathDate = author.DeathDate,
+            };
         }
 
         public static Author ToAuthor(this AuthorGridModel authorGridModel)
@@ -41,6 +43,8 @@
                            Id = authorGridModel.Id,
                            Info = authorGridModel.Info,
                            PhotoUrl = authorGridModel.PhotoUrl,
+                           BirthDate = authorGridModel.BirthDate,
+                           DeathDate = authorGridModel.DeathDate,
             };
         }
     }

@@ -36,8 +36,16 @@
             return new Response<AuthorGridModel>(model).ToJson();
         }
 
+        [HttpOptions]
+        [ActionName("Filter")]
+        public string FilterOptions()
+        {
+            return "";
+        }
+
         [HttpPost]
-        public string Filter()
+        [ActionName("Filter")]
+        public string FilterPost()
         {
             var authors = this.AuthorService.Filter();
 
