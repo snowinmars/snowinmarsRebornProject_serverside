@@ -17,6 +17,10 @@
             this.Name = new PersonName();
         }
 
+        public string PhotoUrl { get; set; }
+
+        public string Info { get; set; }
+
         public PersonName Name { get; set; }
 
         public PersonName Pseudonym { get; set; }

@@ -14,5 +14,11 @@
 
         [JsonProperty("aka")]
         public string Aka { get; set; }
+
+        [JsonProperty("photoUrl")]
+        public string PhotoUrl { get; set; }
+
+        [JsonProperty("info")]
+        public string Info { get; set; }
     }
 }

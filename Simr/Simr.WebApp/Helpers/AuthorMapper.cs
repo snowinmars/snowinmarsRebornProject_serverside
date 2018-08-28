@@ -27,6 +27,8 @@
                            Pseudonym = author.Pseudonym.ToPersonNameModel(),
                            Id = author.Id,
                            Aka = author.Aka,
+                           Info = author.Info,
+                           PhotoUrl = author.PhotoUrl,
                        };
         }
 
@@ -37,7 +39,9 @@
                            Name = authorGridModel.Name.ToPersonName(),
                            Pseudonym = authorGridModel.Pseudonym.ToPersonName(),
                            Id = authorGridModel.Id,
-                       };
+                           Info = authorGridModel.Info,
+                           PhotoUrl = authorGridModel.PhotoUrl,
+            };
         }
     }
 }

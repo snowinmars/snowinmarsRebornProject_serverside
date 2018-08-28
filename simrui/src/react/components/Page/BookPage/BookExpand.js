@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+var Config = require('Config');
 
 class BookExpand extends Component {
     render() {
@@ -20,13 +21,14 @@ class BookExpand extends Component {
                     <span className="simr-authors">
                         {this.props.row.authors.map(author => {
                             return (
-                                <span className="simr-author" key={author.key}>
+                                <a href={Config.url.author + '?id=' + author.id}><span className="simr-author" key={author.key}>
                                     {author.name.givenName +
                                         ' ' +
                                         author.name.fullMiddleName +
                                         ' ' +
                                         author.name.familyName}
                                 </span>
+                                </a>
                             );
                         })}
                     </span>

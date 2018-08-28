@@ -27,6 +27,8 @@ namespace Simr.Services
                     FullMiddleName = textGenerator.GetNewWord(2, 17, true),
                     GivenName = textGenerator.GetNewWord(2, 17, true),
                 },
+                Info = string.Join(" ", textGenerator.GetWords(500)),
+                PhotoUrl = "http://i41-cdn.woman.ru/womanru/images/gallery/c/7/g_c7abcd1cb65d89122ff8dde384995885_8_800x600.jpg?02",
             };
         }
 
