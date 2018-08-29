@@ -46,6 +46,7 @@ namespace Simr.Services
                 PhotoUrl = "http://i41-cdn.woman.ru/womanru/images/gallery/c/7/g_c7abcd1cb65d89122ff8dde384995885_8_800x600.jpg?02",
                 BirthDate = DateTime.Now.AddYears(-40),
                 DeathDate = DateTime.Now.AddYears(-10),
+                Id = Guid.NewGuid(),
             };
         }
     }

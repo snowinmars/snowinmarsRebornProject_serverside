@@ -82,7 +82,7 @@ class AuthorPage extends Component {
                 {actions}
                 {author}
                 <div className="simr-author-books">
-                    <AuthorsBooksTable />
+                <AuthorsBooksTable author={{id: this.id,}}/>
                 </div>
             </div>;
     }

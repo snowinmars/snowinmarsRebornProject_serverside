@@ -22,6 +22,11 @@ body {
     line-height: 1;
 }
 
+a {
+    color: $normalTextFocusColor;
+    text-decoration: underline;
+}
+
 // TODO move out
 .simr-api {
     padding: 0 0.5em;

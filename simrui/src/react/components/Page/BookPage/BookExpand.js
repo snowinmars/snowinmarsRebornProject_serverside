@@ -21,13 +21,19 @@ class BookExpand extends Component {
                     <span className="simr-authors">
                         {this.props.row.authors.map(author => {
                             return (
-                                <a href={Config.url.author + '?id=' + author.id}><span className="simr-author" key={author.key}>
-                                    {author.name.givenName +
-                                        ' ' +
-                                        author.name.fullMiddleName +
-                                        ' ' +
-                                        author.name.familyName}
-                                </span>
+                                <a
+                                    href={
+                                        Config.url.author + '?id=' + author.id
+                                    }
+                                    key={author.key}
+                                >
+                                    <span className="simr-author">
+                                        {author.name.givenName +
+                                            ' ' +
+                                            author.name.fullMiddleName +
+                                            ' ' +
+                                            author.name.familyName}
+                                    </span>
                                 </a>
                             );
                         })}

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import AuthorList from '../BookPage/AuthorList';
-import BookExpand from '../BookPage/BookExpand';
 var Config = require('Config');
 var Lib = require('../../../Lib/componentUtils');
 
@@ -26,6 +24,17 @@ class AuthorsBooksTable extends Component {
     }
 
     componentDidMount() {
+        var filtersBy;
+        if (this.props.author) {
+            if (this.props.author.id) {
+                console.log(this.props.authorId);
+                filtersBy = { authorId: this.props.authorId };
+            } else {
+                console.log('all');
+                filtersBy = undefined;
+            }
+        }
+
         Lib.fetchAndHandle({
             uri: Config.apiurl.author.filter,
             data: {
@@ -33,9 +42,7 @@ class AuthorsBooksTable extends Component {
                     number: 0,
                     size: 1000
                 },
-                filtersBy: {
-                    authorId: 'c5fbd054-c087-45c5-b1d2-f27da0f75353'
-                }
+                filtersBy: filtersBy
             },
             onSuccess: json => {
                 this.setState({
@@ -56,36 +63,18 @@ class AuthorsBooksTable extends Component {
         });
 
     getDefaultData() {
-        var defaultUser = {
-            title: 'Loading...',
-            authors: [
-                {
-                    name: {
-                        givenName: 'Loading...',
-                        fullMiddleName: 'Loading...',
-                        familyName: 'Loading...',
-                        key: 0
-                    }
-                }
-            ],
-            year: 'Loading...',
-            imageUrl: 'Loading...',
-            additionalInfo: 'Loading...',
-            bookshelf: 'Loading...',
-            flibustaUrl: 'Loading...',
-            libRusEcUrl: 'Loading...',
-            liveLibUrl: 'Loading...',
-            owner: 'Loading...',
-            pageCount: 'Loading...',
+        var defaultAuthor = {
+            fullname: 'Loading...',
+            birthDate: 'Loading...',
+            deathDate: 'Loading...',
             key: 0
         };
 
         var data = [];
 
         for (var i = 0; i < 10; i++) {
-            defaultUser.key = Math.random();
-            defaultUser.authors[0].key = Math.random();
-            data.push(defaultUser);
+            defaultAuthor.key = Math.random();
+            data.push(defaultAuthor);
         }
 
         return data;
