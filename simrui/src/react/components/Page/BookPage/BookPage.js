@@ -65,21 +65,24 @@ class BookPage extends Component {
         });
     }
 
-    onError = err => this.setState({
-        gotApiError: true,
-        hasErrors: true,
-        isInitByFirstPage: false,
-        isInitByAllData: false
-    });
+    onError = err =>
+        this.setState({
+            gotApiError: true,
+            hasErrors: true,
+            isInitByFirstPage: false,
+            isInitByAllData: false
+        });
 
     getActions() {
-        return <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
+        return (
+            <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
                 <span className="simr-btn">Add new book</span>
 
                 <Link to={Config.url.author}>
                     <span className="simr-btn">All authors</span>
                 </Link>
-            </div>;
+            </div>
+        );
     }
 
     render() {
@@ -87,13 +90,15 @@ class BookPage extends Component {
 
         var actions = this.getActions();
 
-        var  table = this.getTable(this.options);
+        var table = this.getTable(this.options);
 
-        return <div>
+        return (
+            <div>
                 {loader}
                 {actions}
                 {table}
-            </div>;
+            </div>
+        );
     }
 
     getDefaultData() {

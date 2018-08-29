@@ -23,12 +23,12 @@ class AuthorPage extends Component {
                 data: data
             }
         };
+
+        var queryParameters = queryString.parse(this.props.location.search);
+        this.id = queryParameters.id;
     }
 
     componentDidMount() {
-        var queryParameters = queryString.parse(this.props.location.search);
-        this.id = queryParameters.id;
-        
         if (this.id) {
             Lib.fetchAndHandle({
                 uri: Config.apiurl.author.get,
@@ -77,24 +77,28 @@ class AuthorPage extends Component {
         var actions = this.getActions();
         var author = this.getAuthor();
 
-        return <div>
+        return (
+            <div>
                 {loader}
                 {actions}
                 {author}
                 <div className="simr-author-books">
-                <AuthorsBooksTable author={{id: this.id,}}/>
+                    <AuthorsBooksTable authorId={this.id} />
                 </div>
-            </div>;
+            </div>
+        );
     }
 
     getActions() {
-        return <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
-            <span className="simr-btn">Add new author</span>
+        return (
+            <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
+                <span className="simr-btn">Add new author</span>
 
-            <Link to={Config.url.book}>
-                <span className="simr-btn">All books</span>
-            </Link>
-        </div>;
+                <Link to={Config.url.book}>
+                    <span className="simr-btn">All books</span>
+                </Link>
+            </div>
+        );
     }
 
     getAuthor() {
@@ -105,18 +109,14 @@ class AuthorPage extends Component {
 
         if (this.state.response.data.pseudonym) {
             pseudonym = (
-                    <div className="simr-author-pseudonym">
-                        <span>Pseudonym:</span>
-                        <span>
-                            {this.state.response.data.pseudonym.familyName}
-                        </span>
-                        <span>
-                            {this.state.response.data.pseudonym.fullMiddleName}
-                        </span>
-                        <span>
-                            {this.state.response.data.pseudonym.givenName}
-                        </span>
-                    </div>
+                <div className="simr-author-pseudonym">
+                    <span>Pseudonym:</span>
+                    <span>{this.state.response.data.pseudonym.familyName}</span>
+                    <span>
+                        {this.state.response.data.pseudonym.fullMiddleName}
+                    </span>
+                    <span>{this.state.response.data.pseudonym.givenName}</span>
+                </div>
             );
         }
 
@@ -131,16 +131,24 @@ class AuthorPage extends Component {
             );
         }
 
-        return <span className="simr-author simr-grid-container">
+        return (
+            <span className="simr-author simr-grid-container">
                 {name}
                 {pseudonym}
                 <span className="simr-author-aka">
                     As known as: {this.state.response.data.aka}
                 </span>
 
-                <img className="simr-author-photo" src={this.state.response.data.photoUrl} alt="author" />
-                <span className="simr-author-info">{this.state.response.data.info}</span>
-            </span>;
+                <img
+                    className="simr-author-photo"
+                    src={this.state.response.data.photoUrl}
+                    alt="author"
+                />
+                <span className="simr-author-info">
+                    {this.state.response.data.info}
+                </span>
+            </span>
+        );
     }
 
     getLoader() {

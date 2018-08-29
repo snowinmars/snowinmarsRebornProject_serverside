@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import AuthorList from '../BookPage/AuthorList';
+import BookExpand from '../BookPage/BookExpand';
 var Config = require('Config');
 var Lib = require('../../../Lib/componentUtils');
-
 class AuthorsBooksTable extends Component {
     constructor(props) {
         super(props);
@@ -10,8 +11,7 @@ class AuthorsBooksTable extends Component {
         var data = this.getDefaultData();
 
         this.state = {
-            isInitByFirstPage: false,
-            isInitByAllData: false,
+            isInitByData: false,
             gotApiError: false,
             hasErrors: false,
             response: {
@@ -25,18 +25,17 @@ class AuthorsBooksTable extends Component {
 
     componentDidMount() {
         var filtersBy;
-        if (this.props.author) {
-            if (this.props.author.id) {
-                console.log(this.props.authorId);
-                filtersBy = { authorId: this.props.authorId };
-            } else {
-                console.log('all');
-                filtersBy = undefined;
-            }
+        var url;
+        if (this.props.authorId) {
+            url = Config.apiurl.book.filter;
+            filtersBy = { authorId: this.props.authorId };
+        } else {
+            url = Config.apiurl.author.filter;
+            filtersBy = undefined;
         }
 
         Lib.fetchAndHandle({
-            uri: Config.apiurl.author.filter,
+            uri: url,
             data: {
                 page: {
                     number: 0,
@@ -47,7 +46,7 @@ class AuthorsBooksTable extends Component {
             onSuccess: json => {
                 this.setState({
                     response: JSON.parse(json),
-                    isInitByFirstPage: true
+                    isInitByData: true
                 });
             },
             onError: this.onError
@@ -58,8 +57,7 @@ class AuthorsBooksTable extends Component {
         this.setState({
             gotApiError: true,
             hasErrors: true,
-            isInitByFirstPage: false,
-            isInitByAllData: false,
+            isInitByData: false
         });
 
     getDefaultData() {
@@ -79,9 +77,63 @@ class AuthorsBooksTable extends Component {
 
         return data;
     }
+    isExpandableRow() {
+        return true;
+    }
 
-    getTable(options) {
-        return <BootstrapTable ref="table" data={this.state.response.data} striped hover pagination options={options}>
+    expandComponent(row) {
+        return <BookExpand row={row} />;
+    }
+
+    authorsFormatter(cell) {
+        return <AuthorList authors={cell} />;
+    }
+    getBooksTable(options) {
+        return (
+            <BootstrapTable
+                ref="table"
+                data={this.state.response.data}
+                striped
+                hover
+                pagination
+                expandableRow={this.isExpandableRow}
+                expandComponent={this.expandComponent}
+                options={options}
+            >
+                <TableHeaderColumn dataField="title" isKey dataSort>
+                    Title
+                </TableHeaderColumn>
+
+                <TableHeaderColumn
+                    dataField="authors"
+                    dataSort
+                    dataFormat={this.authorsFormatter}
+                    expandable={false}
+                >
+                    Authors
+                </TableHeaderColumn>
+
+                <TableHeaderColumn dataField="year" dataSort>
+                    Year
+                </TableHeaderColumn>
+
+                <TableHeaderColumn dataField="bookshelf" dataSort>
+                    Bookshelf
+                </TableHeaderColumn>
+            </BootstrapTable>
+        );
+    }
+
+    getAuthorTable(options) {
+        return (
+            <BootstrapTable
+                ref="table"
+                data={this.state.response.data}
+                striped
+                hover
+                pagination
+                options={options}
+            >
                 <TableHeaderColumn dataField="fullname" isKey dataSort>
                     fullname
                 </TableHeaderColumn>
@@ -93,7 +145,8 @@ class AuthorsBooksTable extends Component {
                 <TableHeaderColumn dataField="deathDate" dataSort>
                     deathDate
                 </TableHeaderColumn>
-            </BootstrapTable>;
+            </BootstrapTable>
+        );
     }
 
     getLoader() {
@@ -104,7 +157,7 @@ class AuthorsBooksTable extends Component {
             loaderClass += ' simr-loader-api-error ';
         }
 
-        if (this.state.isInitByFirstPage) {
+        if (this.state.isInitByData) {
             loaderClass += ' simr-loader hidden ';
         } else {
             loaderClass += ' simr-loader ';
@@ -125,12 +178,21 @@ class AuthorsBooksTable extends Component {
     render() {
         const loader = this.getLoader();
 
-        const table = this.getTable(this.options);
+        var table = null;
+        if (this.state.isInitByData) {
+            if (this.props.authorId) {
+                table = this.getBooksTable(this.options);
+            } else {
+                table = this.getAuthorTable(this.options);
+            }
+        }
 
-        return <div>
+        return (
+            <div>
                 {loader}
                 {table}
-            </div>;
+            </div>
+        );
     }
 }
 

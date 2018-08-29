@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List from '../../App/List/List';
+import { Link } from 'react-router-dom';
 
 var Config = require('Config');
 
@@ -19,7 +20,7 @@ class AuthorList extends Component {
     renderAuthor() {
         return function(author) {
             return (
-                <a href={Config.url.author + '?id=' + author.id}>
+                <Link to={Config.url.author + '?id=' + author.id}>
                     <span className="simr-author-item">
                         {author.name.givenName[0] +
                             '. ' +
@@ -27,7 +28,7 @@ class AuthorList extends Component {
                             '. ' +
                             author.name.familyName}
                     </span>
-                </a>
+                </Link>
             );
         };
     }
