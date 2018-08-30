@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Motion, StaggeredMotion, spring } from "react-motion";
 import {Link} from 'react-router-dom';
 import './ToggleMenu.scss'
@@ -13,7 +13,7 @@ const { noop } = _;
 /**
  * <ToggleMenu />
  */
-class ToggleMenu extends Component {
+class ToggleMenu extends PureComponent {
   constructor() {
     super();
     

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Userinfo from './../Userinfo/Userinfo';
 import ToggleMenu from './../ToggleMenu/ToggleMenu';
 import './Head.scss';
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 var Config = require('Config');
 
-class Head extends Component {
+class Head extends PureComponent {
     render() {
         return (
             <header className="simr-r-header">

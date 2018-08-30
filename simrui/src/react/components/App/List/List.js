@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './List.scss';
 
-class ListItem extends Component {
+class ListItem extends PureComponent {
     render() {
         return (
             <span className={(this.props.className || '') + ' simr-list-item'}>
@@ -11,7 +11,7 @@ class ListItem extends Component {
     }
 }
 
-class List extends Component {
+class List extends PureComponent {
     constructor(props) {
         super(props);
 

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import List from '../../App/List/List';
 import { Link } from 'react-router-dom';
 
 var Config = require('Config');
 
-class AuthorList extends Component {
+class AuthorList extends PureComponent {
     render() {
         if (this.props.authors) {
             return (

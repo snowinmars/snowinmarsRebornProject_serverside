@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Username.scss';
 
-class Username extends Component {
+class Username extends PureComponent {
     render() {
         return <div className="simr-btn">
             <span className="material-icons simr-r-Username-avatar">

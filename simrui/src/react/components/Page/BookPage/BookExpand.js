@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 var Config = require('Config');
 
-class BookExpand extends Component {
+class BookExpand extends PureComponent {
     render() {
         return (
             <div className="simr-flex simr-flex-wrap simr-expanded-book">

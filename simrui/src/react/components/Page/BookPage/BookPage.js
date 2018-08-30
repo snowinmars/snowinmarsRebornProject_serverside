@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import './../../../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import './BookPage.scss';
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 var Config = require('Config');
 var Lib = require('./../../../Lib/componentUtils');
 
-class BookPage extends Component {
+class BookPage extends PureComponent {
     constructor(props) {
         super(props);
 
