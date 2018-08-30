@@ -153,6 +153,28 @@ class BookPage extends PureComponent {
         return <AuthorList authors={cell} />;
     };
 
+    expandColumnComponent = ({ isExpandableRow, isExpanded }) => {
+        let content = '';
+
+        if (isExpandableRow) {
+            content = isExpanded ? 'expand_more' : 'expand_less';
+        } else {
+            content = ' ';
+        }
+        return <i className="material-icons">{content}</i>;
+    };
+
+    reducer = item => item;
+
+    filterFunction = (cell, row) => {
+        if (Array.isArray(cell)) {
+            return cell.map(item => item.fullname);
+        }
+        console.log(cell);
+
+        return cell;
+    };
+
     getTable(options) {
         return (
             <BootstrapTable
@@ -167,26 +189,45 @@ class BookPage extends PureComponent {
                 expandComponent={this.expandComponent}
                 options={options}
                 searchPlaceholder="Search almost everywhere"
+                expandColumnOptions={{
+                    expandColumnVisible: true,
+                    expandColumnComponent: this.expandColumnComponent,
+                    columnWidth: 40
+                }}
             >
-                <TableHeaderColumn dataField="title" isKey dataSort searchable>
+                <TableHeaderColumn
+                    dataField="title"
+                    isKey
+                    dataSort
+                    searchable
+                    filterValue={this.filterFunction}
+                >
                     Title
                 </TableHeaderColumn>
-
                 <TableHeaderColumn
                     dataField="authors"
                     dataSort
                     searchable
+                    filterValue={this.filterFunction}
                     dataFormat={this.authorsFormatter}
                     expandable={false}
                 >
                     Authors
                 </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="year" dataSort searchable>
+                <TableHeaderColumn
+                    dataField="year"
+                    dataSort
+                    searchable
+                    filterValue={this.filterFunction}
+                >
                     Year
                 </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="bookshelf" dataSort searchable>
+                <TableHeaderColumn
+                    dataField="bookshelf"
+                    dataSort
+                    searchable
+                    filterValue={this.filterFunction}
+                >
                     Bookshelf
                 </TableHeaderColumn>
             </BootstrapTable>
