@@ -91,7 +91,7 @@ class BookPage extends PureComponent {
         var actions = this.getActions();
 
         var table = this.getTable(this.options);
-        
+
         return (
             <div>
                 {loader}
@@ -141,7 +141,7 @@ class BookPage extends PureComponent {
         return this.state.response.data[i.index];
     };
 
-    isExpandableRow = (row) => {
+    isExpandableRow = row => {
         return true;
     };
 
@@ -160,29 +160,33 @@ class BookPage extends PureComponent {
                 data={this.state.response.data}
                 striped
                 hover
+                search
+                multiColumnSearch
                 pagination
                 expandableRow={this.isExpandableRow}
                 expandComponent={this.expandComponent}
                 options={options}
+                searchPlaceholder="Search almost everywhere"
             >
-                <TableHeaderColumn dataField="title" isKey dataSort>
+                <TableHeaderColumn dataField="title" isKey dataSort searchable>
                     Title
                 </TableHeaderColumn>
 
                 <TableHeaderColumn
                     dataField="authors"
                     dataSort
+                    searchable
                     dataFormat={this.authorsFormatter}
                     expandable={false}
                 >
                     Authors
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="year" dataSort>
+                <TableHeaderColumn dataField="year" dataSort searchable>
                     Year
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="bookshelf" dataSort>
+                <TableHeaderColumn dataField="bookshelf" dataSort searchable>
                     Bookshelf
                 </TableHeaderColumn>
             </BootstrapTable>

@@ -91,6 +91,7 @@ module.exports = {
                 lastPage: 'Last', // Last page button text
                 expandBy: 'column',
                 // paginationShowsTotal: this.renderShowsTotal,  // Accept bool or function
+                searchDelayTime: 300,
                 paginationPosition: 'bottom', // default is bottom, top and both is all available
                 // hideSizePerPage: true, // You can hide the dropdown for sizePerPage
                 // alwaysShowAllBtns: true, // Always show next and previous button
