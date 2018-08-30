@@ -19,17 +19,13 @@ class AuthorList extends Component {
 
     renderAuthor() {
         return function(author) {
-            return (
-                <Link to={Config.url.author + '?id=' + author.id}>
-                    <span className="simr-author-item">
+            return <Link to={Config.url.author + '?id=' + author.id} className="simr-author-item">
                         {author.name.givenName[0] +
                             '. ' +
                             author.name.fullMiddleName[0] +
                             '. ' +
                             author.name.familyName}
-                    </span>
-                </Link>
-            );
+                </Link>;
         };
     }
 }

@@ -76,6 +76,10 @@ module.exports = {
                     {
                         text: '100',
                         value: 100
+                    },
+                    {
+                        text: '1000',
+                        value: 1000
                     }
                 ], // you can change the dropdown list for size per page
                 sizePerPage: 10, // which size per page you want to locate as default

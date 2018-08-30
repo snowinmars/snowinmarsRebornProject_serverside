@@ -26,14 +26,13 @@ class BookExpand extends Component {
                                         Config.url.author + '?id=' + author.id
                                     }
                                     key={author.key}
+                                    className="simr-author"
                                 >
-                                    <span className="simr-author">
-                                        {author.name.givenName +
-                                            ' ' +
-                                            author.name.fullMiddleName +
-                                            ' ' +
-                                            author.name.familyName}
-                                    </span>
+                                    {author.name.givenName +
+                                        ' ' +
+                                        author.name.fullMiddleName +
+                                        ' ' +
+                                        author.name.familyName}
                                 </a>
                             );
                         })}

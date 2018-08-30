@@ -94,9 +94,14 @@ class AuthorPage extends Component {
             <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
                 <span className="simr-btn">Add new author</span>
 
-                <Link to={Config.url.book}>
-                    <span className="simr-btn">All books</span>
-                </Link>
+                <div>
+                    <Link to={Config.url.author}>
+                        <span className="simr-btn">All authors</span>
+                    </Link>
+                    <Link to={Config.url.book}>
+                        <span className="simr-btn">All books</span>
+                    </Link>
+                </div>
             </div>
         );
     }

@@ -91,7 +91,7 @@ class BookPage extends Component {
         var actions = this.getActions();
 
         var table = this.getTable(this.options);
-
+        
         return (
             <div>
                 {loader}
@@ -141,17 +141,17 @@ class BookPage extends Component {
         return this.state.response.data[i.index];
     };
 
-    isExpandableRow() {
+    isExpandableRow = (row) => {
         return true;
-    }
+    };
 
-    expandComponent(row) {
+    expandComponent = row => {
         return <BookExpand row={row} />;
-    }
+    };
 
-    authorsFormatter(cell) {
+    authorsFormatter = cell => {
         return <AuthorList authors={cell} />;
-    }
+    };
 
     getTable(options) {
         return (
