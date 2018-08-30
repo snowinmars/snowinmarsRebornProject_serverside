@@ -6,5 +6,10 @@ import './../src/css/grid.scss';
 import MainPage from './react/components/Page/MainPage/MainPage';
 import registerServiceWorker from './registerServiceWorker';
 
+if (process.env.NODE_ENV !== 'production') {
+    const { whyDidYouUpdate } = require('why-did-you-update');
+    whyDidYouUpdate(React);
+}
+
 ReactDOM.render(<MainPage />, document.getElementById('root'));
 registerServiceWorker();
