@@ -72,23 +72,6 @@ class AuthorPage extends Component {
         };
     }
 
-    render() {
-        var loader = this.getLoader();
-        var actions = this.getActions();
-        var author = this.getAuthor();
-
-        return (
-            <div>
-                {loader}
-                {actions}
-                {author}
-                <div className="simr-author-books">
-                    <AuthorsBooksTable authorId={this.id} />
-                </div>
-            </div>
-        );
-    }
-
     getActions() {
         return (
             <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
@@ -181,6 +164,23 @@ class AuthorPage extends Component {
             </div>
         );
         return loader;
+    }
+
+    render() {
+        var loader = this.getLoader();
+        var actions = this.getActions();
+        var author = this.getAuthor();
+
+        return (
+            <div>
+                {loader}
+                {actions}
+                {author}
+                <div className="simr-author-books">
+                    <AuthorsBooksTable authorId={this.id} />
+                </div>
+            </div>
+        );
     }
 }
 

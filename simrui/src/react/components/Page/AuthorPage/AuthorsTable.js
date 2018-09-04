@@ -79,16 +79,16 @@ class AuthorsBooksTable extends Component {
     }
     isExpandableRow = () => {
         return true;
-    }
+    };
 
     expandComponent = row => {
         return <BookExpand row={row} />;
-    }
+    };
 
     authorsFormatter = cell => {
         return <AuthorList authors={cell} />;
-    }
-    
+    };
+
     getBooksTable(options) {
         return (
             <BootstrapTable
@@ -176,6 +176,7 @@ class AuthorsBooksTable extends Component {
         );
         return loader;
     }
+
     render() {
         const loader = this.getLoader();
 

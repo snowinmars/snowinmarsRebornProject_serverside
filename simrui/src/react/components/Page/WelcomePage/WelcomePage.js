@@ -32,24 +32,6 @@ class WelcomePage extends Component {
         this.setState({ hasErrors: true });
     }
 
-    render() {
-        if (this.state.hasErrors) {
-            return <div className="simr-component-error">Error</div>;
-        }
-
-        var loader = this.getLoader();
-
-        var apiStatus = this.getApiStatus();
-
-        return <div className="simr-Welcome">
-                <div>Welcome</div>
-
-                <div>Current version is {loader}</div>
-
-                <div>API status: {apiStatus}</div>
-            </div>;
-    }
-
     getApiStatus() {
         var apiStatus;
         if (this.state.gotApiError) {
@@ -79,6 +61,24 @@ class WelcomePage extends Component {
             loader = <span>...loading...</span>;
         }
         return loader;
+    }
+
+    render() {
+        if (this.state.hasErrors) {
+            return <div className="simr-component-error">Error</div>;
+        }
+
+        var loader = this.getLoader();
+
+        var apiStatus = this.getApiStatus();
+
+        return <div className="simr-Welcome">
+                <div>Welcome</div>
+
+                <div>Current version is {loader}</div>
+
+                <div>API status: {apiStatus}</div>
+            </div>;
     }
 }
 

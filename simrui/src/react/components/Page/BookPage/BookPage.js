@@ -85,22 +85,6 @@ class BookPage extends PureComponent {
         );
     }
 
-    render() {
-        var loader = this.getLoader();
-
-        var actions = this.getActions();
-
-        var table = this.getTable(this.options);
-
-        return (
-            <div>
-                {loader}
-                {actions}
-                {table}
-            </div>
-        );
-    }
-
     getDefaultData() {
         var defaultUser = {
             title: 'Loading...',
@@ -259,6 +243,22 @@ class BookPage extends PureComponent {
             </div>
         );
         return loader;
+    }
+
+    render() {
+        var loader = this.getLoader();
+
+        var actions = this.getActions();
+
+        var table = this.getTable(this.options);
+
+        return (
+            <div>
+                {loader}
+                {actions}
+                {table}
+            </div>
+        );
     }
 }
 
