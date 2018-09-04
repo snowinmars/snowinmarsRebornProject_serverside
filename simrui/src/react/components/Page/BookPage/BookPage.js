@@ -7,6 +7,7 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './BookPage.scss';
 import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
+import BookFilter from './BookFilter';
 import { Link } from 'react-router-dom';
 
 var Config = require('Config');
@@ -30,6 +31,7 @@ class BookPage extends PureComponent {
         };
 
         this.options = Config.bootstrapTableOptions;
+        this.table = React.createRef();
     }
 
     componentDidMount() {
@@ -177,7 +179,7 @@ class BookPage extends PureComponent {
                 text: 'Hidden_additionalInfo',
                 sort: true,
                 hidden: true
-            },
+            }
         ];
 
         return (
@@ -189,10 +191,16 @@ class BookPage extends PureComponent {
             >
                 {props => (
                     <div>
-                        <div className="simr-book-table-search">
-                            <SearchBar {...props.searchProps} />
+                        <div class="simr-flex simr-book-table-search-and-filter">
+                            <div className="simr-book-table-search">
+                                <SearchBar {...props.searchProps} />
+                            </div>
+                            <div className="simr-book-table-filter">
+                                <BookFilter />
+                            </div>
                         </div>
                         <BootstrapTable
+                            ref={this.table}
                             hover
                             pagination={paginationFactory(this.options)}
                             expandRow={{
