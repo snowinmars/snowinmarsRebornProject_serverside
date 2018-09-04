@@ -59,42 +59,34 @@ module.exports = {
                 }
             },
             bootstrapTableOptions: {
-                page: 1, // which page you want to show as default
                 sizePerPageList: [
                     {
-                        text: '10',
-                        value: 10
+                        text: '8',
+                        value: 8
                     },
                     {
-                        text: '25',
-                        value: 25
+                        text: '16',
+                        value: 16
                     },
                     {
-                        text: '50',
-                        value: 50
-                    },
-                    {
-                        text: '100',
-                        value: 100
-                    },
-                    {
-                        text: '1000',
-                        value: 1000
+                        text: '32',
+                        value: 32
                     }
-                ], // you can change the dropdown list for size per page
-                sizePerPage: 10, // which size per page you want to locate as default
-                pageStartIndex: 1, // where to start counting the pages
-                paginationSize: 7, // the pagination bar size.
-                prePage: 'Prev', // Previous page button text
-                nextPage: 'Next', // Next page button text
-                firstPage: 'First', // First page button text
-                lastPage: 'Last', // Last page button text
-                expandBy: 'column',
+                ],
+                pageStartIndex: 1,
+                paginationSize: 7,
+                prePageText: 'Prev',
+                nextPageText: 'Next',
+                firstPageText: 'First',
+                lastPageText: 'Last',
+                nextPageTitle: 'First page',
+                prePageTitle: 'Pre page',
+                firstPageTitle: 'Next page',
+                lastPageTitle: 'Last page',
+                showTotal: true,
+                alwaysShowAllBtns: true, // Always show next and previous button
                 // paginationShowsTotal: this.renderShowsTotal,  // Accept bool or function
-                searchDelayTime: 300,
-                paginationPosition: 'bottom', // default is bottom, top and both is all available
                 // hideSizePerPage: true, // You can hide the dropdown for sizePerPage
-                // alwaysShowAllBtns: true, // Always show next and previous button
                 // withFirstAndLast: false, // Hide the going to First and Last page button
                 expandRowBgColor: '$normalBgColor',
             },

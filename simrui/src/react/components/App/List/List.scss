@@ -28,13 +28,20 @@
 
 @include nthchild;
 
-.simr-list-item {
-    background-color: $normalBtnColor;
-    margin-left: 0.5em;
-    padding: 0.3em;
-    border-radius: 5px;
+.simr-list {
+    overflow: hidden;
+    display: flex;
 
-    &:hover {
-        background-color: $normalBtnHoverColor;
+    .simr-list-item {
+        background-color: $normalBtnColor;
+        margin-left: 0.5em;
+        padding: 0.3em;
+        border-radius: 5px;
+        white-space: nowrap;
+        display: inline-block;
+
+        &:hover {
+            background-color: $normalBtnHoverColor;
+        }
     }
 }

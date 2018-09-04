@@ -1,2 +1,10 @@
 $containerMargin: 1em;
 $main-page-inner-content-margin: 2em;
+
+@mixin nofocus {
+    outline: 0;
+    outline-offset: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}

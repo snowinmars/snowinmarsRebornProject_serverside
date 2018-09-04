@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import './../../../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css';
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './BookPage.scss';
 import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
@@ -8,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 var Config = require('Config');
 var Lib = require('./../../../Lib/componentUtils');
-
+const { SearchBar } = Search;
 class BookPage extends PureComponent {
     constructor(props) {
         super(props);
@@ -137,84 +140,73 @@ class BookPage extends PureComponent {
         return <AuthorList authors={cell} />;
     };
 
-    expandColumnComponent = ({ isExpandableRow, isExpanded }) => {
-        let content = '';
+    expandColumnComponent = ({ expanded }) => {
+        let content = expanded ? 'expand_more' : 'expand_less';
 
-        if (isExpandableRow) {
-            content = isExpanded ? 'expand_more' : 'expand_less';
-        } else {
-            content = ' ';
-        }
         return <i className="material-icons">{content}</i>;
     };
 
-    reducer = item => item;
-
-    filterFunction = (cell, row) => {
-        if (Array.isArray(cell)) {
-            return cell.map(item => item.fullname);
-        }
-        console.log(cell);
-
-        return cell;
-    };
-
     getTable(options) {
+        const columns = [
+            {
+                dataField: 'title',
+                text: 'Title',
+                sort: true
+            },
+            {
+                dataField: 'authors',
+                text: 'Authors',
+                formatter: this.authorsFormatter,
+                filterValue: authors => {
+                    return authors.map(author => author.fullname);
+                },
+                sort: true
+            },
+            {
+                dataField: 'year',
+                text: 'Year',
+                sort: true
+            },
+            {
+                dataField: 'bookshelf',
+                text: 'Bookshelf',
+                sort: true
+            },
+            {
+                dataField: 'additionalInfo',
+                text: 'Hidden_additionalInfo',
+                sort: true,
+                hidden: true
+            },
+        ];
+
         return (
-            <BootstrapTable
-                ref="table"
+            <ToolkitProvider
+                keyField="key"
                 data={this.state.response.data}
-                striped
-                hover
+                columns={columns}
                 search
-                multiColumnSearch
-                pagination
-                expandableRow={this.isExpandableRow}
-                expandComponent={this.expandComponent}
-                options={options}
-                searchPlaceholder="Search almost everywhere"
-                expandColumnOptions={{
-                    expandColumnVisible: true,
-                    expandColumnComponent: this.expandColumnComponent,
-                    columnWidth: 40
-                }}
             >
-                <TableHeaderColumn
-                    dataField="title"
-                    isKey
-                    dataSort
-                    searchable
-                    filterValue={this.filterFunction}
-                >
-                    Title
-                </TableHeaderColumn>
-                <TableHeaderColumn
-                    dataField="authors"
-                    dataSort
-                    searchable
-                    filterValue={this.filterFunction}
-                    dataFormat={this.authorsFormatter}
-                    expandable={false}
-                >
-                    Authors
-                </TableHeaderColumn>
-                <TableHeaderColumn
-                    dataField="year"
-                    dataSort
-                    searchable
-                    filterValue={this.filterFunction}
-                >
-                    Year
-                </TableHeaderColumn>
-                <TableHeaderColumn
-                    dataField="bookshelf"
-                    dataSort
-                    searchable
-                    filterValue={this.filterFunction}
-                >
-                    Bookshelf
-                </TableHeaderColumn>
-            </BootstrapTable>
+                {props => (
+                    <div>
+                        <div className="simr-book-table-search">
+                            <SearchBar {...props.searchProps} />
+                        </div>
+                        <BootstrapTable
+                            hover
+                            pagination={paginationFactory(this.options)}
+                            expandRow={{
+                                renderer: this.expandComponent,
+                                showExpandColumn: true,
+                                expandColumnRenderer: this
+                                    .expandColumnComponent,
+                                expandHeaderColumnRenderer: () => null
+                            }}
+                            {...props.baseProps}
+                        />
+                    </div>
+                )}
+            </ToolkitProvider>
         );
     }
 

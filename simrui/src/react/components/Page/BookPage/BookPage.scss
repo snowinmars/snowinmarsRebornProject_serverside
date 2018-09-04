@@ -10,12 +10,37 @@
     bottom: 100%;
 }
 
-.table-hover>tbody>tr:hover {
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    vertical-align: baseline;
+}
+
+.table > tbody > tr > td:first-child,
+.table > tbody > tr > th:first-child,
+.table > tfoot > tr > td:first-child,
+.table > tfoot > tr > th:first-child,
+.table > thead > tr > td:first-child,
+.table > thead > tr > th:first-child {
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-hover > tbody > tr:hover {
     background-color: $normalBgHoverColor;
 }
 
 .react-bootstrap-table-page-btns-ul.pagination {
+    margin: 0;
     margin-right: $containerMargin;
+}
+
+.react-bootstrap-table-pagination-list {
+    text-align: right;
 }
 
 .dropdown.react-bs-table-sizePerPage-dropdown {
@@ -128,7 +153,7 @@
             font-size: 150%;
             margin-top: 1em;
         }
-        
+
         .simr-authors {
             margin-left: $main-page-inner-content-margin;
             &:before {
@@ -151,5 +176,24 @@
         width: 100%;
         margin-top: 1em;
         max-height: 3em;
+    }
+}
+
+.simr-book-table-search {
+    border-bottom: $normalBorderColor 1px solid;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+
+    & > input {
+        background-color: $normalBgHoverColor;
+        border-color: $normalBorderColor;
+        color: $normalTextColor;
+
+        &:focus {
+            @include nofocus;
+            background-color: $normalBgFocusColor;
+            border-color: $normalBorderFocusColor;
+            color: $normalTextFocusColor;
+        }
     }
 }

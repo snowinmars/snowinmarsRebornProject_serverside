@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import BootstrapTable from 'react-bootstrap-table-next';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import AuthorList from '../BookPage/AuthorList';
 import BookExpand from '../BookPage/BookExpand';
 var Config = require('Config');
@@ -89,64 +90,20 @@ class AuthorsBooksTable extends Component {
         return <AuthorList authors={cell} />;
     };
 
-    getBooksTable(options) {
-        return (
-            <BootstrapTable
-                ref="table"
-                data={this.state.response.data}
-                striped
-                hover
-                pagination
-                expandableRow={this.isExpandableRow}
-                expandComponent={this.expandComponent}
-                options={options}
-            >
-                <TableHeaderColumn dataField="title" isKey dataSort>
-                    Title
-                </TableHeaderColumn>
-
-                <TableHeaderColumn
-                    dataField="authors"
-                    dataSort
-                    dataFormat={this.authorsFormatter}
-                    expandable={false}
-                >
-                    Authors
-                </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="year" dataSort>
-                    Year
-                </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="bookshelf" dataSort>
-                    Bookshelf
-                </TableHeaderColumn>
-            </BootstrapTable>
-        );
-    }
-
     getAuthorTable(options) {
+        const columns = [
+            {
+                dataField: 'title',
+                text: 'Full name'
+            }
+        ];
+
         return (
             <BootstrapTable
-                ref="table"
+                keyField="key"
                 data={this.state.response.data}
-                striped
-                hover
-                pagination
-                options={options}
-            >
-                <TableHeaderColumn dataField="fullname" isKey dataSort>
-                    fullname
-                </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="birthDate" dataSort>
-                    birthDate
-                </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="deathDate" dataSort>
-                    deathDate
-                </TableHeaderColumn>
-            </BootstrapTable>
+                columns={columns}
+            />
         );
     }
 
@@ -182,12 +139,9 @@ class AuthorsBooksTable extends Component {
 
         var table = null;
         if (this.state.isInitByData) {
-            if (this.props.authorId) {
-                table = this.getBooksTable(this.options);
-            } else {
                 table = this.getAuthorTable(this.options);
             }
-        }
+        
 
         return (
             <div>
