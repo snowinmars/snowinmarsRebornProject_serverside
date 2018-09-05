@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import List from '../../App/List/List';
 import { Link } from 'react-router-dom';
+
+import List from '../../App/List/List';
 
 const Config = require('Config');
 

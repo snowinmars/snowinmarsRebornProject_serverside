@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+
 const Config = require('Config');
 
 class BookExpand extends PureComponent {

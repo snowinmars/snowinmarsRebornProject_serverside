@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react';
 
-var Config = require('Config');
-
 class BookFilter extends PureComponent {
     constructor(props) {
         super(props);
@@ -13,7 +11,7 @@ class BookFilter extends PureComponent {
 
     onInputChange = e => this.update(e.target.value);
 
-    update = (text) => {
+    update = text => {
         var nodes = text.split(';');
 
         if (nodes.length === 1) {
@@ -32,14 +30,16 @@ class BookFilter extends PureComponent {
 
                 var newBlock = {
                     type: 'title',
-                    value: value,
+                    value: value
                 };
 
                 newBlocks.push(newBlock);
             }
         }
 
-        this.setState({ blocks: newBlocks }, () => console.log(this.state.blocks));
+        this.setState({ blocks: newBlocks }, () =>
+            console.log(this.state.blocks)
+        );
     };
 
     render() {

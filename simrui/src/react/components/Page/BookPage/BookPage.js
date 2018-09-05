@@ -1,15 +1,16 @@
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import './BookPage.scss';
+
 import React, { PureComponent } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import { Link } from 'react-router-dom';
 
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import './BookPage.scss';
 import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
 import BookFilter from './BookFilter';
-import { Link } from 'react-router-dom';
-import Loader from './Loader';
+import Loader from '../../App/Loader/Loader';
 
 const Config = require('Config');
 const Lib = require('./../../../Lib/componentUtils');
