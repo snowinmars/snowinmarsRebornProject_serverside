@@ -194,11 +194,13 @@ class BookPage extends PureComponent {
             >
                 {props => (
                     <div>
-                        <div class="simr-flex simr-book-table-search-and-filter">
+                        <div className="simr-flex simr-book-table-search-and-filter">
                             <div className="simr-book-table-search">
                                 <SearchBar {...props.searchProps} />
                             </div>
-                            <div className="simr-book-table-filter">
+                            <div
+                                className="simr-book-table-filter"
+                            >
                                 <BookFilter />
                             </div>
                         </div>

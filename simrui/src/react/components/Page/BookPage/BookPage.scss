@@ -72,7 +72,6 @@
     }
 }
 
-.simr-book-table-filter > input,
 .simr-book-table-search > input {
     background-color: $normalBgHoverColor;
     border-color: $normalBorderColor;
@@ -86,9 +85,7 @@
     }
 }
 
-.simr-book-table-filter {
-    flex-basis: 75%;
-}
+
 
 .simr-book-table-search {
     flex-basis: 25%;

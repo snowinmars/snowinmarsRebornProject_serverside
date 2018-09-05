@@ -1,0 +1,55 @@
+@import 'src/css/const';
+@import 'src/css/colorSchema/default/definition';
+
+.simr-filter-input {
+    @include nofocus;
+}
+
+.simr-book-table-filter {
+    flex-basis: 75%;
+  
+    .simr-filter-input {
+        background-color: $normalBgHoverColor;
+        border-color: $normalBorderColor;
+        color: $normalTextColor;
+
+        &:focus {
+            @include nofocus;
+            background-color: $normalBgFocusColor;
+            border-color: $normalBorderFocusColor;
+            color: $normalTextFocusColor;
+        }
+    }
+
+    .simr-filter-input.simr-transparent-color {
+        color: $colorTransparent;
+    }
+}
+
+.simr-filter-blocks-container {
+    position: absolute;
+
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+
+    .simr-filter-block {
+        background-color: red;
+        padding: 4px 0 4px 6px;
+        border-radius: 5px;
+
+        &:after {
+            content: '✖';
+            padding: 0.5em;
+            font-weight: bold;
+        }
+
+        &:hover:after {
+            cursor: pointer;
+        }
+
+        &:hover {
+            background-color: blue;
+        }
+    }
+}
