@@ -1,51 +1,7 @@
 @import 'src/css/const';
 @import 'src/css/colorSchema/default/definition';
 
-@import 'sk-folding-cube.scss';
-
-/* override the react-bootstrap-table 'options.sizePerPage' */
-/* due to I want the toltip to open up but now down */
-.dropdown-menu {
-    top: auto;
-    bottom: 100%;
-}
-
-.table > tbody > tr > td,
-.table > tbody > tr > th,
-.table > tfoot > tr > td,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > thead > tr > th {
-    vertical-align: baseline;
-}
-
-.table > tbody > tr > td:first-child,
-.table > tbody > tr > th:first-child,
-.table > tfoot > tr > td:first-child,
-.table > tfoot > tr > th:first-child,
-.table > thead > tr > td:first-child,
-.table > thead > tr > th:first-child {
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.table-hover > tbody > tr:hover {
-    background-color: $normalBgHoverColor;
-}
-
-.react-bootstrap-table-page-btns-ul.pagination {
-    margin: 0;
-    margin-right: $containerMargin;
-}
-
-.react-bootstrap-table-pagination-list {
-    text-align: right;
-}
-
-.dropdown.react-bs-table-sizePerPage-dropdown {
-    margin-left: $containerMargin;
-}
+@import '_BootstrapOverride.scss';
 
 .simr-book-page-actions {
     padding: 1em;
@@ -54,80 +10,6 @@
     border-top-right-radius: 1em;
 }
 
-.simr-loader {
-    top: -$containerMargin;
-    left: -$containerMargin;
-    bottom: -$containerMargin;
-    right: -$containerMargin;
-    position: absolute;
-
-    background-image: radial-gradient(
-        ellipse at center,
-        rgba($color: #000, $alpha: 0.5),
-        rgba($color: #000, $alpha: 1)
-    );
-
-    transition: opacity 2s;
-    opacity: 0.7;
-
-    z-index: 10;
-}
-
-@mixin animation($duration, $animation) {
-    -webkit-animation-duration: $duration;
-    -webkit-animation-name: $animation;
-    -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
-
-    -moz-animation-duration: $duration;
-    -moz-animation-name: $animation;
-    -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
-
-    -o-animation-duration: $duration;
-    -o-animation-name: $animation;
-    -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
-
-    animation-duration: $duration;
-    animation-name: $animation;
-    animation-fill-mode: forwards; /* this prevents the animation from restarting! */
-}
-
-@keyframes changecolour {
-    0% {
-        color: rgba($color: #fff, $alpha: 0);
-    }
-
-    100% {
-        color: rgba($color: #fff, $alpha: 1);
-    }
-}
-
-.simr-loader-api-error {
-    background-image: radial-gradient(
-        ellipse at center,
-        rgba($color: #000, $alpha: 0.7),
-        rgba($color: #200, $alpha: 0.8)
-    );
-
-    top: -$containerMargin;
-    left: -$containerMargin;
-    bottom: -$containerMargin;
-    right: -$containerMargin;
-
-    &:after {
-        content: 'Got API error, try again later';
-        color: white;
-        font-size: 150%;
-
-        @include animation(2s, changecolour);
-    }
-
-    transition: opacity 2s;
-    opacity: 1;
-
-    .sk-folding-cube {
-        display: none;
-    }
-}
 .simr-expanded-book {
     &:hover {
         background-color: $normalBgHoverColor;

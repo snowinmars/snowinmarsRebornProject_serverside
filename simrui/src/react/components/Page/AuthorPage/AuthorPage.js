@@ -3,16 +3,15 @@ import './AuthorPage.scss';
 import AuthorsBooksTable from './AuthorsTable';
 import { Link } from 'react-router-dom';
 
-var Lib = require('./../../../Lib/componentUtils');
-var Config = require('Config');
-
-var queryString = require('query-string');
+const Lib = require('./../../../Lib/componentUtils');
+const Config = require('Config');
+const queryString = require('query-string');
 
 class AuthorPage extends Component {
     constructor(props) {
         super(props);
 
-        var data = this.getDefaultData();
+        const data = this.getDefaultData();
 
         this.state = {
             isInitByAuthorData: false,
@@ -24,7 +23,7 @@ class AuthorPage extends Component {
             }
         };
 
-        var queryParameters = queryString.parse(this.props.location.search);
+        const queryParameters = queryString.parse(this.props.location.search);
         this.id = queryParameters.id;
     }
 
@@ -90,7 +89,7 @@ class AuthorPage extends Component {
     }
 
     getAuthor() {
-        var pseudonym;
+        let pseudonym;
         if (!this.id) {
             return;
         }
@@ -108,7 +107,7 @@ class AuthorPage extends Component {
             );
         }
 
-        var name;
+        let name;
         if (this.state.response.data.pseudonym) {
             name = (
                 <span className="simr-author-name">
@@ -140,7 +139,7 @@ class AuthorPage extends Component {
     }
 
     getLoader() {
-        var loaderClass =
+        let loaderClass =
             'simr-flex simr-flex-align-center simr-flex-justify-center';
 
         if (this.state.gotApiError) {
@@ -167,9 +166,9 @@ class AuthorPage extends Component {
     }
 
     render() {
-        var loader = this.getLoader();
-        var actions = this.getActions();
-        var author = this.getAuthor();
+        const loader = this.getLoader();
+        const actions = this.getActions();
+        const author = this.getAuthor();
 
         return (
             <div>

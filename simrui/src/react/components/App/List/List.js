@@ -42,12 +42,13 @@ class List extends PureComponent {
     };
 
     updateChildrenVisability = () => {
-        var children = Array.from(this.me.current.children);
-        var count = children.length;
-        var thisRight = this.me.current.getBoundingClientRect().right;
+        const children = Array.from(this.me.current.children);
+        const count = children.length;
+        const thisRight = this.me.current.getBoundingClientRect().right;
+        let i;
 
-        for (var i = 1; i < count; i++) {
-            var thisChildRight = children[i].getBoundingClientRect().right;
+        for (i = 1; i < count; i++) {
+            const thisChildRight = children[i].getBoundingClientRect().right;
 
             if (thisChildRight > thisRight) {
                 this.setState({ firstHiddenChild: i });
@@ -75,16 +76,16 @@ class List extends PureComponent {
     }
 
     render() {
-        var items = this.props.items.map(item => this.mapItem(item));
+        const items = this.props.items.map(item => this.mapItem(item));
 
-        var className = ' simr-list ';
+        let className = ' simr-list ';
 
         if (this.state.firstHiddenChild !== -1) {
             className +=
                 ' hide-last-' + this.state.firstHiddenChild + '-children ';
         }
 
-        var list = (
+        const list = (
             <div ref={this.me} className={className}>
                 {items}
             </div>

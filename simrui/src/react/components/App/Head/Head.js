@@ -4,7 +4,7 @@ import ToggleMenu from './../ToggleMenu/ToggleMenu';
 import './Head.scss';
 import { Link } from 'react-router-dom';
 
-var Config = require('Config');
+const Config = require('Config');
 
 class Head extends PureComponent {
     render() {

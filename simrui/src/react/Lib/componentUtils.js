@@ -1,12 +1,12 @@
-var fetchAndHandle = function({ uri, data, method, onSuccess, onError }) {
-    var _method;
+const _fetchAndHandle = function({ uri, data, method, onSuccess, onError }) {
+    let _method;
     if (!method) {
         _method = 'POST';
     } else {
         _method = method;
     }
 
-    var _body;
+    let _body;
     if (method === 'GET' || method === 'HEAD') {
         uri = uri + '?' + objectToHttpQueryString(data);
         _body = undefined;
@@ -53,4 +53,4 @@ var fetchAndHandle = function({ uri, data, method, onSuccess, onError }) {
     }
 };
 
-exports.fetchAndHandle = fetchAndHandle;
+export { _fetchAndHandle as fetchAndHandle };

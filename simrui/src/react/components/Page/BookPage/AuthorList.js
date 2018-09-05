@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import List from '../../App/List/List';
 import { Link } from 'react-router-dom';
 
-var Config = require('Config');
+const Config = require('Config');
 
 class AuthorList extends PureComponent {
     renderAuthor() {

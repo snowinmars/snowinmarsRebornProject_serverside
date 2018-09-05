@@ -9,15 +9,17 @@ import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
 import BookFilter from './BookFilter';
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
 
-var Config = require('Config');
-var Lib = require('./../../../Lib/componentUtils');
+const Config = require('Config');
+const Lib = require('./../../../Lib/componentUtils');
 const { SearchBar } = Search;
+
 class BookPage extends PureComponent {
     constructor(props) {
         super(props);
 
-        var data = this.getDefaultData();
+        const data = this.getDefaultData();
 
         this.state = {
             isInitByFirstPage: false,
@@ -91,7 +93,7 @@ class BookPage extends PureComponent {
     }
 
     getDefaultData() {
-        var defaultUser = {
+        const defaultUser = {
             title: 'Loading...',
             authors: [
                 {
@@ -115,9 +117,9 @@ class BookPage extends PureComponent {
             key: 0
         };
 
-        var data = [];
+        const data = [];
 
-        for (var i = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             defaultUser.key = Math.random();
             defaultUser.authors[0].key = Math.random();
             data.push(defaultUser);
@@ -202,7 +204,7 @@ class BookPage extends PureComponent {
                         <BootstrapTable
                             ref={this.table}
                             hover
-                            pagination={paginationFactory(this.options)}
+                            pagination={paginationFactory(options)}
                             expandRow={{
                                 renderer: this.expandComponent,
                                 showExpandColumn: true,
@@ -218,39 +220,17 @@ class BookPage extends PureComponent {
         );
     }
 
-    getLoader() {
-        var loaderClass =
-            'simr-flex simr-flex-align-center simr-flex-justify-center';
-
-        if (this.state.gotApiError) {
-            loaderClass += ' simr-loader-api-error ';
-        }
-
-        if (this.state.isInitByFirstPage) {
-            loaderClass += ' simr-loader hidden ';
-        } else {
-            loaderClass += ' simr-loader ';
-        }
-
-        const loader = (
-            <div className={loaderClass}>
-                <div className="sk-folding-cube">
-                    <div className="sk-cube1 sk-cube" />
-                    <div className="sk-cube2 sk-cube" />
-                    <div className="sk-cube4 sk-cube" />
-                    <div className="sk-cube3 sk-cube" />
-                </div>
-            </div>
-        );
-        return loader;
-    }
-
     render() {
-        var loader = this.getLoader();
+        const loader = (
+            <Loader
+                hasErrors={this.state.gotApiError}
+                isHidden={this.state.isInitByFirstPage}
+            />
+        );
 
-        var actions = this.getActions();
+        const actions = this.getActions();
 
-        var table = this.getTable(this.options);
+        const table = this.getTable(this.options);
 
         return (
             <div>

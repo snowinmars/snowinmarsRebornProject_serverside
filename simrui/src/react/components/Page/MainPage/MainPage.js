@@ -11,7 +11,7 @@ import ChatPage from './../ChatPage/ChatPage';
 import AuthorPage from './../AuthorPage/AuthorPage';
 import './MainPage.scss';
 
-var Config = require('Config');
+const Config = require('Config');
 
 class MainPage extends Component {
     render() {
