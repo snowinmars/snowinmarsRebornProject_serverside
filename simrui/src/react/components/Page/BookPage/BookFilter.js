@@ -49,11 +49,15 @@ class BookFilter extends PureComponent {
         }
 
         if (ghosts.length !== 0) {
-            console.log('ghosts', ghosts);
-            this.setState({ blocks: ghosts }, function() {
-                console.log('state', ghosts);
-            });
+            this.setState({ blocks: ghosts });
         }
+    };
+
+    onFilterBlockClick = prop => {
+        console.log(this.state.blocks, prop);
+        this.setState(prevState => ({
+            blocks: prevState.blocks.filter(block => block.prop !== prop)
+        }));
     };
 
     render() {
@@ -68,9 +72,13 @@ class BookFilter extends PureComponent {
                     ref={this.inputGhost}
                     className="simr-filter-blocks-container"
                 >
-                    {this.state.blocks.map(function(item) {
+                    {this.state.blocks.map(item => {
                         return (
-                            <span className="simr-filter-block">
+                            <span
+                                key={item.prop}
+                                className="simr-filter-block"
+                                onClick={() => this.onFilterBlockClick(item.prop)}
+                            >
                                 {item.prop}:{item.value}
                             </span>
                         );
