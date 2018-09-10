@@ -34,9 +34,11 @@
     line-height: 1.42857143;
 
     .simr-filter-block {
-        background-color: red;
+        background-color: $infoBtnColor;
         padding: 4px 0 4px 6px;
         border-radius: 5px;
+        margin-right: 0.4em;
+        color: $infoTextColor;
 
         &:after {
             content: '✖';
@@ -49,7 +51,8 @@
         }
 
         &:hover {
-            background-color: blue;
+            background-color: $infoBtnHoverColor;
+            color: $infoTextHoverColor;
         }
     }
 }

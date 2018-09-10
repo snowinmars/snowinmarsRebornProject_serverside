@@ -5,7 +5,7 @@ $infoBgHoverColor: lighten($colorBlue, 25%);
 $infoBgFocusColor: lighten($colorBlue, 25%);
 $infoBgDisabledColor: mix($colorBlue, $colorGray, 50%);
 
-$infoBtnColor: $colorWhite;
+$infoBtnColor: $colorGray;
 $infoBtnHoverColor: $colorGray;
 $infoBtnFocusColor: $colorGray;
 $infoBtnDisabledColor: mix($colorWhite, $colorGray, 50%);

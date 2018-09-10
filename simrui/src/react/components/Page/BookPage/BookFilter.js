@@ -23,7 +23,38 @@ class BookFilter extends PureComponent {
     onInputBlur = e => {
         this.inputGhost.current.classList.toggle('hidden');
         this.input.current.classList.toggle('simr-transparent-color');
-    }
+    };
+
+    onInputChange = e => {
+        const tokenSeparator = ':';
+        const text = e.target.value;
+
+        const blocks = text.split(';');
+        const blocksLength = blocks.length - 1; // -1 due to last segment always will be empty
+
+        if (blocksLength === 0) {
+            return;
+        }
+
+        let ghosts = [];
+
+        for (let i = 0; i < blocksLength; i++) {
+            const block = blocks[i].trim();
+
+            const tokens = block.split(tokenSeparator);
+            const prop = tokens[0];
+            const value = tokens.slice(1).join(tokenSeparator);
+
+            ghosts.push({ prop: prop, value: value });
+        }
+
+        if (ghosts.length !== 0) {
+            console.log('ghosts', ghosts);
+            this.setState({ blocks: ghosts }, function() {
+                console.log('state', ghosts);
+            });
+        }
+    };
 
     render() {
         return (
@@ -37,7 +68,13 @@ class BookFilter extends PureComponent {
                     ref={this.inputGhost}
                     className="simr-filter-blocks-container"
                 >
-                    <span className="simr-filter-block">title:Whatever</span>
+                    {this.state.blocks.map(function(item) {
+                        return (
+                            <span className="simr-filter-block">
+                                {item.prop}:{item.value}
+                            </span>
+                        );
+                    })}
                 </div>
                 <div className="simr-filter-input-container">
                     <input
@@ -47,6 +84,7 @@ class BookFilter extends PureComponent {
                         placeholder="Filter"
                         onFocus={this.onInputFocus}
                         onBlur={this.onInputBlur}
+                        onChange={this.onInputChange}
                     />
                 </div>
             </div>
