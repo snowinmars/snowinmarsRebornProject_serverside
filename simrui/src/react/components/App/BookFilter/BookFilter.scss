@@ -6,13 +6,9 @@
 }
 
 .simr-book-table-search-and-filter {
-    flex-direction: column;
     border-bottom: $normalBorderColor 1px solid;
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
-}
-
-.simr-book-table-search-and-filter {
     flex-basis: 75%;
 
     .simr-book-table-search {
@@ -28,6 +24,9 @@
         }
     }
 
+    .simr-book-table-apply-btn {
+        margin-left: 1em;
+    }
 }
 
 .simr-book-table-filters {

@@ -65,12 +65,12 @@ class BookFilter extends PureComponent {
 
         if (this.state.status === status.blocks) {
             element = (
-                <div className='simr-book-table-filters' ref={this.blocks}>
+                <div className="simr-book-table-filters" ref={this.blocks}>
                     {this.state.nodes.map(node => {
                         return (
                             <span
                                 data-value={node}
-                                className='simr-book-table-filter'
+                                className="simr-book-table-filter"
                                 onClick={this.onBlockClick}
                             >
                                 {node}
@@ -81,19 +81,21 @@ class BookFilter extends PureComponent {
             );
         }
 
-      
-
         return (
-            <div className='simr-flex simr-book-table-search-and-filter'>
+            <div className="simr-flex simr-book-table-search-and-filter">
                 <input
-                    type='text'
-                    className='simr-form-control simr-book-table-search '
+                    type="text"
+                    className="simr-form-control simr-book-table-search "
                     value={this.state.text}
                     ref={this.input}
                     onBlur={this.onInputBlur}
                     onFocus={this.onInputFocus}
                     onChange={this.onInputChange}
                 />
+
+                <button className="simr-btn simr-book-table-apply-btn">
+                    Apply
+                </button>
 
                 {element}
             </div>
