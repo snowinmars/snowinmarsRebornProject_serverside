@@ -5,13 +5,20 @@
     @include nofocus;
 }
 
-.simr-book-table-filter {
+.simr-book-table-search-and-filter {
+    flex-direction: column;
+    border-bottom: $normalBorderColor 1px solid;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.simr-book-table-search-and-filter {
     flex-basis: 75%;
-  
-    .simr-filter-input {
+
+    .simr-book-table-search {
         background-color: $normalBgHoverColor;
         border-color: $normalBorderColor;
-        color: $normalTextColor;
+        color: $colorTransparent;
 
         &:focus {
             @include nofocus;
@@ -21,19 +28,16 @@
         }
     }
 
-    .simr-filter-input.simr-transparent-color {
-        color: $colorTransparent;
-    }
 }
 
-.simr-filter-blocks-container {
+.simr-book-table-filters {
     position: absolute;
 
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
 
-    .simr-filter-block {
+    .simr-book-table-filter {
         background-color: $infoBtnColor;
         padding: 4px 0 4px 6px;
         border-radius: 5px;

@@ -15,7 +15,7 @@ $infoBorderHoverColor: lighten($colorBlue, 25%);
 $infoBorderFocusColor: lighten($colorBlue, 25%);
 $infoBorderDisabledColor: mix($colorBlue, $colorGray, 50%);
 
-$infoTextColor: $colorAqua;
-$infoTextHoverColor: lighten($colorAqua, 25%);
-$infoTextFocusColor: lighten($colorAqua, 25%);
-$infoTextDisabledColor: mix($colorAqua, $colorGray, 50%);
+$infoTextColor: $blueSky;
+$infoTextHoverColor: lighten($blueSky, 25%);
+$infoTextFocusColor: lighten($blueSky, 25%);
+$infoTextDisabledColor: mix($blueSky, $colorGray, 50%);

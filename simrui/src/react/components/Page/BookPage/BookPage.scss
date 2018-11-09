@@ -61,32 +61,4 @@
     }
 }
 
-.simr-book-table-search-and-filter {
-    border-bottom: $normalBorderColor 1px solid;
-    margin-bottom: 0.5em;
-    padding-bottom: 0.5em;
 
-    & > *:first-child {
-        margin-left: 30px; // this is first table column width TODO how to calc it?
-        margin-right: 0.3em;
-    }
-}
-
-.simr-book-table-search > input {
-    background-color: $normalBgHoverColor;
-    border-color: $normalBorderColor;
-    color: $normalTextColor;
-
-    &:focus {
-        @include nofocus;
-        background-color: $normalBgFocusColor;
-        border-color: $normalBorderFocusColor;
-        color: $normalTextFocusColor;
-    }
-}
-
-
-
-.simr-book-table-search {
-    flex-basis: 25%;
-}

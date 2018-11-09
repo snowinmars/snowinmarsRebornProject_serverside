@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
-import BookFilter from './BookFilter';
+import BookFilter from './../../App/BookFilter/BookFilter';
 import Loader from '../../App/Loader/Loader';
 
 const Config = require('Config');
@@ -194,16 +194,7 @@ class BookPage extends PureComponent {
             >
                 {props => (
                     <div>
-                        <div className="simr-flex simr-book-table-search-and-filter">
-                            <div className="simr-book-table-search">
-                                <SearchBar {...props.searchProps} />
-                            </div>
-                            <div
-                                className="simr-book-table-filter"
-                            >
-                                <BookFilter />
-                            </div>
-                        </div>
+                        <BookFilter />
                         <BootstrapTable
                             ref={this.table}
                             hover
