@@ -1,4 +1,4 @@
-import './BookFilter.scss';
+import './Filter.scss';
 
 import React, { PureComponent } from 'react';
 
@@ -7,7 +7,9 @@ const status = {
     blocks: 'blocks'
 };
 
-class BookFilter extends PureComponent {
+class Filter extends PureComponent {
+    blockSplitCharacter = '[and]';
+
     constructor(props) {
         super(props);
 
@@ -23,10 +25,9 @@ class BookFilter extends PureComponent {
 
     onInputBlur = () => {
         const rawQuery = this.input.current.value;
-        const blockSplitCharacter = ';';
 
         const nodes = rawQuery
-            .split(blockSplitCharacter)
+            .split(this.blockSplitCharacter)
             .filter(block => block && block.trim())
             .map(block => block.trim());
 
@@ -43,7 +44,7 @@ class BookFilter extends PureComponent {
         }
 
         return nodes.reduce((result, current) => {
-            return (result = result + ' ; ' + current);
+            return (result = [result , this.blockSplitCharacter, current].join(' '));
         });
     };
 
@@ -65,12 +66,12 @@ class BookFilter extends PureComponent {
 
         if (this.state.status === status.blocks) {
             element = (
-                <div className="simr-book-table-filters" ref={this.blocks}>
+                <div className="simr-filters" ref={this.blocks}>
                     {this.state.nodes.map(node => {
                         return (
                             <span
                                 data-value={node}
-                                className="simr-book-table-filter"
+                                className="simr-filter"
                                 onClick={this.onBlockClick}
                             >
                                 {node}
@@ -82,10 +83,10 @@ class BookFilter extends PureComponent {
         }
 
         return (
-            <div className="simr-flex simr-book-table-search-and-filter">
+            <div className="simr-flex simr-search-and-filter">
                 <input
                     type="text"
-                    className="simr-form-control simr-book-table-search "
+                    className="simr-form-control simr-search "
                     value={this.state.text}
                     ref={this.input}
                     onBlur={this.onInputBlur}
@@ -93,7 +94,7 @@ class BookFilter extends PureComponent {
                     onChange={this.onInputChange}
                 />
 
-                <button className="simr-btn simr-book-table-apply-btn">
+                <button className="simr-btn simr-apply-btn">
                     Apply
                 </button>
 
@@ -103,4 +104,4 @@ class BookFilter extends PureComponent {
     }
 }
 
-export default BookFilter;
+export default Filter;

@@ -11,9 +11,7 @@
 }
 
 .simr-expanded-book {
-    &:hover {
-        background-color: $normalBgHoverColor;
-    }
+    background-color: $normalBgHoverColor;
 
     padding: 1em;
     .simr-book-description {

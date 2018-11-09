@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
-import BookFilter from './../../App/BookFilter/BookFilter';
+import Filter from './../../App/Filter/Filter';
 import Loader from '../../App/Loader/Loader';
 
 const Config = require('Config');
@@ -194,7 +194,7 @@ class BookPage extends PureComponent {
             >
                 {props => (
                     <div>
-                        <BookFilter />
+                        <Filter />
                         <BootstrapTable
                             ref={this.table}
                             hover
