@@ -9,7 +9,7 @@
         [HttpPost, HttpOptions]
         public string Version()
         {
-            return JsonConvert.SerializeObject(new { Backend = "0.1.0", });
+            return JsonConvert.SerializeObject(new { Backend = "1.0.0", });
         }
     }
 }

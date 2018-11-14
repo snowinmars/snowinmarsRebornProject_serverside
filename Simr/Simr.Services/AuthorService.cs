@@ -1,26 +1,31 @@
-﻿namespace Simr.Services
-{
+using SandS.Algorithm.Library.GeneratorNamespace;
+
     using System;
 
     using Sibr.Entities;
-
+    using Simr.IDataLayer;
     using Simr.IServices;
+
+namespace Simr.Services
+{
 
     public class AuthorService : IAuthorService
     {
+        public AuthorService(IAuthorDataLayer dataLayer)
+        {
+            DataLayer = dataLayer;
+        }
+
+        private IAuthorDataLayer DataLayer { get; }
+
         public Author Get(Guid id)
         {
-            return new Author("Gomer");
+            return DataLayer.Get(id);
         }
 
         public Author[] Filter()
         {
-            return new[]
-                       {
-                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-                           new Author("Gomer"), new Author("Gomer"), new Author("Gomer"), new Author("Gomer"),
-                       };
+            return DataLayer.Filter();
         }
     }
 }

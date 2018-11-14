@@ -4,16 +4,15 @@
     using System.Web.Http;
 
     using Simr.IServices;
-    using Simr.Services;
     using Simr.WebApp.Helpers;
     using Simr.WebApp.Models;
     using Simr.WebApp.Models.User.Read;
 
     public class UserController : ApiController
     {
-        public UserController()
+        public UserController(IUserService userService)
         {
-            this.UserService = new UserService();
+            this.UserService = userService;
         }
 
         private IUserService UserService { get; }
