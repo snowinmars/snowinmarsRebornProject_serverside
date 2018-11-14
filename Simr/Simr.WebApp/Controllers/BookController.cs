@@ -29,13 +29,11 @@ namespace Simr.WebApp.Controllers
         }
 
         [HttpPost]
-        public string Filter(FilterModel filter)
+        public string Filter()
         {
             var books = BookService.Filter();
 
             var models = books.ToBookGridModels();
-
-            models = models.Skip(filter.Page.Number * filter.Page.Size).Take(filter.Page.Size);
 
             return new EnumerableResponse<BookGridModel>(models).ToJson();
         }
