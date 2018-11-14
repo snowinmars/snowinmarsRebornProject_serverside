@@ -1,12 +1,12 @@
-﻿namespace Sirb.Common
-{
-    using System;
+﻿using System;
 
+namespace Sirb.Common
+{
     public static class Config
     {
         static Config()
         {
-            Config.Random = new Random();
+            Random = new Random();
         }
 
         public static Random Random { get; }

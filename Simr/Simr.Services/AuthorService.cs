@@ -1,14 +1,12 @@
-using SandS.Algorithm.Library.GeneratorNamespace;
+using System;
 
-    using System;
+using Sibr.Entities;
 
-    using Sibr.Entities;
-    using Simr.IDataLayer;
-    using Simr.IServices;
+using Simr.IDataLayer;
+using Simr.IServices;
 
 namespace Simr.Services
 {
-
     public class AuthorService : IAuthorService
     {
         public AuthorService(IAuthorDataLayer dataLayer)

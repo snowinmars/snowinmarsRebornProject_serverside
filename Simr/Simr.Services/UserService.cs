@@ -1,11 +1,12 @@
-﻿namespace Simr.Services
+﻿using System;
+
+using Sibr.Entities;
+
+using Simr.IDataLayer;
+using Simr.IServices;
+
+namespace Simr.Services
 {
-    using System;
-
-    using Sibr.Entities;
-    using Simr.IDataLayer;
-    using Simr.IServices;
-
     public class UserService : IUserService
     {
         public UserService(IUserDataLayer dataLayer)

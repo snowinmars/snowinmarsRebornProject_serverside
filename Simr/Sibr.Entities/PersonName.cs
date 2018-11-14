@@ -4,9 +4,9 @@
     {
         public PersonName()
         {
-            this.GivenName = string.Empty;
-            this.FullMiddleName = string.Empty;
-            this.FamilyName = string.Empty;
+            GivenName = string.Empty;
+            FullMiddleName = string.Empty;
+            FamilyName = string.Empty;
         }
 
         public string FamilyName { get; set; }

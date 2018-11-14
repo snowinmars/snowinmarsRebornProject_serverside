@@ -1,7 +1,7 @@
-﻿namespace Simr.WebApp.Models.PersonName
-{
-    using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace Simr.WebApp.Models.PersonName
+{
     public class PersonNameModel : Model
     {
         [JsonProperty("familyName")]

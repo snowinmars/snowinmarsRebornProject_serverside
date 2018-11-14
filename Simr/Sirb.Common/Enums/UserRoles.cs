@@ -1,7 +1,7 @@
-﻿namespace Sirb.Common.Enums
-{
-    using System;
+﻿using System;
 
+namespace Sirb.Common.Enums
+{
     [Flags]
     public enum UserRoles
     {

@@ -1,18 +1,18 @@
-﻿namespace Simr.WebApp.Models.Book.Read
+﻿using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
+using Simr.WebApp.Models.Author.Read;
+
+using Sirb.Common.Enums;
+
+namespace Simr.WebApp.Models.Book.Read
 {
-    using System.Collections.Generic;
-
-    using Newtonsoft.Json;
-
-    using Simr.WebApp.Models.Author.Read;
-
-    using Sirb.Common.Enums;
-
     public class BookGridModel : Model
     {
         public BookGridModel()
         {
-            this.Authors = new List<AuthorGridModel>();
+            Authors = new List<AuthorGridModel>();
         }
 
         [JsonProperty("status")]

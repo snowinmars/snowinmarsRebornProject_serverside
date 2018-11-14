@@ -1,18 +1,18 @@
-﻿namespace Sibr.Entities
+﻿using System.Collections.Generic;
+
+using Sirb.Common.Enums;
+
+namespace Sibr.Entities
 {
-    using System.Collections.Generic;
-
-    using Sirb.Common.Enums;
-
     public class Book : Entity
     {
         public Book(string title, int pageCount, BookStatus bookStatus)
         {
-            this.Title = title;
-            this.PageCount = pageCount;
-            this.Status = bookStatus;
+            Title = title;
+            PageCount = pageCount;
+            Status = bookStatus;
 
-            this.Authors = new List<Author>();
+            Authors = new List<Author>();
         }
 
         public BookStatus Status { get; }

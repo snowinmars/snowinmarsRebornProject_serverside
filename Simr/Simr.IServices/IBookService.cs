@@ -1,7 +1,7 @@
-﻿namespace Simr.IServices
-{
-    using Sibr.Entities;
+﻿using Sibr.Entities;
 
+namespace Simr.IServices
+{
     public interface IBookService : IService<Book>
     {
     }

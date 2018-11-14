@@ -1,18 +1,12 @@
-﻿namespace Simr.Services
+﻿using System;
+
+using Sibr.Entities;
+
+using Simr.IDataLayer;
+using Simr.IServices;
+
+namespace Simr.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using SandS.Algorithm.Library.GeneratorNamespace;
-
-    using Sibr.Entities;
-    using Simr.IDataLayer;
-    using Simr.IServices;
-
-    using Sirb.Common;
-    using Sirb.Common.Enums;
-
     public class BookService : IBookService
     {
         public BookService(IBookDataLayer dataLayer)

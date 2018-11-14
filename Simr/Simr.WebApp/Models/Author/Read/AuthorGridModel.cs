@@ -1,9 +1,9 @@
-﻿namespace Simr.WebApp.Models.Author.Read
+﻿using Newtonsoft.Json;
+
+using Simr.WebApp.Models.PersonName;
+
+namespace Simr.WebApp.Models.Author.Read
 {
-    using Newtonsoft.Json;
-
-    using Simr.WebApp.Models.PersonName;
-
     public class AuthorGridModel : Model
     {
         [JsonProperty("name")]

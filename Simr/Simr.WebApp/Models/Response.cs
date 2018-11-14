@@ -1,19 +1,19 @@
-﻿namespace Simr.WebApp.Models
-{
-    using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace Simr.WebApp.Models
+{
     public class Response<T> : IResponse<T>
     {
         public Response(T data)
         {
-            this.Data = data;
+            Data = data;
         }
 
         [JsonProperty("code")]
         public int Code { get; set; }
 
         [JsonProperty("isSuccess ")]
-        public bool IsSuccess => this.Code == 0;
+        public bool IsSuccess => Code == 0;
 
         [JsonProperty("data")]
         public T Data { get; set; }

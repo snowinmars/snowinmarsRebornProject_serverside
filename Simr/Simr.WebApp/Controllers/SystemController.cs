@@ -1,9 +1,9 @@
-﻿namespace Simr.WebApp.Controllers
+﻿using System.Web.Http;
+
+using Newtonsoft.Json;
+
+namespace Simr.WebApp.Controllers
 {
-    using System.Web.Http;
-
-    using Newtonsoft.Json;
-
     public class SystemController : ApiController
     {
         [HttpPost, HttpOptions]

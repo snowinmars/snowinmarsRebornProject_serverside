@@ -1,12 +1,12 @@
-﻿namespace Sibr.Entities
-{
-    using Sirb.Common.Enums;
+﻿using Sirb.Common.Enums;
 
+namespace Sibr.Entities
+{
     public class User : Entity
     {
         public User(string username)
         {
-            this.Username = username;
+            Username = username;
         }
 
         public string Email { get; set; }

@@ -1,7 +1,7 @@
-﻿namespace Sibr.Entities
-{
-    using System;
+﻿using System;
 
+namespace Sibr.Entities
+{
     public class Author : Entity
     {
         public Author(string aka)
@@ -11,10 +11,10 @@
                 throw new ArgumentException("Shortcut can't be empty");
             }
 
-            this.Aka = aka;
+            Aka = aka;
 
-            this.Pseudonym = new PersonName();
-            this.Name = new PersonName();
+            Pseudonym = new PersonName();
+            Name = new PersonName();
         }
 
         public PersonName Name { get; set; }

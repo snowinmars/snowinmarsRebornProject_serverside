@@ -1,7 +1,7 @@
-﻿namespace Simr.WebApp.Models.User.Read
-{
-    using Sirb.Common.Enums;
+﻿using Sirb.Common.Enums;
 
+namespace Simr.WebApp.Models.User.Read
+{
     public class UserGridModel : Model
     {
         public string Email { get; set; }

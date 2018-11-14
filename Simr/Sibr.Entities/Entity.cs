@@ -1,12 +1,12 @@
-﻿namespace Sibr.Entities
-{
-    using System;
+﻿using System;
 
+namespace Sibr.Entities
+{
     public abstract class Entity
     {
         protected Entity()
         {
-            this.Id = Guid.NewGuid();
+            Id = Guid.NewGuid();
         }
 
         public Guid Id { get; set; }
