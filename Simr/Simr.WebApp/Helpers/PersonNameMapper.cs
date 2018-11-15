@@ -25,7 +25,6 @@ namespace Simr.WebApp.Helpers
                 GivenName = personName.GivenName,
                 FullMiddleName = personName.FullMiddleName,
                 FamilyName = personName.FamilyName,
-                Id = personName.Id,
             };
         }
 
@@ -36,7 +35,6 @@ namespace Simr.WebApp.Helpers
                 GivenName = personNameModel.GivenName,
                 FullMiddleName = personNameModel.FullMiddleName,
                 FamilyName = personNameModel.FamilyName,
-                Id = personNameModel.Id,
             };
         }
     }

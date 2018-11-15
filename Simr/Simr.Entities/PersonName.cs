@@ -1,6 +1,6 @@
 ﻿namespace Simr.Entities
 {
-    public class PersonName : Entity
+    public class PersonName
     {
         public PersonName()
         {

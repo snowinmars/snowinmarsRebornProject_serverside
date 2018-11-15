@@ -2,7 +2,7 @@
 
 namespace Simr.WebApp.Models.PersonName
 {
-    public class PersonNameModel : Model
+    public class PersonNameModel
     {
         [JsonProperty("familyName")]
         public string FamilyName { get; set; }
