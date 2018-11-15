@@ -1,4 +1,4 @@
-﻿using Sibr.Entities;
+﻿using Simr.Entities;
 
 namespace Simr.IDataLayer
 {

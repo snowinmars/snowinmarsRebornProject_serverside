@@ -1,6 +1,6 @@
-﻿using Sirb.Common.Enums;
+﻿using Simr.Common.Enums;
 
-namespace Sibr.Entities
+namespace Simr.Entities
 {
     public class User : Entity
     {

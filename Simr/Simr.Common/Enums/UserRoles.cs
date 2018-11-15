@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sirb.Common.Enums
+namespace Simr.Common.Enums
 {
     [Flags]
     public enum UserRoles

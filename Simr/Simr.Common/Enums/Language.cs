@@ -1,4 +1,4 @@
-﻿namespace Sirb.Common.Enums
+﻿namespace Simr.Common.Enums
 {
     public enum Language
     {

@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simr.WebApp", "Simr.WebApp\Simr.WebApp.csproj", "{2D02E9E2-EDB3-4C7A-A44C-ED655A2EA2F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sibr.Entities", "Sibr.Entities\Sibr.Entities.csproj", "{AA85FA19-8EDB-4209-A53F-84E812A79E19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simr.Entities", "Simr.Entities\Simr.Entities.csproj", "{AA85FA19-8EDB-4209-A53F-84E812A79E19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirb.Common", "Sirb.Common\Sirb.Common.csproj", "{64705162-621B-415A-AF21-31A7EA3A3655}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simr.Common", "Simr.Common\Simr.Common.csproj", "{64705162-621B-415A-AF21-31A7EA3A3655}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simr.IServices", "Simr.IServices\Simr.IServices.csproj", "{CA9CB313-6749-4967-A6A0-BC7590D3FB9A}"
 EndProject

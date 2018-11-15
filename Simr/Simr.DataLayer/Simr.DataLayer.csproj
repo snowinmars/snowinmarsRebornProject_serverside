@@ -32,7 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,14 +55,18 @@
     <Compile Include="UserDataLayer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sibr.Entities\Sibr.Entities.csproj">
-      <Project>{AA85FA19-8EDB-4209-A53F-84E812A79E19}</Project>
-      <Name>Sibr.Entities</Name>
+    <ProjectReference Include="..\Simr.Entities\Simr.Entities.csproj">
+      <Project>{aa85fa19-8edb-4209-a53f-84e812a79e19}</Project>
+      <Name>Simr.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Simr.IDataLayer\Simr.IDataLayer.csproj">
       <Project>{6F9B81C3-65FD-482E-9D83-9809AFCC67E5}</Project>
       <Name>Simr.IDataLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

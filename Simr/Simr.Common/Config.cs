@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sirb.Common
+namespace Simr.Common
 {
     public static class Config
     {

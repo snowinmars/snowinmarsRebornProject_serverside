@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sibr.Entities
+namespace Simr.Entities
 {
     public abstract class Entity
     {

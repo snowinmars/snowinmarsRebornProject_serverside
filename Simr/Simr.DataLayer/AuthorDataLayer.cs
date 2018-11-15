@@ -1,7 +1,6 @@
 ﻿using System;
 
-using Sibr.Entities;
-
+using Simr.Entities;
 using Simr.IDataLayer;
 
 namespace Simr.DataLayer

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using Sibr.Entities;
-
+using Simr.Entities;
 using Simr.WebApp.Models.Author.Read;
 
 namespace Simr.WebApp.Helpers

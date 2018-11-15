@@ -1,4 +1,4 @@
-﻿namespace Sibr.Entities
+﻿namespace Simr.Entities
 {
     public class PersonName : Entity
     {
