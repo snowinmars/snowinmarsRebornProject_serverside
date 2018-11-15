@@ -11,6 +11,17 @@ namespace Simr.DataLayer
 {
     public class EntityContext : DbContext
     {
+        static EntityContext()
+        {
+            // Forging
+            var type = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
+
+            if (type == null)
+            {
+                throw new Exception();
+            }
+        }
+
         public EntityContext() : base("SimrDatabase")
         {
         }

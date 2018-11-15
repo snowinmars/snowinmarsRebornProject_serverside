@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 using Simr.Common.Enums;
 
@@ -12,6 +13,7 @@ namespace Simr.DataLayer.DbEntities
             Authors = new DbAuthor[0];
         }
 
+        [Key]
         public Guid Id { get; set; }
 
         public bool IsSynchronized { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Simr.DataLayer.DbEntities
 {
@@ -8,6 +9,7 @@ namespace Simr.DataLayer.DbEntities
         {
         }
 
+        [Key]
         public Guid Id { get; set; }
 
         public bool IsSynchronized { get; set; }

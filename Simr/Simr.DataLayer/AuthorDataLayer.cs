@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 
+using Simr.Common;
 using Simr.Entities;
 using Simr.IDataLayer;
 
@@ -9,12 +11,27 @@ namespace Simr.DataLayer
     {
         public Author Get(Guid id)
         {
-            throw new NotImplementedException();
+            using (var context = new EntityContext())
+            {
+                var dbAuthor = context.DbAuthors.FirstOrDefault(x => x.Id == id);
+
+                if (dbAuthor == null)
+                {
+                    throw new NotFoundException($"Can't find author with id {id}");
+                }
+
+                return dbAuthor.ToAuthor();
+            }
         }
 
         public Author[] Filter()
         {
-            throw new NotImplementedException();
+            using (var context = new EntityContext())
+            {
+                var dbAuthors = context.DbAuthors.Fetch();
+
+                return dbAuthors.Select(x => x.ToAuthor()).ToArray();
+            }
         }
     }
 }

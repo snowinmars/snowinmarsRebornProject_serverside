@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 using Simr.Common.Enums;
 
@@ -11,6 +12,7 @@ namespace Simr.DataLayer.DbEntities
             Username = username;
         }
 
+        [Key]
         public Guid Id { get; set; }
 
         public bool IsSynchronized { get; set; }

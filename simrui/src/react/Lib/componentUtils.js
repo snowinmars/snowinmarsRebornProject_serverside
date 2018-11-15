@@ -1,17 +1,14 @@
-var fetchAndHandle = function({ uri, onSuccess, onError }) {
+var fetchAndHandle = function ({ uri, onSuccess, onError }) {
     fetch(uri, {
+        mode: 'cors',
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'User-Agent': 'Fiddler'
         }
     })
-        .catch(err => {
-            console.log('Api Error : ', err);
-            onError(err);
-        })
-
+        
         .then(response => {
+        
             if (response && response.ok) {
                 return response.json();
             }
@@ -22,7 +19,6 @@ var fetchAndHandle = function({ uri, onSuccess, onError }) {
         .then(json => onSuccess(json))
 
         .catch(err => {
-            console.log('Response deserialization error : ', err);
             onError(err);
         });
 };

@@ -26,7 +26,12 @@ namespace Simr.DataLayer
 
         public Book[] Filter()
         {
-            throw new NotImplementedException();
+            using (var context = new EntityContext())
+            {
+                var dbBooks = context.DbBooks.Fetch();
+
+                return dbBooks.Select(x => x.ToBook()).ToArray();
+            }
         }
     }
 }
