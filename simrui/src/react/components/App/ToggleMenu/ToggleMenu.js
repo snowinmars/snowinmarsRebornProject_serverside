@@ -40,7 +40,7 @@ class ToggleMenu extends Component {
     const hrefArrayRight = [
          Config.url.pathofexile,
          Config.url.chat,
-         Config.url.root,
+         Config.url.siberia,
     ];
 
     const iconArrayLeft = [
@@ -52,11 +52,11 @@ class ToggleMenu extends Component {
     const iconArrayRight = [
         'PoE'
         , <span className="material-icons">sms</span>
-        , 4
+        , 'sib'
     ];
 
     const tooltipArrayLeft = ['Book', 'Photo', 'Video'];
-    const tooltipArrayRight = ['Path of Exile', 'Chat', 'Three'];
+    const tooltipArrayRight = ['Path of Exile', 'Chat', 'Siberia'];
     
     return <div className="">
             <ButtonGroup>

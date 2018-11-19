@@ -53,6 +53,7 @@
     <Compile Include="BookDataLayer.cs" />
     <Compile Include="DbEntities\DbAuthor.cs" />
     <Compile Include="DbEntities\DbBook.cs" />
+    <Compile Include="DbEntities\DbSiberiaBranch.cs" />
     <Compile Include="DbEntities\DbUser.cs" />
     <Compile Include="EntityContext.cs" />
     <Compile Include="Extensions.cs" />
@@ -63,6 +64,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiberiaDataLayer.cs" />
     <Compile Include="UserDataLayer.cs" />
   </ItemGroup>
   <ItemGroup>

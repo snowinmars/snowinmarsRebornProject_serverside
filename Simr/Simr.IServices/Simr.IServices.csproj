@@ -45,6 +45,7 @@
     <Compile Include="IAuthorService.cs" />
     <Compile Include="IBookService.cs" />
     <Compile Include="IService.cs" />
+    <Compile Include="ISiberiaService.cs" />
     <Compile Include="ITextBeautifierService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,6 +8,7 @@ import PhotoPage from './../PhotoPage/PhotoPage';
 import VideoPage from './../VideoPage/VideoPage';
 import PathOfExilePage from './../PathOfExilePage/PathOfExilePage';
 import ChatPage from './../ChatPage/ChatPage';
+import SiberiaPage from './../SiberiaPage/SiberiaPage'
 import './MainPage.scss';
 
 var Config = require('Config');
@@ -45,6 +46,10 @@ class MainPage extends Component {
                             <Route
                                 path={Config.url.chat}
                                 component={ChatPage}
+                            />
+                            <Route
+                                path={Config.url.siberia}
+                                component={SiberiaPage}
                             />
                         </Switch>
                     </section>

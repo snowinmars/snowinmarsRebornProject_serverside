@@ -45,6 +45,7 @@
     <Compile Include="IAuthorDataLayer.cs" />
     <Compile Include="IBookDataLayer.cs" />
     <Compile Include="IDataLayer.cs" />
+    <Compile Include="ISiberiaDataLayer.cs" />
     <Compile Include="IUserDataLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

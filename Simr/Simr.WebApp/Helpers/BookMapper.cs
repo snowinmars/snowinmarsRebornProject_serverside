@@ -3,6 +3,7 @@ using System.Linq;
 
 using Simr.Entities;
 using Simr.WebApp.Models.Book.Read;
+using Simr.WebApp.Models.Siberia.Read;
 
 namespace Simr.WebApp.Helpers
 {

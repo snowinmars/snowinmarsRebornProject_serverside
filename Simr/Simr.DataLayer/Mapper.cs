@@ -65,5 +65,14 @@ namespace Simr.DataLayer
             };
         }
 
+        public static SiberiaBranch ToSiberiaBranch(this DbSiberiaBranch dbSiberiaBranch)
+        {
+            return new SiberiaBranch
+            {
+                Id = dbSiberiaBranch.Id,
+                Enviroment = dbSiberiaBranch.Enviroment,
+                Name = dbSiberiaBranch.Name,
+            };
+        }
     }
 }

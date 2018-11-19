@@ -37,7 +37,8 @@ module.exports = {
                 photo: '/photo/',
                 video: '/video/',
                 pathofexile: '/pathofexile/',
-                chat: '/chat/'
+                chat: '/chat/',
+                siberia: '/siberia/',
             },
             apiurl: {
                 book: {
@@ -54,7 +55,11 @@ module.exports = {
                 },
                 system: {
                     version: apiurlHost + 'system/version'
-                }
+                },
+                siberia: {
+                    get: apiurlHost + 'siberia/get',
+                    filter: apiurlHost + 'siberia/filter'
+                },
             },
             bootstrapTableOptions: {
                 page: 1, // which page you want to show as default

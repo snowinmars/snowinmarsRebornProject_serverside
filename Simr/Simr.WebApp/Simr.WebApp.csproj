@@ -114,6 +114,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\SiberiaController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -122,6 +123,7 @@
     <Compile Include="Helpers\AuthorMapper.cs" />
     <Compile Include="Helpers\BookMapper.cs" />
     <Compile Include="Helpers\PersonNameMapper.cs" />
+    <Compile Include="Helpers\SiberiaBranchMapper.cs" />
     <Compile Include="Helpers\UserMapper.cs" />
     <Compile Include="Models\Author\Read\AuthorGridModel.cs" />
     <Compile Include="Models\Book\Read\BookGridModel.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\PersonName\PersonNameModel.cs" />
     <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Siberia\Read\SiberiaBranchGridModel.cs" />
     <Compile Include="Models\User\Read\UserGridModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
