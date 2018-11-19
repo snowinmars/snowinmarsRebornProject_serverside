@@ -18,8 +18,16 @@
 
         public IAuthorService AuthorService { get; set; }
 
+        [HttpOptions]
+        [ActionName("Get")]
+        public string GetOptions()
+        {
+            return "";
+        }
+
         [HttpGet]
-        public string Get(Guid id)
+        [ActionName("Get")]
+        public string GetPost([FromBody]Guid id)
         {
             var author = this.AuthorService.Get(id);
 
@@ -28,8 +36,16 @@
             return new Response<AuthorGridModel>(model).ToJson();
         }
 
-        [HttpGet]
-        public string Filter()
+        [HttpOptions]
+        [ActionName("Filter")]
+        public string FilterOptions()
+        {
+            return "";
+        }
+
+        [HttpPost]
+        [ActionName("Filter")]
+        public string FilterPost()
         {
             var authors = this.AuthorService.Filter();
 

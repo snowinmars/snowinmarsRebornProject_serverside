@@ -1,8 +1,8 @@
 @import './../common/colors';
 
 $normalBgColor: $nightRider;
-$normalBgHoverColor: $nightRider;
-$normalBgFocusColor: $nightRider;
+$normalBgHoverColor: lighten($nightRider, 5%);
+$normalBgFocusColor: lighten($nightRider, 15%);
 $normalBgDisabledColor: mix($nightRider, $colorGray, 50%);
 
 $normalBtnColor: $colorGray;
@@ -12,10 +12,10 @@ $normalBtnDisabledColor: mix($colorGray, $colorGray, 50%);
 
 $normalBorderColor: $colorGray;
 $normalBorderHoverColor: $colorGray;
-$normalBorderFocusColor: $colorGray;
+$normalBorderFocusColor: lighten($colorGray, 15%);
 $normalBorderDisabledColor: mix($colorGray, $colorGray, 50%);
 
-$normalTextColor: $colorWhite;
+$normalTextColor: darken($colorWhite, 15%);
 $normalTextHoverColor: $colorWhite;
 $normalTextFocusColor: $colorWhite;
 $normalTextDisabledColor: $colorWhite;

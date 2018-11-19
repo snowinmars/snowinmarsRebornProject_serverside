@@ -1,21 +1,30 @@
-import React, { Component } from 'react';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import './../../../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './BookPage.scss';
+
+import React, { PureComponent } from 'react';
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import { Link } from 'react-router-dom';
+
 import AuthorList from './AuthorList';
 import BookExpand from './BookExpand';
+import Filter from './../../App/Filter/Filter';
+import Loader from '../../App/Loader/Loader';
 
-var Config = require('Config');
-var Lib = require('./../../../Lib/componentUtils');
+const Config = require('Config');
+const Lib = require('./../../../Lib/componentUtils');
+const { SearchBar } = Search;
 
-class BookPage extends Component {
+class BookPage extends PureComponent {
     constructor(props) {
         super(props);
 
-        var data = this.getDefaultData();
+        const data = this.getDefaultData();
 
         this.state = {
-            isInit: false,
+            isInitByFirstPage: false,
+            isInitByAllData: false,
             gotApiError: false,
             hasErrors: false,
             response: {
@@ -25,44 +34,67 @@ class BookPage extends Component {
         };
 
         this.options = Config.bootstrapTableOptions;
-        this.options.expandRowBgColor = '$normalBgColor';
-        this.options.expandRowBgColor = '$normalBgColor';
-
-        this.getRow = this.getRow.bind(this);
+        this.table = React.createRef();
     }
 
     componentDidMount() {
         Lib.fetchAndHandle({
             uri: Config.apiurl.book.filter,
-            onSuccess: json =>
+            data: {
+                page: {
+                    number: 0,
+                    size: 25
+                }
+            },
+            onSuccess: json => {
                 this.setState({
                     response: JSON.parse(json),
-                    isInit: true
-                }),
-            onError: err =>
-                this.setState({
-                    gotApiError: true,
-                    hasErrors: true,
-                    isInit: false
-                })
+                    isInitByFirstPage: true
+                });
+
+                Lib.fetchAndHandle({
+                    uri: Config.apiurl.book.filter,
+                    data: {
+                        page: {
+                            number: 0,
+                            size: 1000
+                        }
+                    },
+                    onSuccess: json => {
+                        this.setState({
+                            response: JSON.parse(json),
+                            isInitByAllData: true
+                        });
+                    },
+                    onError: this.onError
+                });
+            },
+            onError: this.onError
         });
     }
 
-    render() {
-        const loader = this.getLoader();
+    onError = err =>
+        this.setState({
+            gotApiError: true,
+            hasErrors: true,
+            isInitByFirstPage: false,
+            isInitByAllData: false
+        });
 
-        const table = this.getTable(this.options);
-
+    getActions() {
         return (
-            <div>
-                {loader}
-                {table}
+            <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
+                <span className="simr-btn">Add new book</span>
+
+                <Link to={Config.url.author}>
+                    <span className="simr-btn">All authors</span>
+                </Link>
             </div>
         );
     }
 
     getDefaultData() {
-        var defaultUser = {
+        const defaultUser = {
             title: 'Loading...',
             authors: [
                 {
@@ -85,81 +117,122 @@ class BookPage extends Component {
             pageCount: 'Loading...',
             key: 0
         };
-        
-        var data = [];
 
-        for (var i = 0; i < 10; i++) {
+        const data = [];
+
+        for (let i = 0; i < 10; i++) {
+            defaultUser.key = Math.random();
+            defaultUser.authors[0].key = Math.random();
             data.push(defaultUser);
         }
 
         return data;
     }
 
-    getRow(i) {
+    getRow = i => {
         return this.state.response.data[i.index];
-    }
+    };
 
-    isExpandableRow() {
+    isExpandableRow = row => {
         return true;
-    }
+    };
 
-    expandComponent(row) {
+    expandComponent = row => {
         return <BookExpand row={row} />;
-    }
+    };
 
-    authorsFormatter(cell) {
+    authorsFormatter = cell => {
         return <AuthorList authors={cell} />;
-    }
+    };
+
+    expandColumnComponent = ({ expanded }) => {
+        let content = expanded ? 'expand_more' : 'expand_less';
+
+        return <i className="material-icons">{content}</i>;
+    };
 
     getTable(options) {
-        return <BootstrapTable ref="table" data={this.state.response.data} striped hover pagination expandableRow={this.isExpandableRow} expandComponent={this.expandComponent} options={options}>
-                <TableHeaderColumn dataField="title" isKey dataSort>
-                    Title
-                </TableHeaderColumn>
+        const columns = [
+            {
+                dataField: 'title',
+                text: 'Title',
+                sort: true
+            },
+            {
+                dataField: 'authors',
+                text: 'Authors',
+                formatter: this.authorsFormatter,
+                filterValue: authors => {
+                    return authors.map(author => author.fullname);
+                },
+                sort: true
+            },
+            {
+                dataField: 'year',
+                text: 'Year',
+                sort: true
+            },
+            {
+                dataField: 'bookshelf',
+                text: 'Bookshelf',
+                sort: true
+            },
+            {
+                dataField: 'additionalInfo',
+                text: 'Hidden_additionalInfo',
+                sort: true,
+                hidden: true
+            }
+        ];
 
-                <TableHeaderColumn dataField="authors" dataSort dataFormat={this.authorsFormatter}>
-                    Authors
-                </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="year" dataSort>
-                    Year
-                </TableHeaderColumn>
-
-                <TableHeaderColumn dataField="bookshelf" dataSort>
-                    Bookshelf
-                </TableHeaderColumn>
-            </BootstrapTable>;
+        return (
+            <ToolkitProvider
+                keyField="key"
+                data={this.state.response.data}
+                columns={columns}
+                search
+            >
+                {props => (
+                    <div>
+                        <Filter />
+                        <BootstrapTable
+                            ref={this.table}
+                            hover
+                            pagination={paginationFactory(options)}
+                            expandRow={{
+                                renderer: this.expandComponent,
+                                showExpandColumn: true,
+                                expandColumnRenderer: this
+                                    .expandColumnComponent,
+                                expandHeaderColumnRenderer: () => null
+                            }}
+                            {...props.baseProps}
+                        />
+                    </div>
+                )}
+            </ToolkitProvider>
+        );
     }
 
-    getLoader() {
-        var loaderClass = '';
-
-        if (this.state.gotApiError) {
-            loaderClass += ' simr-loader-api-error ';
-        }
-
-        if (this.state.isInit) {
-            loaderClass += ' simr-loader hidden ';
-        } else {
-            loaderClass += ' simr-loader ';
-        }
-
+    render() {
         const loader = (
-            <div
-                className={
-                    loaderClass +
-                    'simr-flex simr-flex-align-center simr-flex-justify-center'
-                }
-            >
-                <div class="sk-folding-cube">
-                    <div class="sk-cube1 sk-cube" />
-                    <div class="sk-cube2 sk-cube" />
-                    <div class="sk-cube4 sk-cube" />
-                    <div class="sk-cube3 sk-cube" />
-                </div>
+            <Loader
+                hasErrors={this.state.gotApiError}
+                isHidden={this.state.isInitByFirstPage}
+            />
+        );
+
+        const actions = this.getActions();
+
+        const table = this.getTable(this.options);
+
+        return (
+            <div>
+                {loader}
+                {actions}
+                {table}
             </div>
         );
-        return loader;
     }
 }
 

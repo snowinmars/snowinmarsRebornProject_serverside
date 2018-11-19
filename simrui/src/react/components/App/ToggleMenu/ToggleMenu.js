@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Motion, StaggeredMotion, spring } from "react-motion";
 import {Link} from 'react-router-dom';
 import './ToggleMenu.scss'
 
-var Config = require('Config');
-
-var classNames = require('classnames');
-var _ = require('underscore');
-
+const Config = require('Config');
+const classNames = require('classnames');
+const _ = require('underscore');
 const { noop } = _;
 
 /**
  * <ToggleMenu />
  */
-class ToggleMenu extends Component {
+class ToggleMenu extends PureComponent {
   constructor() {
     super();
     

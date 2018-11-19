@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import './WelcomePage.scss';
 
-var Config = require('Config');
-var Lib = require('./../../../Lib/componentUtils');
+const Config = require('Config');
+const Lib = require('./../../../Lib/componentUtils');
 
 class WelcomePage extends Component {
     constructor(props) {
@@ -31,30 +32,53 @@ class WelcomePage extends Component {
         this.setState({ hasErrors: true });
     }
 
+    getApiStatus() {
+        let apiStatus;
+        if (this.state.gotApiError) {
+            apiStatus = <span className="simr-api simr-api-error">
+                    Api Error
+                </span>;
+        }
+        else {
+            if (this.state.isInit) {
+                apiStatus = <span className="simr-api simr-api-ok">
+                        Api ok
+                    </span>;
+            }
+            else {
+                apiStatus = <span>...loading...</span>;
+            }
+        }
+        return apiStatus;
+    }
+
+    getLoader() {
+        let loader;
+        if (this.state.isInit) {
+            loader = <span>{this.state.version.Backend}</span>;
+        }
+        else {
+            loader = <span>...loading...</span>;
+        }
+        return loader;
+    }
+
     render() {
         if (this.state.hasErrors) {
             return <div className="simr-component-error">Error</div>;
         }
 
-        if (this.state.gotApiError) {
-            return <div className="simr-api-error">Api Error</div>;
-        }
+        const loader = this.getLoader();
 
-        var loader;
+        const apiStatus = this.getApiStatus();
 
-        if (this.state.isInit) {
-            loader = <span>{this.state.version.Backend}</span>;
-        } else {
-            loader = <span>...loading...</span>;
-        }
-
-        return (
-            <div>
+        return <div className="simr-Welcome">
                 <div>Welcome</div>
 
                 <div>Current version is {loader}</div>
-            </div>
-        );
+
+                <div>API status: {apiStatus}</div>
+            </div>;
     }
 }
 

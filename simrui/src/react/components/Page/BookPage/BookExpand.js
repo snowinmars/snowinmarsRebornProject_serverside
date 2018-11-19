@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class BookExpand extends Component {
+const Config = require('Config');
+
+class BookExpand extends PureComponent {
     render() {
         return (
             <div className="simr-flex simr-flex-wrap simr-expanded-book">
@@ -20,13 +22,19 @@ class BookExpand extends Component {
                     <span className="simr-authors">
                         {this.props.row.authors.map(author => {
                             return (
-                                <span className="simr-author" key={author.key}>
+                                <a
+                                    href={
+                                        Config.url.author + '?id=' + author.id
+                                    }
+                                    key={author.key}
+                                    className="simr-author"
+                                >
                                     {author.name.givenName +
                                         ' ' +
                                         author.name.fullMiddleName +
                                         ' ' +
                                         author.name.familyName}
-                                </span>
+                                </a>
                             );
                         })}
                     </span>

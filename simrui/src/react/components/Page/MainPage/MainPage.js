@@ -8,51 +8,32 @@ import PhotoPage from './../PhotoPage/PhotoPage';
 import VideoPage from './../VideoPage/VideoPage';
 import PathOfExilePage from './../PathOfExilePage/PathOfExilePage';
 import ChatPage from './../ChatPage/ChatPage';
+import AuthorPage from './../AuthorPage/AuthorPage';
 import './MainPage.scss';
 
-var Config = require('Config');
+const Config = require('Config');
 
 class MainPage extends Component {
     render() {
-        return (
-            <BrowserRouter>
+        return <BrowserRouter>
                 <div className="simr-r-MainPage simr-grid-container">
                     <Head />
 
                     <section className="simr-container">
                         <Switch>
-                            <Route
-                                exact
-                                path={Config.url.root}
-                                component={WelcomePage}
-                            />
-                            <Route
-                                path={Config.url.book}
-                                component={BookPage}
-                            />
-                            <Route
-                                path={Config.url.photo}
-                                component={PhotoPage}
-                            />
-                            <Route
-                                path={Config.url.video}
-                                component={VideoPage}
-                            />
-                            <Route
-                                path={Config.url.pathofexile}
-                                component={PathOfExilePage}
-                            />
-                            <Route
-                                path={Config.url.chat}
-                                component={ChatPage}
-                            />
+                            <Route exact path={Config.url.root} component={WelcomePage} />
+                            <Route path={Config.url.book} component={BookPage} />
+                            <Route path={Config.url.photo} component={PhotoPage} />
+                            <Route path={Config.url.video} component={VideoPage} />
+                            <Route path={Config.url.pathofexile} component={PathOfExilePage} />
+                            <Route path={Config.url.chat} component={ChatPage} />
+                            <Route path={Config.url.author} component={AuthorPage} />
                         </Switch>
                     </section>
 
                     <Bot />
                 </div>
-            </BrowserRouter>
-        );
+            </BrowserRouter>;
     }
 }
 

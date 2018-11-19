@@ -1,0 +1,62 @@
+@import 'src/css/const';
+@import 'src/css/colorSchema/default/definition';
+
+.simr-filter-input {
+    @include nofocus;
+}
+
+.simr-search-and-filter {
+    border-bottom: $normalBorderColor 1px solid;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    flex-basis: 75%;
+
+    .simr-search {
+        background-color: $normalBgHoverColor;
+        border-color: $normalBorderColor;
+        color: $colorTransparent;
+
+        &:focus {
+            @include nofocus;
+            background-color: $normalBgFocusColor;
+            border-color: $normalBorderFocusColor;
+            color: $normalTextFocusColor;
+        }
+    }
+
+    .simr-apply-btn {
+        margin-left: 1em;
+    }
+}
+
+.simr-filters {
+    position: absolute;
+
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+
+    .simr-filter {
+        background-color: $infoBtnColor;
+        padding: 4px 0 4px 6px;
+        border-radius: 5px;
+        margin-right: 0.4em;
+        color: $infoTextColor;
+
+        &:after {
+            content: '✖';
+            padding: 0.5em;
+            font-weight: bold;
+        }
+
+        &:hover:after {
+            cursor: pointer;
+        }
+
+        &:hover {
+            background-color: $infoBtnHoverColor;
+            color: $infoTextHoverColor;
+            cursor: pointer;
+        }
+    }
+}

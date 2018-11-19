@@ -17,6 +17,14 @@
             this.Name = new PersonName();
         }
 
+        public DateTime BirthDate { get; set; }
+
+        public DateTime? DeathDate { get; set; }
+
+        public string PhotoUrl { get; set; }
+
+        public string Info { get; set; }
+
         public PersonName Name { get; set; }
 
         public PersonName Pseudonym { get; set; }

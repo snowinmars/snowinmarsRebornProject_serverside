@@ -1,6 +1,22 @@
-var fetchAndHandle = function({ uri, onSuccess, onError }) {
+const _fetchAndHandle = function({ uri, data, method, onSuccess, onError }) {
+    let _method;
+    if (!method) {
+        _method = 'POST';
+    } else {
+        _method = method;
+    }
+
+    let _body;
+    if (method === 'GET' || method === 'HEAD') {
+        uri = uri + '?' + objectToHttpQueryString(data);
+        _body = undefined;
+    } else {
+        _body = JSON.stringify(data);
+    }
+
     fetch(uri, {
-        method: 'POST',
+        body: _body,
+        method: _method,
         headers: {
             'Content-Type': 'application/json',
             'User-Agent': 'Fiddler'
@@ -25,6 +41,16 @@ var fetchAndHandle = function({ uri, onSuccess, onError }) {
             console.log('Response deserialization error : ', err);
             onError(err);
         });
+
+    function objectToHttpQueryString(obj) {
+        const keyValuePairs = [];
+        for (const key in obj) {
+            keyValuePairs.push(
+                encodeURIComponent(key) + '=' + encodeURIComponent(obj[key])
+            );
+        }
+        return keyValuePairs.join('&');
+    }
 };
 
-exports.fetchAndHandle = fetchAndHandle;
+export { _fetchAndHandle as fetchAndHandle };
