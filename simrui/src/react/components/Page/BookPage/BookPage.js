@@ -4,7 +4,7 @@ import './BookPage.scss';
 import React, { PureComponent } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import { Link } from 'react-router-dom';
 
 import AuthorList from './AuthorList';
@@ -14,7 +14,6 @@ import Loader from '../../App/Loader/Loader';
 
 const Config = require('Config');
 const Lib = require('./../../../Lib/componentUtils');
-const { SearchBar } = Search;
 
 class BookPage extends PureComponent {
     constructor(props) {
@@ -83,7 +82,7 @@ class BookPage extends PureComponent {
 
     getActions() {
         return (
-            <div className="simr-book-page-actions simr-flex simr-flex-justify-space-between">
+            <div className="simr-page-actions simr-flex simr-flex-justify-space-between">
                 <span className="simr-btn">Add new book</span>
 
                 <Link to={Config.url.author}>

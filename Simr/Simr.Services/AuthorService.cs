@@ -1,53 +1,28 @@
-﻿using SandS.Algorithm.Library.GeneratorNamespace;
+    using System;
+
+using Simr.Entities;
+using Simr.IDataLayer;
+    using Simr.IServices;
 
 namespace Simr.Services
 {
-    using System;
-
-    using Sibr.Entities;
-
-    using Simr.IServices;
-
     public class AuthorService : IAuthorService
     {
-        private static readonly TextGenerator textGenerator = new TextGenerator();
+        public AuthorService(IAuthorDataLayer dataLayer)
+        {
+            DataLayer = dataLayer;
+        }
+
+        private IAuthorDataLayer DataLayer { get; }
+
         public Author Get(Guid id)
         {
-            return GetNewAuthor();
+            return DataLayer.Get(id);
         }
 
         public Author[] Filter()
         {
-            return new[]
-                       {
-                           GetNewAuthor(),GetNewAuthor(),GetNewAuthor(),
-                           GetNewAuthor(),GetNewAuthor(),GetNewAuthor(),
-                           GetNewAuthor(),GetNewAuthor(),GetNewAuthor(),
-                       };
-        }
-
-        private static Author GetNewAuthor()
-        {
-            return new Author("Gomer")
-            {
-                Name = new PersonName
-                {
-                    FamilyName = textGenerator.GetNewWord(2, 17, true),
-                    FullMiddleName = textGenerator.GetNewWord(2, 17, true),
-                    GivenName = textGenerator.GetNewWord(2, 17, true),
-                },
-                Pseudonym = new PersonName
-                {
-                    FamilyName = textGenerator.GetNewWord(2, 17, true),
-                    FullMiddleName = textGenerator.GetNewWord(2, 17, true),
-                    GivenName = textGenerator.GetNewWord(2, 17, true),
-                },
-                Info = string.Join(" ", textGenerator.GetWords(500)),
-                PhotoUrl = "http://i41-cdn.woman.ru/womanru/images/gallery/c/7/g_c7abcd1cb65d89122ff8dde384995885_8_800x600.jpg?02",
-                BirthDate = DateTime.Now.AddYears(-40),
-                DeathDate = DateTime.Now.AddYears(-10),
-                Id = Guid.NewGuid(),
-            };
+            return DataLayer.Filter();
         }
     }
 }

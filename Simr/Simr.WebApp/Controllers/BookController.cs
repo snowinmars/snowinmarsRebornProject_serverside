@@ -1,52 +1,39 @@
-﻿using System.Linq;
-
-namespace Simr.WebApp.Controllers
-{
     using System;
-    using System.Threading;
+using System.Linq;
     using System.Web.Http;
 
     using Simr.IServices;
-    using Simr.Services;
     using Simr.WebApp.Helpers;
     using Simr.WebApp.Models;
     using Simr.WebApp.Models.Book.Read;
 
+namespace Simr.WebApp.Controllers
+{
     public class BookController : ApiController
     {
-        public BookController()
+        public BookController(IBookService bookService)
         {
-            this.BookService = new BookService();
+            BookService = bookService;
         }
 
-        public IBookService BookService { get; set; }
+        private IBookService BookService { get; }
 
         [HttpGet]
         public string Get(Guid id)
         {
-            var book = this.BookService.Get(id);
+            var book = BookService.Get(id);
 
             var model = book.ToBookGridModel();
 
             return new Response<BookGridModel>(model).ToJson();
         }
 
-        [HttpOptions]
-        [ActionName("Filter")]
-        public string FilterOptions()
-        {
-            return "";
-        }
-
         [HttpPost]
-        [ActionName("Filter")]
-        public string FilterPost([FromBody]FilterModel filter)
+        public string Filter()
         {
-            var books = this.BookService.Filter();
+            var books = BookService.Filter();
 
             var models = books.ToBookGridModels();
-
-            models = models.Skip(filter.Page.Number * filter.Page.Size).Take(filter.Page.Size);
 
             return new EnumerableResponse<BookGridModel>(models).ToJson();
         }

@@ -9,6 +9,7 @@ import VideoPage from './../VideoPage/VideoPage';
 import PathOfExilePage from './../PathOfExilePage/PathOfExilePage';
 import ChatPage from './../ChatPage/ChatPage';
 import AuthorPage from './../AuthorPage/AuthorPage';
+import SiberiaPage from './../SiberiaPage/SiberiaPage';
 import './MainPage.scss';
 
 const Config = require('Config');
@@ -21,13 +22,38 @@ class MainPage extends Component {
 
                     <section className="simr-container">
                         <Switch>
-                            <Route exact path={Config.url.root} component={WelcomePage} />
-                            <Route path={Config.url.book} component={BookPage} />
-                            <Route path={Config.url.photo} component={PhotoPage} />
-                            <Route path={Config.url.video} component={VideoPage} />
-                            <Route path={Config.url.pathofexile} component={PathOfExilePage} />
-                            <Route path={Config.url.chat} component={ChatPage} />
-                            <Route path={Config.url.author} component={AuthorPage} />
+                            <Route
+                                exact
+                                path={Config.url.root}
+                                component={WelcomePage}
+                            />
+                            <Route
+                                path={Config.url.book}
+                                component={BookPage}
+                            />
+                            <Route
+                                path={Config.url.photo}
+                                component={PhotoPage}
+                            />
+                            <Route
+                                path={Config.url.video}
+                                component={VideoPage}
+                            />
+                            <Route
+                                path={Config.url.pathofexile}
+                                component={PathOfExilePage}
+                            />
+                            <Route
+                                path={Config.url.chat}
+                                component={ChatPage}
+                            />
+							<Route 
+								path={Config.url.author}
+								component={AuthorPage} />
+                            <Route
+                                path={Config.url.siberia}
+                                component={SiberiaPage}
+                            />
                         </Switch>
                     </section>
 

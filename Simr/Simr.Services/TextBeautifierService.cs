@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Simr.IServices;
+
 using Sirb.Common;
 using Sirb.Common.Enums;
 
 namespace Simr.Services
 {
-    public class TextBeautifierService
+    public class TextBeautifierService : ITextBeautifierService
     {
         private static class CharacterResolverData
         {

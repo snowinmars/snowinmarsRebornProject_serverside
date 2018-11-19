@@ -40,6 +40,7 @@ module.exports = {
                 pathofexile: '/pathofexile/',
                 chat: '/chat/',
                 author: '/author/',
+                siberia: '/siberia/'
             },
             apiurl: {
                 book: {
@@ -56,7 +57,11 @@ module.exports = {
                 },
                 system: {
                     version: apiurlHost + 'system/version'
-                }
+                },
+                siberia: {
+                    get: apiurlHost + 'siberia/get',
+                    filter: apiurlHost + 'siberia/filter'
+                },
             },
             bootstrapTableOptions: {
                 sizePerPageList: [

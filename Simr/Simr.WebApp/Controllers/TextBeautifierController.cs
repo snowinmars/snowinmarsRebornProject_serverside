@@ -5,25 +5,25 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using Simr.Common.Enums;
 using Simr.IServices;
-using Simr.Services;
 using Simr.WebApp.Models;
 
 namespace Simr.WebApp.Controllers
 {
     public class TextBeautifierController : ApiController
     {
-        public TextBeautifierController()
+        public TextBeautifierController(ITextBeautifierService textBeautifierService)
         {
-            this.TextBeautifierService = new TextBeautifierService();
+            this.TextBeautifierService = textBeautifierService;
         }
 
-        public TextBeautifierService TextBeautifierService { get; set; }
+        public ITextBeautifierService TextBeautifierService { get; set; }
 
         [HttpGet]
         public string Index(string input)
         {
-            var result = TextBeautifierService.Beautify(input.ToLowerInvariant(), Sirb.Common.Enums.Language.Ru, Sirb.Common.Enums.Language.Talib);
+            var result = TextBeautifierService.Beautify(input.ToLowerInvariant(), Language.Ru, Language.Talib);
 
             return new Response<string>(result).ToJson();
         }
