@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
 
-using Simr.WebApp.Models.PersonName;
-
 namespace Simr.WebApp.Models.Author.Read
 {
     public class AuthorGridModel : Model

@@ -44,6 +44,16 @@ namespace Simr.DataLayer.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.DbSiberiaEnvironments",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Name = c.String(),
+                        Branch = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.DbUsers",
                 c => new
                     {
@@ -61,6 +71,7 @@ namespace Simr.DataLayer.Migrations
         public override void Down()
         {
             DropTable("dbo.DbUsers");
+            DropTable("dbo.DbSiberiaEnvironments");
             DropTable("dbo.DbBooks");
             DropTable("dbo.DbAuthors");
         }

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Simr.WebApp.Models.PersonName
+namespace Simr.WebApp.Models.Author.Read
 {
     public class PersonNameModel
     {

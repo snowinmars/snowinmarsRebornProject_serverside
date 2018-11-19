@@ -21,14 +21,14 @@ namespace Simr.WebApp.Controllers
             SiberiaService = siberiaService;
         }
 
-        [HttpGet]
-        public string Branches()
+        [HttpPost]
+        public string Filter()
         {
-            var branches = SiberiaService.Filter();
+            var environments = SiberiaService.Filter();
 
-            var branchModels = branches.Select(x => x.ToSiberiaBranchGridModels()).ToArray();
+            var environmentModels = environments.Select(x => x.ToSiberiaEnvironmentGridModels()).ToArray();
 
-            return new Response<SiberiaBranchGridModel[]>(branchModels).ToJson();
+            return new Response<SiberiaEnvironmentGridModel[]>(environmentModels).ToJson();
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Linq;
 
 using Simr.Entities;
-using Simr.WebApp.Models.PersonName;
+using Simr.WebApp.Models.Author.Read;
 
 namespace Simr.WebApp.Helpers
 {

@@ -26,7 +26,7 @@ namespace Simr.DataLayer
         {
         }
 
-        public DbSet<DbSiberiaBranch> DbSiberiaBranches { get; set; }
+        public DbSet<DbSiberiaEnvironment> DbSiberiaEnvironments { get; set; }
 
         public DbSet<DbAuthor> DbAuthors { get; set; }
 

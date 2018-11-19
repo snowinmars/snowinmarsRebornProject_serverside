@@ -20,10 +20,12 @@ namespace Simr.Ninject
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IAuthorService>().To<AuthorService>();
             kernel.Bind<IBookService>().To<BookService>();
+            kernel.Bind<ISiberiaService>().To<SiberiaService>();
 
             kernel.Bind<IUserDataLayer>().To<UserDataLayer>();
             kernel.Bind<IAuthorDataLayer>().To<AuthorDataLayer>();
             kernel.Bind<IBookDataLayer>().To<BookDataLayer>();
+            kernel.Bind<ISiberiaDataLayer>().To<SiberiaDataLayer>();
         }
     }
 }

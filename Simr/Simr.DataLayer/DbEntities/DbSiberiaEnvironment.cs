@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simr.Entities
+namespace Simr.DataLayer.DbEntities
 {
-    public class SiberiaBranch : Entity
+    public class DbSiberiaEnvironment
     {
+        public Guid Id { get; set; }
+
         public string Name { get; set; }
 
-        public string Enviroment { get; set; }
+        public string Branch { get; set; }
     }
 }

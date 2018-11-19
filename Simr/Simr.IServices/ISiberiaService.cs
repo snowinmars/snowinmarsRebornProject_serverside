@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Simr.IServices
 {
-    public interface ISiberiaService : IService<SiberiaBranch>
+    public interface ISiberiaService : IService<SiberiaEnvironment>
     {
     }
 }

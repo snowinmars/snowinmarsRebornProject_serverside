@@ -83,7 +83,7 @@ class SiberiaPage extends Component {
                     Name
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="enviroment" dataSort>
+                <TableHeaderColumn dataField="environment" dataSort>
                     Enviroment
                 </TableHeaderColumn>
             </BootstrapTable>;

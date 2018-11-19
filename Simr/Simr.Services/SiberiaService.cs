@@ -18,12 +18,12 @@ namespace Simr.Services
 
         private ISiberiaDataLayer SiberiaDataLayer { get; }
 
-        public SiberiaBranch[] Filter()
+        public SiberiaEnvironment[] Filter()
         {
             return SiberiaDataLayer.Filter();
         }
 
-        public SiberiaBranch Get(Guid id)
+        public SiberiaEnvironment Get(Guid id)
         {
             return SiberiaDataLayer.Get(id);
         }

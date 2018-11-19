@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Simr.IDataLayer
 {
-    public interface ISiberiaDataLayer : IDataLayer<SiberiaBranch>
+    public interface ISiberiaDataLayer : IDataLayer<SiberiaEnvironment>
     {
     }
 }

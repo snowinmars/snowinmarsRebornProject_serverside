@@ -123,16 +123,16 @@
     <Compile Include="Helpers\AuthorMapper.cs" />
     <Compile Include="Helpers\BookMapper.cs" />
     <Compile Include="Helpers\PersonNameMapper.cs" />
-    <Compile Include="Helpers\SiberiaBranchMapper.cs" />
+    <Compile Include="Helpers\SiberiaEnvironmentMapper.cs" />
     <Compile Include="Helpers\UserMapper.cs" />
     <Compile Include="Models\Author\Read\AuthorGridModel.cs" />
     <Compile Include="Models\Book\Read\BookGridModel.cs" />
     <Compile Include="Models\EnumerableResponse.cs" />
     <Compile Include="Models\IResponse.cs" />
     <Compile Include="Models\Model.cs" />
-    <Compile Include="Models\PersonName\PersonNameModel.cs" />
+    <Compile Include="Models\Author\Read\PersonNameModel.cs" />
     <Compile Include="Models\Response.cs" />
-    <Compile Include="Models\Siberia\Read\SiberiaBranchGridModel.cs" />
+    <Compile Include="Models\Siberia\Read\SiberiaEnvironmentGridModel.cs" />
     <Compile Include="Models\User\Read\UserGridModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
