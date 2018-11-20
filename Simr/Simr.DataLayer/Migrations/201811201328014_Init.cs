@@ -11,7 +11,7 @@ namespace Simr.DataLayer.Migrations
                 "dbo.DbAuthors",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.Guid(nullable: false, identity: true),
                         IsSynchronized = c.Boolean(nullable: false),
                         FamilyName = c.String(),
                         FullMiddleName = c.String(),
@@ -27,7 +27,7 @@ namespace Simr.DataLayer.Migrations
                 "dbo.DbBooks",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.Guid(nullable: false, identity: true),
                         IsSynchronized = c.Boolean(nullable: false),
                         Status = c.Int(nullable: false),
                         AdditionalInfo = c.String(),
@@ -47,7 +47,7 @@ namespace Simr.DataLayer.Migrations
                 "dbo.DbSiberiaEnvironments",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.Guid(nullable: false, identity: true),
                         Name = c.String(),
                         Branch = c.String(),
                     })
@@ -57,7 +57,7 @@ namespace Simr.DataLayer.Migrations
                 "dbo.DbUsers",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.Guid(nullable: false, identity: true),
                         IsSynchronized = c.Boolean(nullable: false),
                         Email = c.String(),
                         Language = c.Int(nullable: false),

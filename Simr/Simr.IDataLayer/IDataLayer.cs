@@ -6,6 +6,14 @@ namespace Simr.IDataLayer
     {
         T Get(Guid id);
 
+        void Add(T item);
+
+        void Delete(Guid id);
+
+        void ShallowUpdate(T item);
+
+        void ShallowUpsert(T item);
+
         T[] Filter();
     }
 }

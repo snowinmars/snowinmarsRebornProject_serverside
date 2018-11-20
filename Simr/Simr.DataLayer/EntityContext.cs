@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -26,12 +27,19 @@ namespace Simr.DataLayer
         {
         }
 
-        public DbSet<DbSiberiaEnvironment> DbSiberiaEnvironments { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Properties<Guid>()
+                .Where(x => x.Name.ToLower() == "id")
+                .Configure(x => x.HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed));
+        }
 
-        public DbSet<DbAuthor> DbAuthors { get; set; }
+        public IDbSet<DbSiberiaEnvironment> DbSiberiaEnvironments { get; set; }
 
-        public DbSet<DbBook> DbBooks { get; set; }
+        public IDbSet<DbAuthor> DbAuthors { get; set; }
 
-        public DbSet<DbUser> DbUsers { get; set; }
+        public IDbSet<DbBook> DbBooks { get; set; }
+
+        public IDbSet<DbUser> DbUsers { get; set; }
     }
 }

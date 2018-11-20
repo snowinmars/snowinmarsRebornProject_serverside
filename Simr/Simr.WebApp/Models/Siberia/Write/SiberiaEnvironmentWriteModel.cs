@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Simr.Entities
+namespace Simr.WebApp.Models.Siberia.Write
 {
-    public class SiberiaEnvironment : Entity
+    public class SiberiaEnvironmentWriteModel : Model
     {
         public string Environment { get; set; }
 

@@ -7,7 +7,7 @@ const _fetchAndHandle = function({ uri, data, method, onSuccess, onError }) {
     }
 
     let _body;
-    if (method === 'GET' || method === 'HEAD') {
+    if (_method === 'GET' || _method === 'HEAD') {
         uri = uri + '?' + objectToHttpQueryString(data);
         _body = undefined;
     } else {

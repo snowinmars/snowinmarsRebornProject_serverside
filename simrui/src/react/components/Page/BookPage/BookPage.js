@@ -83,7 +83,7 @@ class BookPage extends PureComponent {
     getActions() {
         return (
             <div className="simr-page-actions simr-flex simr-flex-justify-space-between">
-                <span className="simr-btn">Add new book</span>
+                <span className="material-icons simr-btn">add</span>
 
                 <Link to={Config.url.author}>
                     <span className="simr-btn">All authors</span>
@@ -193,7 +193,7 @@ class BookPage extends PureComponent {
             >
                 {props => (
                     <div>
-                        <Filter />
+                        <Filter isBlock={true}/>
                         <BootstrapTable
                             ref={this.table}
                             hover

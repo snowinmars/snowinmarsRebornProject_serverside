@@ -45,6 +45,7 @@
     <Compile Include="Enums\BookStatus.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\UserRoles.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="NotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

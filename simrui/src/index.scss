@@ -49,8 +49,7 @@ a {
 }
 
 .simr-form-control {
-    display: block;
-    width: 100%;
+    margin: 0 2em;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -61,7 +60,8 @@ a {
 .simr-form-control:focus {
     border-color: #66afe9;
     outline: 0;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
 }
 
 .simr-form-control[readonly],
@@ -69,3 +69,43 @@ fieldset[disabled] .form-control {
     cursor: not-allowed;
     opacity: 1;
 }
+
+.simr-table {
+    tr {
+        td:last-child > * {
+            visibility: hidden;
+        }
+
+        // last column contains actions, we don't need the visual column for them
+        td:last-child,
+        th:last-child {
+            border-left: initial;
+        }
+
+        // last column contains actions, we don't need the visual column for them
+        td:nth-last-child(2),
+        th:nth-last-child(2) {
+            border-right: initial;
+        }
+    }
+
+    tr:hover {
+        td:last-child > * {
+            visibility: visible;
+        }
+    }
+}
+
+// overloading default selector
+.table.simr-table {
+    tr {
+        td {
+            vertical-align: middle;
+        }
+    }
+}
+
+.material-icons.material-icons-font-12 { font-size: 12px; }
+.material-icons.material-icons-font-14 { font-size: 14px; }
+.material-icons.material-icons-font-16 { font-size: 16px; }
+.material-icons.material-icons-font-18 { font-size: 18px; }

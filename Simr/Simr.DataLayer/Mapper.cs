@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Simr.Common;
 using Simr.DataLayer.DbEntities;
 using Simr.Entities;
 
@@ -20,6 +21,19 @@ namespace Simr.DataLayer
                 IsSynchronized = dbUser.IsSynchronized,
                 Language = dbUser.Language,
                 Roles = dbUser.Roles,
+            };
+        }
+
+        public static DbUser ToDbUser(this User user)
+        {
+            return new DbUser
+            {
+                Username = user.Username,
+                Email = user.Email,
+                Id = user.Id,
+                IsSynchronized = user.IsSynchronized,
+                Language = user.Language,
+                Roles = user.Roles,
             };
         }
 
@@ -44,6 +58,27 @@ namespace Simr.DataLayer
             return book;
         }
 
+        public static DbBook ToDbBook(this Book book)
+        {
+            return new DbBook
+            {
+                Title = book.Title,
+                PageCount = book.PageCount,
+                Status = book.Status,
+                AdditionalInfo = book.AdditionalInfo,
+                Bookshelf = book.Bookshelf,
+                FlibustaUrl = book.FlibustaUrl,
+                Id = book.Id,
+                ImageUrl = book.ImageUrl,
+                IsSynchronized = book.IsSynchronized,
+                LibRusEcUrl = book.LibRusEcUrl,
+                LiveLibUrl = book.LiveLibUrl,
+                Owner = book.Owner,
+                Year = book.Year,
+                Authors = book.Authors.SelectArray(x => x.ToDbAuthor()),
+            };
+        }
+
         public static Author ToAuthor(this DbAuthor dbAuthor)
         {
             return new Author(dbAuthor.Aka)
@@ -65,13 +100,41 @@ namespace Simr.DataLayer
             };
         }
 
+        public static DbAuthor ToDbAuthor(this Author author)
+        {
+            return new DbAuthor
+            {
+                Id = author.Id,
+                Aka = author.Aka,
+                IsSynchronized = author.IsSynchronized,
+                    FamilyName = author.Name.FamilyName,
+                    FullMiddleName = author.Name.FullMiddleName,
+                    GivenName = author.Name.GivenName,
+
+                PseudonymFamilyName = author.Pseudonym.FamilyName,
+                PseudonymFullMiddleName = author.Pseudonym.FullMiddleName,
+                PseudonymGivenName = author.Pseudonym.GivenName,
+                
+            };
+        }
+
         public static SiberiaEnvironment ToSiberiaEnvironment(this DbSiberiaEnvironment dbSiberiaEnvironment)
         {
             return new SiberiaEnvironment
             {
                 Id = dbSiberiaEnvironment.Id,
-                Environment = dbSiberiaEnvironment.Branch,
-                Name = dbSiberiaEnvironment.Name,
+                Branch = dbSiberiaEnvironment.Branch,
+                Environment = dbSiberiaEnvironment.Name,
+            };
+        }
+
+        public static DbSiberiaEnvironment ToDbSiberiaEnvironment(this SiberiaEnvironment siberiaEnvironment)
+        {
+            return new DbSiberiaEnvironment
+            {
+                Id = siberiaEnvironment.Id,
+                Branch = siberiaEnvironment.Branch,
+                Name = siberiaEnvironment.Environment,
             };
         }
     }

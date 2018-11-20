@@ -40,7 +40,9 @@ module.exports = {
                 pathofexile: '/pathofexile/',
                 chat: '/chat/',
                 author: '/author/',
-                siberia: '/siberia/'
+                siberia: '/siberia/',
+                siberia_createEnvironment: '/siberia/create/',
+                siberia_editEnvironment: '/siberia/edit/',
             },
             apiurl: {
                 book: {
@@ -60,7 +62,10 @@ module.exports = {
                 },
                 siberia: {
                     get: apiurlHost + 'siberia/get',
-                    filter: apiurlHost + 'siberia/filter'
+                    filter: apiurlHost + 'siberia/filter',
+                    add: apiurlHost + 'siberia/add',
+                    edit: apiurlHost + 'siberia/edit',
+                    delete: apiurlHost + 'siberia/delete',
                 },
             },
             bootstrapTableOptions: {
@@ -98,10 +103,8 @@ module.exports = {
             defaultHttpRequestHeaders: {
                 'Content-Type': 'application/json',
                 'Content-Encoding': 'utf-8',
-                'User-Agent':
-                    '/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.189 Safari/537.36 Vivaldi/1.95.1077.60',
-                Accept: 'application/json',
-                'Accept-Charset': 'utf-8'
+                'Accept': 'application/json',
+                'Accept-Charset': 'utf-8',
             }
         })
     },

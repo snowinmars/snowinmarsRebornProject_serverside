@@ -12,5 +12,7 @@ namespace Simr.Entities
         public Guid Id { get; set; }
 
         public bool IsSynchronized { get; set; }
+
+        public string Key => Id.ToString();
     }
 }

@@ -137,6 +137,7 @@
     <Compile Include="Models\Author\Read\PersonNameModel.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Siberia\Read\SiberiaEnvironmentGridModel.cs" />
+    <Compile Include="Models\Siberia\Write\SiberiaEnvironmentWriteModel.cs" />
     <Compile Include="Models\User\Read\UserGridModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

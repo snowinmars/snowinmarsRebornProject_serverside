@@ -5,6 +5,7 @@ import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './SiberiaPage.scss';
 import Filter from './../../App/Filter/Filter';
+import { Link } from 'react-router-dom';
 
 var Config = require('Config');
 var Lib = require('./../../../Lib/componentUtils');
@@ -50,7 +51,9 @@ class SiberiaPage extends Component {
     getActions() {
         return (
             <div className="simr-page-actions simr-flex simr-flex-justify-space-between">
-                <span className="simr-btn">Add</span>
+                <Link to={Config.url.siberia_createEnvironment}>
+                    <span className="material-icons simr-btn">add</span>
+                </Link>
             </div>
         );
     }
@@ -59,6 +62,7 @@ class SiberiaPage extends Component {
         var defaultUser = {
             name: 'Loading...',
             enviroment: 'Loading...',
+            actions: 'Loading...',
             key: 0
         };
 
@@ -75,17 +79,55 @@ class SiberiaPage extends Component {
         return this.state.response.data[i.index];
     }
 
+    deleteEnvironment = (e) => {
+        const id = e.target.dataset.environment;
+
+        Lib.fetchAndHandle({
+            uri: Config.apiurl.siberia.delete,
+            data: id,
+            onSuccess: json =>
+                console.log(json, id),
+            onError: err =>
+                this.setState({
+                    gotApiError: true,
+                    hasErrors: true,
+                    isInit: false
+                })
+        });
+    }
+
+    actionsFormatter = (cell, row) => {
+        return (
+            <span>
+                <Link to={Config.url.siberia_editEnvironment}>
+                    <span className='simr-btn material-icons material-icons-font-18'>create</span>
+                </Link>
+
+                <span className='simr-btn material-icons material-icons-font-18' data-environment={row.id} onClick={this.deleteEnvironment}>delete</span>
+            </span>
+        );
+    }
+
     getTable(options) {
         const columns = [
             {
                 dataField: 'environment',
                 text: 'Environment',
-                sort: true
+                sort: true,
             },
             {
                 dataField: 'name',
                 text: 'Branch',
                 sort: true
+            },
+            {
+                dataField: '_actions',
+                text: '',
+                sort: false,
+                editable: false,
+                align: 'right',
+                headerAttrs: { 'width': '10%' },
+                formatter: this.actionsFormatter
             }
         ];
 
@@ -95,13 +137,14 @@ class SiberiaPage extends Component {
                 data={this.state.response.data}
                 columns={columns}
                 search
-            >
+                >
                 {props => (
                     <div>
-                        <Filter />
+                        <Filter isBlock={true} />
                         <BootstrapTable
                             ref={this.table}
                             hover
+                            classes='simr-table'
                             pagination={paginationFactory(options)}
                             {...props.baseProps}
                         />
@@ -131,11 +174,11 @@ class SiberiaPage extends Component {
                     'simr-flex simr-flex-align-center simr-flex-justify-center'
                 }
             >
-                <div class="sk-folding-cube">
-                    <div class="sk-cube1 sk-cube" />
-                    <div class="sk-cube2 sk-cube" />
-                    <div class="sk-cube4 sk-cube" />
-                    <div class="sk-cube3 sk-cube" />
+                <div className="sk-folding-cube">
+                    <div className="sk-cube1 sk-cube" />
+                    <div className="sk-cube2 sk-cube" />
+                    <div className="sk-cube4 sk-cube" />
+                    <div className="sk-cube3 sk-cube" />
                 </div>
             </div>
         );

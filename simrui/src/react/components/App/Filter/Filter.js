@@ -82,11 +82,14 @@ class Filter extends PureComponent {
             );
         }
 
+        const display = this.props.isBlock ? 'block' : 'inline';
+        const width = this.props.isBlock ? '100%': 'inherit';
         return (
             <div className="simr-flex simr-search-and-filter">
                 <input
                     type="text"
-                    className="simr-form-control simr-search "
+                    className="simr-form-control simr-input "
+                    style={{display: display, width: width}}
                     value={this.state.text}
                     ref={this.input}
                     onBlur={this.onInputBlur}

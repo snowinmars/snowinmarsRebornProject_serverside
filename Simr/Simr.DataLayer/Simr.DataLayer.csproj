@@ -58,9 +58,9 @@
     <Compile Include="EntityContext.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Mapper.cs" />
-    <Compile Include="Migrations\201811190711132_Init.cs" />
-    <Compile Include="Migrations\201811190711132_Init.Designer.cs">
-      <DependentUpon>201811190711132_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201811201328014_Init.cs" />
+    <Compile Include="Migrations\201811201328014_Init.Designer.cs">
+      <DependentUpon>201811201328014_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,8 +86,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811190711132_Init.resx">
-      <DependentUpon>201811190711132_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811201328014_Init.resx">
+      <DependentUpon>201811201328014_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

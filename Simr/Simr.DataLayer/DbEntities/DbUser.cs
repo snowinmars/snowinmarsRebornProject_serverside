@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 using Simr.Common.Enums;
 
@@ -7,12 +8,8 @@ namespace Simr.DataLayer.DbEntities
 {
     public class DbUser 
     {
-        public DbUser(string username)
-        {
-            Username = username;
-        }
-
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         public bool IsSynchronized { get; set; }

@@ -10,13 +10,15 @@ import PathOfExilePage from './../PathOfExilePage/PathOfExilePage';
 import ChatPage from './../ChatPage/ChatPage';
 import AuthorPage from './../AuthorPage/AuthorPage';
 import SiberiaPage from './../SiberiaPage/SiberiaPage';
+import SiberiaAddEnvironmentPage from './../SiberiaAddEnvironmentPage/SiberiaAddEnvironmentPage';
 import './MainPage.scss';
 
 const Config = require('Config');
 
 class MainPage extends Component {
     render() {
-        return <BrowserRouter>
+        return (
+            <BrowserRouter>
                 <div className="simr-r-MainPage simr-grid-container">
                     <Head />
 
@@ -47,9 +49,20 @@ class MainPage extends Component {
                                 path={Config.url.chat}
                                 component={ChatPage}
                             />
-							<Route 
-								path={Config.url.author}
-								component={AuthorPage} />
+                            <Route
+                                path={Config.url.author}
+                                component={AuthorPage}
+                            />
+                            <Route
+                                exact
+                                path={Config.url.siberia_createEnvironment}
+                                component={SiberiaAddEnvironmentPage}
+                            />
+                              <Route
+                                exact
+                                path={Config.url.siberia_editEnvironment}
+                                component={SiberiaAddEnvironmentPage}
+                            />
                             <Route
                                 path={Config.url.siberia}
                                 component={SiberiaPage}
@@ -59,7 +72,8 @@ class MainPage extends Component {
 
                     <Bot />
                 </div>
-            </BrowserRouter>;
+            </BrowserRouter>
+        );
     }
 }
 
