@@ -26,6 +26,8 @@ namespace Simr.Ninject
             kernel.Bind<IAuthorDataLayer>().To<AuthorDataLayer>();
             kernel.Bind<IBookDataLayer>().To<BookDataLayer>();
             kernel.Bind<ISiberiaDataLayer>().To<SiberiaDataLayer>();
+
+            kernel.Bind<ITextBeautifierService>().To<TextBeautifierService>();
         }
     }
 }

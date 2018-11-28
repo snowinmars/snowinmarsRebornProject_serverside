@@ -13,7 +13,7 @@ namespace Simr.DataLayer.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201811201328014_Init"; }
+            get { return "201811231653151_Init"; }
         }
         
         string IMigrationMetadata.Source

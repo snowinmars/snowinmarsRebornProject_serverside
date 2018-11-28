@@ -1,5 +1,9 @@
 @import 'src/css/colorSchema/default/definition';
 
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid $normalBorderColor;
+}
+
 .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: $normalBgColor;
     color: $normalTextColor;

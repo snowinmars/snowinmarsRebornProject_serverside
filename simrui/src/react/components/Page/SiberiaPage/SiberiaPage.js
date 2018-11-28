@@ -99,8 +99,8 @@ class SiberiaPage extends Component {
     actionsFormatter = (cell, row) => {
         return (
             <span>
-                <Link to={Config.url.siberia_editEnvironment}>
-                    <span className='simr-btn material-icons material-icons-font-18'>create</span>
+                <Link to={Config.url.siberia_editEnvironment + row.id}>
+                    <span className='simr-btn material-icons material-icons-font-18'>edit</span>
                 </Link>
 
                 <span className='simr-btn material-icons material-icons-font-18' data-environment={row.id} onClick={this.deleteEnvironment}>delete</span>
@@ -116,7 +116,7 @@ class SiberiaPage extends Component {
                 sort: true,
             },
             {
-                dataField: 'name',
+                dataField: 'branch',
                 text: 'Branch',
                 sort: true
             },

@@ -11,9 +11,28 @@ import ChatPage from './../ChatPage/ChatPage';
 import AuthorPage from './../AuthorPage/AuthorPage';
 import SiberiaPage from './../SiberiaPage/SiberiaPage';
 import SiberiaAddEnvironmentPage from './../SiberiaAddEnvironmentPage/SiberiaAddEnvironmentPage';
+import SiberiaEditEnvironmentPage from './../SiberiaEditEnvironmentPage/SiberiaEditEnvironmentPage';
 import './MainPage.scss';
 
 const Config = require('Config');
+
+const Siberia = ({ match }) => (
+    <div>
+        <Route
+            exact
+            path={match.path}
+            component={SiberiaPage}
+        />
+        <Route
+            path={Config.url.siberia_editEnvironment}
+            component={SiberiaEditEnvironmentPage}
+        />
+        <Route
+            path={Config.url.siberia_createEnvironment}
+            component={SiberiaAddEnvironmentPage}
+        />
+    </div>
+)
 
 class MainPage extends Component {
     render() {
@@ -54,19 +73,14 @@ class MainPage extends Component {
                                 component={AuthorPage}
                             />
                             <Route
-                                exact
-                                path={Config.url.siberia_createEnvironment}
-                                component={SiberiaAddEnvironmentPage}
-                            />
-                              <Route
-                                exact
-                                path={Config.url.siberia_editEnvironment}
-                                component={SiberiaAddEnvironmentPage}
-                            />
-                            <Route
                                 path={Config.url.siberia}
-                                component={SiberiaPage}
+                                component={Siberia}
                             />
+
+
+
+
+                            
                         </Switch>
                     </section>
 

@@ -26,6 +26,16 @@ namespace Simr.WebApp.Controllers
         }
 
         [HttpPost]
+        public string Get([FromBody]Guid id)
+        {
+            var environment = SiberiaService.Get(id);
+
+            var environmentModel = environment.ToSiberiaEnvironmentCreateModel();
+
+            return new Response<SiberiaEnvironmentWriteModel>(environmentModel).ToJson();
+        }
+
+        [HttpPost]
         public string Filter()
         {
             var environments = SiberiaService.Filter();

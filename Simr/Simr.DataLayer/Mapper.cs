@@ -124,7 +124,7 @@ namespace Simr.DataLayer
             {
                 Id = dbSiberiaEnvironment.Id,
                 Branch = dbSiberiaEnvironment.Branch,
-                Environment = dbSiberiaEnvironment.Name,
+                Environment = dbSiberiaEnvironment.Environment,
             };
         }
 
@@ -134,7 +134,7 @@ namespace Simr.DataLayer
             {
                 Id = siberiaEnvironment.Id,
                 Branch = siberiaEnvironment.Branch,
-                Name = siberiaEnvironment.Environment,
+                Environment = siberiaEnvironment.Environment,
             };
         }
     }

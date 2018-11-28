@@ -8,7 +8,7 @@
 .simr-input {
     background-color: $normalBgHoverColor;
     border-color: $normalBorderColor;
-    color: $colorTransparent;
+    color: $normalTextColor;
 
     &:focus {
         @include nofocus;
@@ -24,6 +24,14 @@
     padding-bottom: 0.5em;
     flex-basis: 75%;
 
+    .simr-input {
+        color: $colorTransparent;
+
+        &:focus {
+            color: $normalTextFocusColor;
+        }
+    }
+
     .simr-apply-btn {
         margin-left: 1em;
     }
@@ -32,6 +40,7 @@
 .simr-filters {
     position: absolute;
 
+    left: 1.5em;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;

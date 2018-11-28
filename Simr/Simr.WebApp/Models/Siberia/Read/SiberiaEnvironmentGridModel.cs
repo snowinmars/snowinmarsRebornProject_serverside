@@ -9,10 +9,10 @@ namespace Simr.WebApp.Models.Siberia.Read
 {
     public class SiberiaEnvironmentGridModel : Model
     {
-        [JsonProperty("name")]
+        [JsonProperty("environment")]
         public string Environment { get; set; }
 
-        [JsonProperty("environment")]
+        [JsonProperty("branch")]
         public string Branch { get; set; }
     }
 }

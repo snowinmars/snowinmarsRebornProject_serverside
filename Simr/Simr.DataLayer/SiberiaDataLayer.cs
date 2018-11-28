@@ -100,8 +100,8 @@ namespace Simr.DataLayer
 
         private void UpdateValues(EntityContext context, DbSiberiaEnvironment oldItem, SiberiaEnvironment newItem)
         {
-            oldItem.Branch = newItem.Environment;
-            oldItem.Name = newItem.Branch;
+            oldItem.Branch = newItem.Branch;
+            oldItem.Environment = newItem.Environment;
 
             context.SaveChanges();
         }

@@ -48,7 +48,7 @@ namespace Simr.DataLayer.Migrations
                 c => new
                     {
                         Id = c.Guid(nullable: false, identity: true),
-                        Name = c.String(),
+                        Environment = c.String(),
                         Branch = c.String(),
                     })
                 .PrimaryKey(t => t.Id);

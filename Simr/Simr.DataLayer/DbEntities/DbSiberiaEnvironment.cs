@@ -14,7 +14,7 @@ namespace Simr.DataLayer.DbEntities
         [Key]
         public Guid Id { get; set; }
 
-        public string Name { get; set; }
+        public string Environment { get; set; }
 
         public string Branch { get; set; }
     }

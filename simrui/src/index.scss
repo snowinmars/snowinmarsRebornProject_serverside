@@ -71,6 +71,13 @@ fieldset[disabled] .form-control {
 }
 
 .simr-table {
+    border-collapse: inherit;
+    border-color: $normalBorderColor;
+
+    td {
+        border-color: $normalBorderColor;
+    }
+
     tr {
         td:last-child > * {
             visibility: hidden;
@@ -79,13 +86,13 @@ fieldset[disabled] .form-control {
         // last column contains actions, we don't need the visual column for them
         td:last-child,
         th:last-child {
-            border-left: initial;
+            border-left-color: transparent;
         }
 
         // last column contains actions, we don't need the visual column for them
         td:nth-last-child(2),
         th:nth-last-child(2) {
-            border-right: initial;
+            border-right-color: transparent;
         }
     }
 

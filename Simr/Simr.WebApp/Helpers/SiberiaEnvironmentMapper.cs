@@ -21,12 +21,12 @@ namespace Simr.WebApp.Helpers
             return siberiaEnvironmentCreateModel.Select(ToSiberiaEnvironment);
         }
 
-        public static IEnumerable<SiberiaEnvironmentGridModel> ToSiberiaBranchesGridModels(this SiberiaEnvironment[] siberiaBranchGridModels)
+        public static IEnumerable<SiberiaEnvironmentGridModel> ToSiberiaEnvironmentCreateModels(this SiberiaEnvironment[] siberiaBranchGridModels)
         {
             return siberiaBranchGridModels.Select(ToSiberiaEnvironmentGridModels);
         }
 
-        public static IEnumerable<SiberiaEnvironmentWriteModel> ToSiberiaEnvironmentCreateModel(this SiberiaEnvironment[] siberiaEnvironmentCreateModels)
+        public static IEnumerable<SiberiaEnvironmentWriteModel> SiberiaEnvironmentWriteModels(this SiberiaEnvironment[] siberiaEnvironmentCreateModels)
         {
             return siberiaEnvironmentCreateModels.Select(ToSiberiaEnvironmentCreateModel);
         }

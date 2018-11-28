@@ -64,7 +64,7 @@ module.exports = {
                     get: apiurlHost + 'siberia/get',
                     filter: apiurlHost + 'siberia/filter',
                     add: apiurlHost + 'siberia/add',
-                    edit: apiurlHost + 'siberia/edit',
+                    update: apiurlHost + 'siberia/update',
                     delete: apiurlHost + 'siberia/delete',
                 },
             },
